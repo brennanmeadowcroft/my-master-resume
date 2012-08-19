@@ -1,0 +1,35 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "overrides";
+
+/* User List */
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid #cccccc;
+		
+		&:last-child {
+			border-bottom: 1px solid #cccccc;
+		}
+
+		&:first-child {
+			border-top: 2px solid #000000;
+		}
+
+		.user-actions li {
+			border: none;
+		}
+	}
+
+}
+
+.gravatar {
+	margin: 0 0 10px 10px;
+	width: 130px;
+}
+

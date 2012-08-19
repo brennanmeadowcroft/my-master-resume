@@ -1,0 +1,9 @@
+<% provide(:title, "#{current_user.first_name}'s Education") %>
+
+<h1>Education</h1>
+<ul>
+	<% @education.each do |school| %>
+		<li><%= link_to school.organization, education_path(school.id) %></li>
+	<% end %>
+</ul>
+

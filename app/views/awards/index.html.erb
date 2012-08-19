@@ -1,0 +1,9 @@
+<% provide(:title, "#{current_user.first_name}'s Awards") %>
+
+<h1>Awards</h1>
+<ul>
+	<% @awards.each do |award| %>
+		<li><%= link_to award.description, award_path(award.id) %></li>
+	<% end %>
+</ul>
+

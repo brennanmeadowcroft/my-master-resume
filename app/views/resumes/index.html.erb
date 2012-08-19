@@ -1,0 +1,35 @@
+<% provide(:title, "#{current_user.first_name}'s Resumes") %>
+<div class="row">
+	<div class="span12">
+		<h1>My Resumes</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span10 offset1">
+			<%= link_to master_resumes_path do %>
+				<div class="well master-block">
+					<h2>Master Resume</h2>
+				</div>
+			<% end %>
+	</div>
+</div>
+
+<% @resumes.each do |resume| %>
+	<div class="row">
+		<div class="span10 offset1" style="border-bottom: 1px solid #000000;">
+			<h3><%= link_to resume.description, resume_path(resume.id) %></h3>
+			<p>
+				<i class="icon-search icon-tags"></i> <%= resume.tag.description %> | 
+				Created: <%= resume.created_at %>
+			</p>
+		</div>
+	</div>
+<% end %>
+
+<div class="row">
+	<div class="span10 offset1">
+		<br />
+		<%= link_to 'New Resume', new_resume_path, :class => "btn" %>
+	</div>
+</div>

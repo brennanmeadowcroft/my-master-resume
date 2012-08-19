@@ -1,0 +1,57 @@
+<%= form_for(@education) do |f| %>
+    <% if @education.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@education.errors.count, "error") %> prohibited this education from being saved:</h2>
+
+            <ul>
+                <% @education.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="row">
+        <div class="span4">
+            <div class="field">
+                <%= f.label :school %><br />
+                <%= f.text_field :school %>
+            </div>
+            <div class="field">
+                <%= f.label :city %><br />
+                <%= f.text_field :city %>
+            </div>
+            <div class="field">
+                <%= f.label :state %><br />
+                <%= f.text_field :state %>
+            </div>
+            <div class="field">
+                <%= f.label :degree %><br />
+                <%= f.text_field :degree %>
+            </div>
+            <div class="field">
+                <%= f.label :major %><br />
+                <%= f.text_field :major %>
+            </div>
+            <div class="field">
+                <%= f.label :start_date %><br />
+                <%= f.date_select :start_date %>
+            </div>
+            <div class="field">
+                <%= f.label :end_date %><br />
+                <%= f.date_select :end_date %>
+            </div>
+        </div>
+        <div class="span4">
+            <h4>Choose Tags</h4>
+            <% @tags.each do |tag| %>
+                <%= check_box_tag "education[tag_ids][]", tag.id, @education.tags.include?(tag) %>
+                <%= tag.description %>
+            <% end %>
+            <p><%= link_to "Create A New Tag", new_tag_path %></p>
+        </div>
+    </div>
+    <div class="row">
+        <%= f.submit "Save", :class => 'btn-large btn-primary' %>
+        <%= link_to "Cancel", master_resumes_url %>
+    </div>
+<% end %>

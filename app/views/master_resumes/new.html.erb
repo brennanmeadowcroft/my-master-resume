@@ -1,0 +1,12 @@
+<% provide(:title, 'Create A New Master') %>
+<div class="row">
+	<div class="span10">
+		<h1>Create Your Master Resume!</h1>
+
+		<% form_for @master_resume do |f| %>
+			<%= render "master_resumes/#{@master_resume.current_step}_step", :f => f %>
+			<p><%= f.submit "Continue" %></p>
+			<p><%= f.submit "Back", :name => "back_button" unless @master_resume.first_step? %></p>
+		<% end %>
+	</div>
+</div>

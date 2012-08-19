@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %>| My Master Resume :: Resume Customization &amp; Optimization</title>
+   <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag yield(:screen_style), :media => "screen" %>
+  <%= stylesheet_link_tag yield(:print_style), :media => "print" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/public_header' %>
+	<div class="container">
+		<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
+		
+		<div class="row">
+			<div class="span12">
+				<%= yield %>
+			</div>
+		</div>
+		<%= render 'layouts/public_footer' %>
+		<%= debug(params) if Rails.env.development? %>
+	</div>
+</body>
+</html>

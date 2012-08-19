@@ -1,0 +1,65 @@
+// Place all the styles related to the master_resumes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+}
+
+.background {
+	padding: 40px;
+	background: url("blue-fabric-texture.jpeg") top left repeat;
+	border: 1px solid #333333;
+}
+
+.resume {
+	margin: auto;
+	padding: 20px 20PX 20PX 20PX;
+	background: url("white.gif") top left repeat;	
+	/* http://www.flickriver.com/photos/wheatfields/tags/textures/ */
+	border: 1px solid #444444;
+	box-shadow: 2px 2px 3px #000;
+	-moz-box-shadow: 2px 2px 3px #000;
+	-webkit-box-shadow: 2px 2px 3px #000;
+}
+
+.new-section {
+	margin: 20px 0 0 0;
+}
+
+.section-header {
+	display: inline;
+}
+
+.add-new {
+	margin: 0 0 0 5px;
+	display: inline;
+}
+
+.line-item {
+	padding: 0 0 0 20px;
+}
+
+.line-item:first-child {
+	margin: 0;
+}
+
+.actions {
+	display: inline;
+
+	li {
+		margin: 0 0 0 0;
+		padding: 0 0 0 5px;
+		display: inline;
+		border-left: 1px solid #000000;
+	}
+
+	li:first-child {
+		padding: 0 0 0 0;
+		border: none;
+	}
+}
+
+.school {
+	display: inline;
+	font-weight: bold;
+}

@@ -1,0 +1,17 @@
+<% provide(:title, "Request Beta Invite") %>
+<div class="hero-unit">
+	<div class="row">
+		<h1 class="smaller-text">Request An Invite</h1>
+		<div class="span7">
+			<p>My Master Resume is currently in beta and testing to make sure we didn't leave a sponge 
+				inside the programming.  Currently access is limited but you can request an invite and 
+				we'll send you one soon!</p>
+			<%= link_to "Already have an invite code?  Sign up!", signup_path %>
+			
+			<%= form_tag '/users/beta_request', :method => :post do %>
+				<%= text_field_tag 'email', nil, :placeholder => "Email" %>
+				<%= submit_tag "Sign Up!", :class=>"btn btn-success btn-large" %>
+			<% end %>
+		</div>
+	</div>
+</div>

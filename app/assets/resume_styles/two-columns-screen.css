@@ -1,0 +1,253 @@
+/*****************************************************************************
+*	MY MASTER RESUME - RESUME STYLE
+*	Name:			Two Columns
+*	Created:		7/21/2012
+*	Designed By:	Brennan Meadowcroft
+*****************************************************************************/
+/*****************************************************************************
+*	General Page Formatting
+*****************************************************************************/
+body {
+	font-family: helvetica, sans-serif;
+	font-size: 12pt;
+}
+h3 {
+	margin-bottom: 0;
+}
+.resume-body {
+	width: 750px;
+	overflow: none;
+/*	border: 1px solid #000000;*/
+}
+.hidden {
+	display: none;
+}
+.clrFloat {
+	clear: both;
+	float: none;
+}
+.education-block, .award-block, .skills-block, .activities-block, .experience-block {
+	clear: both;
+	float: none;
+}
+
+
+/*****************************************************************************
+*	Header Formatting
+*****************************************************************************/
+.resume-header {
+	border-bottom: 1px dotted #000000;
+}
+.resume-header H1 {
+	font-size: 1.5em;
+	text-align: center;
+}
+.resume-header ul {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 5px;
+	list-style-type: none;
+}
+.resume-header li {
+	display: inline-block;
+	width: 32%;
+	text-align: center;
+	border-right: 1px solid #000000;
+}
+.resume-header li:nth-child(3) {
+	text-align:right;
+	border-right: none;
+}
+.name {}
+.middle-name {}
+.address {}
+.location {}
+.phone {}
+.email {}
+.website {}
+
+
+
+/*****************************************************************************
+*	Education Block Formatting
+*****************************************************************************/
+.education-block {}
+.education-header, .education-body {
+	padding-top:10px;
+}
+.education-header {
+	float: left;
+	display: inline-block;
+}
+.education-header h3 {
+	padding-top: 0;
+	margin-top: 0;
+	text-align: left;
+}
+.education-body {
+	float: right;
+	display: inline-block;
+	border-left: 1px dotted #000000;
+	width: 85%;
+}
+.education-body p {
+	margin: 0;
+}
+.school {
+	margin-bottom: 10px;
+	clear: both;
+}
+.school-name {
+	font-weight: bold;
+}
+.school-location {}
+.school-attendance {
+	float: right;
+}
+
+
+/*****************************************************************************
+*	Activity Block Formatting
+*****************************************************************************/
+.activities-block {
+	clear: both;
+}
+.activity-header {
+	float: left;
+	display: inline-block;
+}
+.activity-header h3 {
+	margin-top: 0;
+	padding-top: 0;
+}
+.activity-body {
+	float: right;
+	display: inline-block;
+	border-left: 1px dotted #000000;
+	width: 85%;
+}
+.activity {
+	margin-bottom: 10px;
+}
+.activity ul {
+	margin: 0;
+	padding-left: 20px;
+}
+.activity li {}
+.activity li:first-child {
+	margin-top: 0;
+}
+
+
+/*****************************************************************************
+*	Award Block Formatting
+*****************************************************************************/
+.awards-block {}
+.award-header {
+	float: left;
+	display: inline-block;
+	vertical-align: top;
+}
+.award-header h3 {
+	padding-top: 0;
+	margin-top: 0;
+}
+.award-body {
+	float: right;
+	display: inline-block;
+	border-left: 1px dotted #000000;
+	width: 85%;
+}
+.award {
+	margin-bottom: 10px;
+}
+.awards:first-child {
+	margin-top: 0px;
+}
+.award ul {
+	margin: 0;
+	padding-left: 20px;
+}
+.award li {
+}
+
+
+/*****************************************************************************
+*	Skill Block Formatting
+*****************************************************************************/
+.skills-block {}
+.skill-header {
+	float: left;
+	display: inline-block;
+}
+.skill-header h3 {
+	margin-top: 0;
+	padding-top: 0;
+}
+.skill-body {
+	float: right;
+	display: inline-block;
+	border-left: 1px dotted #000000;
+	width: 85%;
+}
+.skill {
+	margin-bottom: 10px;
+}
+.skills-block ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.skills-block li {
+	display: inline-block;
+	width: 32%;
+}
+
+
+/*****************************************************************************
+*	Work Experience Formatting
+*****************************************************************************/
+.work-block {}
+.position-header {
+	float: left;
+	display: inline-block;
+}
+.position-header h3 {
+	margin-top: 0;
+	padding-top: 0;
+}
+.position-body {
+	float: right;
+	display: inline-block;
+	border-left: 1px dotted #000000;
+	width: 85%;
+}
+.position {}
+.position-title {
+	font-weight: bold;
+}
+.position-company {
+	font-style: italic;
+}
+.position-location {}
+.position-dates {
+	float: right;
+	font-weight: bold;
+}
+.position-experience {
+	padding: 0;
+	margin: 0;
+}
+.position-experience ul {
+	padding: 0;
+	margin-top: -8px;
+}
+.position-experience li {}
+
+/*****************************************************************************
+*	Custom CSS Formatting
+*****************************************************************************/
+.education-header, .education-body, .position-header, .position-body, .award-header, .award-body, .activity-header, .activity-body, .skill-header, .skill-body {
+	padding-top: 10px;
+	padding-left: 5px;
+}

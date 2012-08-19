@@ -1,0 +1,33 @@
+<%= form_for(@style, :html => { :multipart => true }) do |f| %>
+    <% if @style.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
+
+            <ul>
+                <% @style.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="row">
+        <div class="span4">
+            <div class="field">
+                <%= f.label :description %><br />
+                <%= f.text_field :description %>
+            </div>
+            <div class="field">
+                <%= f.label :screen_filename %><br />
+                <%= f.file_field :screen_filename %>
+            </div>
+            <div class="field">
+                <%= f.label :print_filename %><br />
+                <%= f.file_field :print_filename %>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <%= f.submit "Save", :class => 'btn-large btn-primary' %>
+        <%= link_to "Cancel", styles_url %>
+    </div>
+<% end %>

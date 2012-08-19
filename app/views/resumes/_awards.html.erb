@@ -1,0 +1,22 @@
+<div class="awards-block">
+	<div class="award-header">
+		<h3>Awards</h3>
+	</div>
+	<div class="award-body">
+		<% @awards.each do |ribbon| %>
+			<div class="award">
+				<ul>
+					<li>
+						<span class="award-description">
+							<%= ribbon.description %> 
+						</span>
+						<span class="award-date">
+							(<%= ribbon.date.strftime("%m/%Y") %>)
+						</span>
+					</li>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+	<br class="clrFloat" />
+</div>

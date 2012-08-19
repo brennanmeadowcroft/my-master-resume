@@ -1,0 +1,30 @@
+<h1>Beta Requests</h1>
+<br />
+  <div class="row">
+    <div class="span3">
+      <strong>Email</strong>
+    </div>
+    <div class="span2">
+      <strong>Created</strong>
+    </div>
+  </div>
+  <% @beta_requests.each do |request| %>
+      <div class="span3">
+        <%= request.email %>
+      </div>
+      <div class="span2">
+        <p><%= request.created_at %></p>
+      </div>
+      <div class="span4 offset1">
+      <p><%= link_to "Approve", edit_beta_request_path(request) %> 
+          |
+          <%= link_to request, confirm: 'Are you sure?', method: :delete do %>
+            <i class="icon-search icon-trash"></i> Delete
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+<%= link_to 'New Beta Request', request_invite_path, :class => "btn" %>
+

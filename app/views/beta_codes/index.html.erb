@@ -1,0 +1,32 @@
+<h1>Beta Codes</h1>
+<br />
+  <div class="row">
+    <div class="span3">
+      <strong>Description</strong>
+    </div>
+    <div class="span2">
+      <strong>Code</strong>
+    </div>
+  </div>
+  <% @beta_codes.each do |code| %>
+      <div class="span3">
+        <%= code.description %>
+      </div>
+      <div class="span2">
+        <p><%= code.code %></p>
+      </div>
+      <div class="span4 offset1">
+      <p><%= link_to edit_beta_code_path(code) do %> 
+            <i class="icon-search icon-edit"></i> Edit
+          <% end %>
+          | 
+          <%= link_to code, confirm: 'Are you sure?', method: :delete do %>
+            <i class="icon-search icon-trash"></i> Delete
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+<%= link_to 'New Beta Code', new_beta_code_path, :class => "btn" %>
+

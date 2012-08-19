@@ -1,0 +1,25 @@
+<% provide(:title, "Sign Up") %>
+<div class="hero-unit">
+	<div class="row">
+		<h1 class="smaller-text">Sign Up</h1>
+		<div class="span7">
+		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
+			<ul class="form-list">
+				<li><%= f.text_field :first_name, :placeholder => "Your First Name" %></li>
+				<li><%= f.text_field :email, :placeholder => "Your Email" %></li>
+				<li><%= f.password_field :password, :placeholder => "Choose A Password" %></li>
+				<li><%= f.password_field :password_confirmation, :placeholder => "Confirm Your Password" %></li>
+				<li><%= text_field_tag 'beta_code', nil, :placeholder => "Beta Code" %></li>
+				<li><%= f.check_box :terms %>
+				<%= f.label :terms do %>
+					I Agree With the <%= link_to "Terms of Service", terms_path, :target => "_blank" %>
+				<% end %></li>
+			</ul>			
+
+			<p><%= f.submit "Create my account", class: "btn btn-large btn-primary" %></p>
+		<% end %>
+
+		</div>
+	</div>
+</div>

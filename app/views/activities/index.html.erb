@@ -1,0 +1,9 @@
+<% provide(:title, "#{current_user.first_name}'s Activities") %>
+
+<h1>Activities</h1>
+<ul>
+	<% @activities.each do |activity| %>
+		<li><%= link_to activity.organization, activity_path(activity.id) %></li>
+	<% end %>
+</ul>
+

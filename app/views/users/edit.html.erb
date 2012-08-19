@@ -1,0 +1,16 @@
+<% provide(:title, "Edit My Profile") %>
+<div class="row">     
+    <div class="span12">
+		<p id="notice"><%= notice %></p>
+	</div>
+</div>
+
+<div class="row">
+	<%= render 'users/sidebar' %>
+	<div class="span9 offset1">
+		<h1>Editing user</h1>
+		<div class="row">
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>

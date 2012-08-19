@@ -1,0 +1,23 @@
+<div class="row new-section">
+	<h3 class="section-header">Education</h3>
+	<p class="add-new"><%= link_to "(Add New Education)", new_education_path %></p>
+	<br />
+	<% @education.each do |school| %>
+		<div class="row line-item">
+			<div class="span6">
+				<p class="school"><%= school.school %>, 
+					<%= school.city %>, <%= school.state %>
+				</p>
+				<p class="pull-right"><%= school.start_date.strftime("%m/%Y") %> - <%= school.end_date.strftime("%m/%Y") %></p>
+				<p><%= school.major %></p>
+			</div>
+			<div class="span2">
+				<ul class="actions">
+					<li><%= link_to "Edit", edit_education_path(school) %></li>
+					<li><%= link_to "Tag", edit_education_path(school) %></li>
+					<li><%= link_to "Delete", education_path(school), confirm: 'Are you sure?', method: :delete %></li>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+</div>

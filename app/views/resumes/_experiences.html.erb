@@ -1,0 +1,30 @@
+<div class="work-block">
+	<div class="position-header">
+		<h3>Experience</h3>
+	</div>
+	<div class="position-body">
+		<% @positions.each do |job| %>
+			<div class="position">
+				<p>
+					<span class="position-title">
+						<%= job.title %>, 
+					</span>
+					<span class="position-company">
+						<%= job.company %> 
+					</span>
+					<span class="position-dates">
+						<%= job.start_date.strftime("%m/%Y") %> - <%= job.end_date.strftime("%m/%Y") %>
+					</span>
+				</p>
+				<div class="position-experience">
+					<ul>
+						<% job.experiences.by_tag(@resume.tag_id).each do |exp| %>
+							<li><%= exp.description %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<br class="clrFloat" />
+</div>

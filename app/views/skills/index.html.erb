@@ -1,0 +1,9 @@
+<% provide(:title, "#{current_user.first_name}'s Skills") %>
+
+<h1>Skills</h1>
+<ul>
+	<% @skills.each do |skill| %>
+		<li><%= link_to skill.organization, skill_path(skill.id) %></li>
+	<% end %>
+</ul>
+

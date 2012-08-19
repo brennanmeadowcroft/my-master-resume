@@ -1,0 +1,33 @@
+<%= form_for(@skill) do |f| %>
+    <% if @skill.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+
+            <ul>
+                <% @skill.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="row">
+        <div class="span4">
+            <div class="field">
+                <%= f.label :description %><br />
+                <%= f.text_field :description %>
+            </div>
+        </div>
+        <div class="span4">
+            <h4>Tag This Skill</h4>
+            <% @tags.each do |tag| %>
+                <%= check_box_tag "skill[tag_ids][]", tag.id, @skill.tags.include?(tag) %>
+                <%= tag.description %>
+            <% end %>
+            <p><%= link_to "Create A New Tag", new_tag_path %></p>
+        </div>
+    </div>
+    <div class="row">
+        <%= f.submit "Save", :class => 'btn-large btn-primary' %>
+        <%= link_to "Cancel", master_resumes_url %>
+    </div>
+<% end %>

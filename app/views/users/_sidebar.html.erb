@@ -1,0 +1,15 @@
+<div class="span2">
+	<div class="row">
+		<%= gravatar_for @user %>
+	</div>
+	<div class="row">
+  		<div class="well sidebar-nav">
+    		<ul class="nav nav-list">
+		      <li><%= link_to "My Info", user_path(@user) %></li>
+		      <li><%= link_to "Edit", edit_user_path(@user) %></li>
+		      <li><%= link_to "Password", edit_password_path(@user) %></li>
+		      <li><%= link_to "Profile Pic", "http://gravatar.com/emails" %></li>
+		    </ul>
+		</div>
+  </div>
+</div>

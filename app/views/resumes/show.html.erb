@@ -1,0 +1,19 @@
+<% provide(:title, @resume[:description]) %>
+
+
+<% provide(:screen_style, "resume_styles/#{@resume.style.screen_filename_file_name}") %>
+<% provide(:print_style, "resume_styles/#{@resume.style.print_filename_file_name}") %>
+
+ <div class="row">
+	<%= render 'resumes/sidebar' %>
+	<div class="span8 resume-body">
+		<%= render 'resumes/resume_header' %>
+		<div class="resume-content">
+			<%= render 'resumes/education' %>
+			<%= render 'resumes/experiences' %>
+			<%= render 'resumes/awards' %>
+			<%= render 'resumes/skills' %>
+			<%= render 'resumes/activities' %>
+		</div>	  
+	</div>
+</div>

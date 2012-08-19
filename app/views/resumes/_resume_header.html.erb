@@ -1,0 +1,24 @@
+<div class="resume-header">
+	<h1 class="name"><%= current_user.first_name %> 
+		<span class="middle-name <%= @user_info[:middle_name] %>"><%= current_user.middle_name %></span> 
+		<%= current_user.last_name %>
+	</h1>
+  	<ul class="contact-info">
+		<li>
+			<span class="address <%= @user_info[:address] %>">
+				<%= current_user[:address_1] %> 
+				<%= current_user[:address_2] %>
+			</span>
+			<span class="location <%= @user_info[:city] %>"> 
+			<% if @user_info[:address] != 'hidden' %>
+				,
+			<% end %>
+				<%= current_user[:city] %>, 
+				<%= current_user[:state] %>
+			</span>
+		</li>
+		<li class="phone <%= @user_info[:phone] %>"><%= current_user[:phone] %></li>
+		<li class="email <%= @user_info[:email] %>"><%= current_user[:email] %></li>
+		<li class="website <%= @user_info[:website] %>"><%= current_user[:website] %></li>
+	</ul>
+</div>

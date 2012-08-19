@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<%= wicked_pdf_stylesheet_link_tag File.basename(@resume.style.print_filename.path, ".css") %>
+</head>
+<body>
+	<div class="resume-body">
+		<%= render 'resumes/resume_header.html.erb' %>
+		<div class="resume-content">
+			<%= render 'resumes/education.html.erb' %>
+			<%= render 'resumes/experiences.html.erb' %>
+			<%= render 'resumes/awards.html.erb' %>
+			<%= render 'resumes/activities.html.erb' %>
+			<%= render 'resumes/skills.html.erb' %>
+		  	<br class="clrFloat" />
+		 </div>
+	</div>
+</div>
+</body>

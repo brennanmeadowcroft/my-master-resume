@@ -1,0 +1,65 @@
+<% provide(:title, "#{@user.first_name} #{@user.last_name}") %>
+<div class="row">     
+    <div class="span11 offset1">
+		<p id="notice"><%= notice %></p>
+	</div>
+</div>
+
+<div class="row">
+	<%= render 'users/sidebar' %>
+	<div class="span9">
+		<div class="span3">
+			<p>
+				<b>First Name:</b>
+				<%= @user.first_name %>
+			</p>
+			<p>
+				<b>Middle Name:</b>
+				<%= @user.middle_name %>
+			</p>
+			<p>
+				<b>Last Name:</b>
+				<%= @user.last_name %>
+			</p>
+			<p>
+				<b>Address 1:</b>
+				<%= @user.address_1 %>
+			</p>
+			<p>
+				<b>Address 2:</b>
+				<%= @user.address_2 %>
+			</p>
+			<p>
+				<b>City:</b>
+				<%= @user.city %>
+			</p>
+		</div>
+		<div class="span4 offset1">
+			<p>
+				<b>State:</b>
+				<%= @user.state %>
+			</p>
+			<p>
+				<b>Zip Code:</b>
+				<%= @user.zip %>
+			</p>
+
+			<p>
+				<b>Email:</b>
+			  <%= @user.email %>
+			</p>
+			<p>
+				<b>Phone Number:</b>
+				<%= @user.phone %>
+			</p>
+			<p>
+				<b>Website:</b>
+				<%= @user.website %>
+			</p>
+			<p>
+				<b>Member Since:</b>
+				<%= @user.created_at %>
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row new-section">
+	<h3 class="section-header">Activities</h3>
+		<p class="add-new"><%= link_to "(Add New Activity)", new_activity_path %></p>
+	<% @activities.each do |activity| %>
+		<div class="row line-item">
+			<div class="span6">
+				<p><%= activity.organization %> (<%= activity.start_date.strftime("%m/%Y") %>
+					<% if activity.start_date != activity.end_date %>
+						- <%= activity.end_date.strftime("%m/%Y") %>
+					<% end %>
+				)</p>
+			</div>
+			<div class="span2">
+				<ul class="actions">
+					<li><%= link_to "Edit", edit_activity_path(activity) %></li>
+					<li><%= link_to "Tag", edit_activity_path(activity) %></li>
+					<li><%= link_to "Delete", activity_path(activity), confirm: 'Are you sure?' 	, method: :delete %></li>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+</div>

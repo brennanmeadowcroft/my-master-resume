@@ -1,0 +1,48 @@
+<% provide(:title, "Styles") %>
+
+<h1>Styles</h1>
+<p>(Bold indicates base style)</p>
+<br />
+	<div class="row">
+		<div class="span3">
+			<strong>Style Name</strong>
+		</div>
+		<div class="span2">
+			<strong>Screen Filename</strong>
+		</div>
+		<div class="span2">
+			<strong>Print Filename</strong>
+		</div>
+	</div>
+	<% @styles.each do |style| %>
+		<% if style.base_style == 1 %>
+			<div class="row base-style">
+		<% else %>
+			<div class="row">
+		<% end %>
+			<div class="span3">
+				<%= link_to style.description, style_path(style.id) %>
+			</div>
+			<div class="span2">
+				<p><%= File.basename(style.screen_filename_file_name) %></p>
+			</div>
+			<div class="span2">
+				<p><%= File.basename(style.print_filename_file_name) %></p>
+			</div>
+			<div class="span4 offset1">
+			<p><%= link_to edit_style_path(style) do %> 
+						<i class="icon-search icon-edit"></i> Edit
+					<% end %>
+					| 
+					<%= link_to style, confirm: 'Are you sure?', method: :delete do %>
+						<i class="icon-search icon-trash"></i> Delete
+					<% end %>
+					|
+					<%= link_to "Set As Base", set_base_style_path(style.id), method: :post %>
+				</p>
+			</div>
+		</div>
+	<% end %>
+
+<%= link_to 'New Style', new_style_path, :class => "btn" %>
+

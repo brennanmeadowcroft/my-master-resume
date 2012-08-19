@@ -1,0 +1,22 @@
+<div class="span2">
+  <div class="well sidebar-nav resume-options">
+    <ul class="nav nav-list">
+      <li><%= link_to resume_path do %>
+      		<i class="icon-search icon-file"></i> Resume
+      	<% end %>
+      </li>
+      <li><%= link_to edit_resume_path do %>
+      		<i class="icon-search icon-cog"></i> Settings
+      	<% end %>
+      </li>
+      <li><%= link_to export_resume_path(@resume) do %>
+			<i class="icon-search icon-download"></i> Export
+		<% end %>
+      </li>
+      <li><%= link_to resume_path, confirm: 'Are you sure?', method: :delete do %>
+      		<i class="icon-search icon-trash"></i> Delete
+      	<% end %>
+      </li>
+    </ul>
+  </div>
+</div>

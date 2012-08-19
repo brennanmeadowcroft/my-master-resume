@@ -1,0 +1,72 @@
+<%= form_for(@resume) do |f| %>
+  <% if @resume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+      <ul>
+      <% @resume.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1>Customize Your Resume</h1>
+  <br /><br />
+
+    <h4>Pick a name for your resume.</h4>
+    <p>Choose something that is easy to recognize.  You are the only one who will see this name.</p>
+    <div class="field">
+        <%= f.text_field :description %>
+    </div>
+    <br />
+
+    <h4>Choose Your Contact Information</h4>
+    <p>You would like to have at the top of your resume.  While it is up to you, we recommend including at least
+        your email and phone.</p>
+    <div class="row form-inline">
+        <div class="span3">
+            <div class="field">
+                <%= f.check_box(:middle_name) %> <%= label(:middle_name, "Middle Name") %>
+            </div>
+            <div class="field">
+                <%= f.check_box(:address) %> <%= f.label(:address, "Address") %>
+            </div>
+            <div class="field">
+                <%= f.check_box(:city) %> <%= f.label(:city, "City") %>
+            </div>
+        </div>
+        <div class="span3 offset1">
+            <div class="field">
+                <%= f.check_box(:email) %> <%= f.label(:email, "Email") %>
+            </div>
+            <div class="field">
+                <%= f.check_box(:website) %> <%= f.label(:website, "Website") %>
+            </div>
+            <div class="field">
+                <%= f.check_box(:phone) %> <%= f.label(:phone, "Phone Number") %>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <h4>Pick Your Style</h4>
+    <p>Have you come up with a great look for a resume?  Submit it and we'll work on getting it added!</p>
+    <div class="field">
+        <%= select(:resume, :style_id, @styles) %>
+    </div>
+    <br />
+
+    <h4>Pick a tag for your resume to be built from.</h4>
+    <p>Any items on your master resume with this tag will appear on your resume.</p>
+        <% @tags.each do |tag| %>
+            <%= radio_button_tag "resume[tag_id]", tag.id, @resume.tag_id == tag.id %>
+            <%= tag.description %>
+        <% end %>    
+    <br />
+    <br />
+
+    <div class="actions">
+    <%= f.submit :class=> "btn" %>
+    <%= link_to "Cancel", resumes_path, :class => "btn" %>
+    </div>
+<% end %>
