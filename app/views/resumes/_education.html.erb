@@ -2,16 +2,20 @@
 	<div class="education-header">
 		<h3>Education</h3>
 	</div>
-	<div class="education-body">
-		<% @education.each do |edu| %>
-			<div class="school">
-				<p><span class="school-name"><%= edu.school %>,</span> 
-					<span class="school-location"><%= edu.city %>,<%= edu.state %></span>
-					<span class="school-attendance"><%= edu.start_date.strftime("%m/%Y") %> - <%= edu.end_date.strftime("%m/%Y") %></span>
-				</p>
-				<p><span class="school-major"><%= edu.major %></span></p>
-			</div>
-		<% end %>
+	<% if @education.nil? %>
+		<div class="education-body">
+	<% else %>
+		<div class="education-body">
+			<% @education.each do |edu| %>
+				<div class="school">
+					<p><span class="school-name"><%= edu.school %>,</span> 
+						<span class="school-location"><%= edu.city %>,<%= edu.state %></span>
+						<span class="school-attendance"><%= display_date(edu.start_date) %> - <%= display_date(edu.end_date) %></span>
+					</p>
+					<p><span class="school-major"><%= edu.major %></span></p>
+				</div>
+			<% end %>
+	<% end %>
 	</div>
 	<br class="clrFloat" />
 </div>

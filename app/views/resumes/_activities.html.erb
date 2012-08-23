@@ -2,6 +2,9 @@
 	<div class="activity-header">
 		<h3>Activities</h3>
 	</div>
+	<% if @activities.nil? %>
+		<div class="activity-body">
+	<% else %>
 	<div class="activity-body">
 		<% @activities.each do |extracurricular| %>
 			<div class="activity">
@@ -10,9 +13,9 @@
 						<span class="activity-organization">
 							<%= extracurricular.organization %>
 						</span>
-						<span class="activity-date"> (<%= extracurricular.start_date.strftime("%m/%Y") %>
+						<span class="activity-date"> (<%= display_date(extracurricular.start_date) %>
 							<% if extracurricular.start_date.strftime("%m/%Y") != extracurricular.end_date.strftime("%m/%Y") %>
-								- <%= extracurricular.end_date.strftime("%m/%Y") %>
+								- <%= display_date(extracurricular.end_date) %>
 							<% end %>
 							)
 						</span>
@@ -20,6 +23,7 @@
 				</ul>
 			</div>
 		<% end %>
+	<% end %>
 	</div>
 	<br class="clrFLoat" />
 </div>

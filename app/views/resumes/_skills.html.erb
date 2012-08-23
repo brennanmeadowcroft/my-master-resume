@@ -2,12 +2,16 @@
 	<div class="skill-header">
 		<h3>Skills</h3>
 	</div>
-	<div class="skill-body">
-		<ul>
-			<% @skills.each do |mad| %>
-				<li><%= mad.description %></li>
-			<% end %>
-		</ul>
+	<% if @skills.nil? %>
+		<div class="skill-body">
+	<% else %>
+		<div class="skill-body">
+			<ul>
+				<% @skills.each do |mad| %>
+					<li><%= mad.description %></li>
+				<% end %>
+			</ul>
+	<% end %>
 	</div>
 	<br class="clrFloat" />
 </div>

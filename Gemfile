@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'bootstrap-sass', '2.0.0'
+gem 'jquery-rails', '~>2.0.2'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'date_validator'
 gem 'paperclip', '3.1.4'
 gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary', '~>0.9.9.1'
 
 
 # Bundle edge Rails instead:
@@ -33,14 +35,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails', '2.0.0'
 
 group :test do
 	gem 'capybara', '1.1.2'
 end
 
 group :production do
-
+	gem 'mysql2', '0.3.11'
 end
 
 # To use ActiveModel has_secure_password

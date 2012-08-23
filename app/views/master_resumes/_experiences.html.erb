@@ -2,16 +2,21 @@
 	<h3 class="section-header">Positions</h3>
 	<p class="add-new"><%= link_to "(Add New Position)", new_position_path %></p>
 	<br />
+	<% if @positions.nil? %>
+		<div class="row line-item">
+			<p>You have no positions entered!  <%= link_to "Add One Now", new_position_path %></p>
+		</div>
+	<% else %>
 	<% @positions.each do |job| %>
 		<div class="row line-item">
 			<h4><%= job[:position].company %> - <%= job[:position].title %>, 
 			<%= job[:position].city %>, <%= job[:position].state %>
-			(<%= job[:position].start_date.strftime("%m/%Y") %> - 
+			(<%= display_date(job[:position].start_date) %> - 
 				<% if job[:position].start_date == job[:position].end_date || 
-					  job[:position].end_date.strftime("%m/%Y") == Date.today.strftime("%m/%Y") %>
+					  job[:position].end_date == Date.today %>
 					Current
 				<% else %>
-					<%= job[:position].end_date.strftime("%m/%Y") %>
+					<%= display_date(job[:position].end_date) %>
 				<% end %>
 				)</h4>
 			<p class="add-new">(
@@ -40,5 +45,8 @@
 				</div>
 			</ul>
 		</div>
-	<% end %>
+	<% end %>	
+
+
+<% end %>
 </div>

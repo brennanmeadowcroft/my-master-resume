@@ -49,14 +49,16 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    code = BetaCode.find_by_code(params[:beta_code])
 
     respond_to do |format|
       # Check to make sure the beta code is valid
-#      if BetaCodes.find_by_code(params[:beta_code]).nil?
-#        flash.now[:error] = "Whoops!  We don't recognize that beta code!"
-#        format.html { render action: "new" }
-#        format.json { render json: @user.errors, status: :unprocessable_entity }
-#      else 
+      if code.nil?
+        flash.now[:error] = "Whoops!  We don't recognize that beta code!"
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      else 
+        @user.beta_code_id = code.id
         if @user.save
           sign_in @user
           flash[:success] = "Welcome to My Master Resume!"
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
           format.html { render action: "new" }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
-#      end
+      end
     end
   end
 

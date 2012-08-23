@@ -1,18 +1,24 @@
 <div class="row new-section">
 	<h3 class="section-header">Awards</h3>
 	<p class="add-new"><%= link_to "(Add New Award)", new_award_path %></p>
-	<% @awards.each do |award| %>
+	<% if @awards.nil? %>
 		<div class="row line-item">
-			<div class="span6">
-				<p><%= award.description %> (<%= award.date.strftime("%m/%Y") %>)</p>
-			</div>
-			<div class="span2">
-				<ul class="actions">
-					<li><%= link_to "Edit", edit_award_path(award) %></li>
-					<li><%= link_to "Tag", edit_award_path(award) %></li>
-					<li><%= link_to "Delete", award_path(award), confirm: 'Are you sure?', method: :delete %></li>
-				</ul>
-			</div>
+			<p>You have no awards entered!  <%= link_to "Add One Now", new_award_path %></p>
 		</div>
+	<% else %>
+		<% @awards.each do |award| %>
+			<div class="row line-item">
+				<div class="span6">
+					<p><%= award.description %> (<%= display_date(award.date) %>)</p>
+				</div>
+				<div class="span2">
+					<ul class="actions">
+						<li><%= link_to "Edit", edit_award_path(award) %></li>
+						<li><%= link_to "Tag", edit_award_path(award) %></li>
+						<li><%= link_to "Delete", award_path(award), confirm: 'Are you sure?', method: :delete %></li>
+					</ul>
+				</div>
+			</div>
+		<% end %>
 	<% end %>
 </div>

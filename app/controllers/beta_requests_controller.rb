@@ -37,7 +37,7 @@ class BetaRequestsController < ApplicationController
 
     respond_to do |format|
       if @beta_request.save
-        UserMailer.welcome_email(@beta_request).deliver
+        BetaRequestMailer.welcome_email(@beta_request).deliver
 
         format.html { redirect_to request_invite_url, notice: 'Beta request was successfully created.' }
         format.json { render json: @beta_request, status: :created, location: @beta_request }
