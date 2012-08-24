@@ -1,10 +1,10 @@
 <div class="awards-block">
-	<div class="award-header">
-		<h3>Awards</h3>
-	</div>
 	<% if @awards.nil? %>
-		<div class="award-body">
+		<div></div>
 	<% else %>
+		<div class="award-header">
+			<h3>Awards</h3>
+		</div>
 		<div class="award-body">
 			<% @awards.each do |ribbon| %>
 				<div class="award">
@@ -20,7 +20,7 @@
 					</ul>
 				</div>
 			<% end %>
+		</div>
 	<% end %>
-	</div>
 	<br class="clrFloat" />
 </div>

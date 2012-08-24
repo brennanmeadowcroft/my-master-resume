@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 	before_filter :signed_in_user
 	
 	def index
-		@activities = current_user.activities
+		@activities = current_user.activities.order("start_date DESC")
 
 		respond_to do |format|
 			format.html

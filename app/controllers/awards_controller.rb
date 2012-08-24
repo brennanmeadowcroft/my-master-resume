@@ -2,7 +2,7 @@ class AwardsController < ApplicationController
 	before_filter :signed_in_user
 	
 	def index
-		@awards = current_user.awards
+		@awards = current_user.awards.order("date DESC")
 
 		respond_to do |format|
 			format.html

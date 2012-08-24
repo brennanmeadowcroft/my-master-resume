@@ -19,10 +19,10 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     tag = Tag.find(@resume.tag_id)
 
-    @positions = tag.positions
-    @activities = tag.activities
-    @awards = tag.awards
-    @education = tag.education
+    @positions = tag.positions.order("start_date DESC")
+    @activities = tag.activities.order("start_date DESC")
+    @awards = tag.awards.order("date DESC")
+    @education = tag.education.order("start_date DESC")
     @skills = tag.skills
 
     @user_info = @resume.get_user_info
@@ -103,10 +103,10 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     tag = Tag.find(@resume.tag_id)
 
-    @positions = tag.positions
-    @activities = tag.activities
-    @awards = tag.awards
-    @education = tag.education
+    @positions = tag.positions.order("start_date DESC")
+    @activities = tag.activities.order("start_date DESC")
+    @awards = tag.awards.order("date DESC")
+    @education = tag.education.order("start_date DESC")
     @skills = tag.skills
 
 

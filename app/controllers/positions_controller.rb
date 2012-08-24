@@ -2,7 +2,7 @@ class PositionsController < ApplicationController
 	before_filter :signed_in_user
 	
 	def index
-		@positions = current_user.positions
+		@positions = current_user.positions.order("start_date DESC")
 
 		respond_to do |format|
 			format.html

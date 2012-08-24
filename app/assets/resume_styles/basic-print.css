@@ -19,6 +19,7 @@ h3 {
 	width: 612pt;
 	overflow: none;
 	border: 1px solid #000000;
+	background: url("white.gif") top left repeat;	
 }
 .hidden {
 	display: none;

@@ -2,7 +2,7 @@ class EducationController < ApplicationController
   before_filter :signed_in_user
   
   def index
-    @education = current_user.activities
+    @education = current_user.education.order("start_date DESC")
 
     respond_to do |format|
       format.html
