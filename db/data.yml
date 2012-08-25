@@ -1,0 +1,301 @@
+%YAML 1.1
+---
+activities:
+-
+  organization: "Habitat For Humanity"
+  position: "Marketing"
+  start_date: "2007-08-22 00:00:00"
+  end_date: "2008-08-22 00:00:00"
+  user_id: 1
+-
+  organization: "DABE"
+  start_date: "2006-01-01 00:00:00"
+  end_date: "2006-01-01 00:00:00"
+  user_id: 1
+-
+  organization: "Big Brothers/Big Sisters"
+  position: "Academic Tutor"
+  start_date: "2007-09-22 00:00:00"
+  end_date: "2008-05-22 00:00:00"
+  user_id: 1
+-
+  organization: "Academic Tutor"
+  position: ""
+  start_date: "2008-09-22 00:00:00"
+  end_date: "2009-05-22 00:00:00"
+  user_id: 1
+-
+  organization: "DMCC - Chamber 100"
+  position: ""
+  start_date: "2007-05-22 00:00:00"
+  end_date: "2008-05-22 00:00:00"
+  user_id: 1
+-
+  organization: "BSA 225"
+  position: "Assistant Scoutmaster"
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+-
+  organization: "Fraternity of Alpha Kappa Lambda"
+  position: ""
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+-
+  organization: "UCD Pre-law Society"
+  position: ""
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+-
+  organization: "Democratic Party"
+  position: "Volunteer"
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+-
+  organization: "Denver Chess Club"
+  position: "Organizational Consultant"
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+-
+  organization: "Graduate Entrepreneurs Association"
+  position: ""
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+-
+  organization: "CU Net IMpact"
+  position: ""
+  start_date: "2012-08-23 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+  user_id: 1
+
+awards:
+-
+  user_id: 1
+  description: "Eagle Scout"
+  date: "2012-08-22 00:00:00"
+-
+  user_id: 1
+  description: "CU Denver - Cum Laude Honors"
+  date: "2007-12-10 00:00:00"
+
+education:
+-
+  user_id: 1
+  school: "University of Colorado"
+  city: "Denver"
+  state: "CO"
+  degree: "Bachelors"
+  major: "Economics, Business"
+  start_date: "2004-01-10 00:00:00"
+  end_date: "2007-01-01 00:00:00"
+-
+  user_id: 1
+  school: "University of Colorado"
+  city: "Boulder"
+  state: "CO"
+  degree: "Masters of Business Administration"
+  major: "Marketing/Entrepreneurship"
+  start_date: "2010-08-18 00:00:00"
+  end_date: "2012-05-11 00:00:00"
+-
+  user_id: 1
+  school: "University of Northern Colorado"
+  city: "Greeley"
+  state: "CO"
+  degree: ""
+  major: ""
+  start_date: "2001-09-01 00:00:00"
+  end_date: "2007-12-15 00:00:00"
+
+experiences:
+-
+  position_id: 6
+  description: "Built JavaScript based XML converter tool"
+-
+  position_id: 7
+  description: "Created document library, an automated back-end to the corporate intranet"
+-
+  position_id: 6
+  description: "Conducted demographic and purchase profile analysis of customer groups"
+-
+  position_id: 6
+  description: "Conducted closed loop analysis of how effectively online campaigns drove offline sales"
+-
+  position_id: 6
+  description: "Automated analysis of mailing model performance saving 10+ hours of employee time per analysis"
+-
+  position_id: 7
+  description: "Led application of MCIF database improvements"
+-
+  position_id: 7
+  description: "Participated in task force on annual deposit product changes with an average $200,000 increase in annual non-interest income each year for three years"
+-
+  position_id: 7
+  description: "Managed customer service measurement program completed for 33% lower than previous budgets"
+-
+  position_id: 7
+  description: "Established bankwide sales trending and waive management reports."
+-
+  position_id: 7
+  description: "Analyzed financial performance of ATMs to identify underperforming units for $130,000 in cost savings"
+-
+  position_id: 7
+  description: "Assisted with campaign for mass rollout of debit cards to consumer customers"
+-
+  position_id: 7
+  description: "Primary participant in creating \"Do-Not-Solicit\" policy"
+-
+  position_id: 7
+  description: "Designed and constructed several web pages for company intranet"
+-
+  position_id: 7
+  description: "Executed internal product focus promotions to build product awareness among front-line staff"
+-
+  position_id: 7
+  description: "Served periodically as “technical liason” between IT and other departments as needed."
+-
+  position_id: 7
+  description: "Provided product training to bankers."
+-
+  position_id: 7
+  description: "Served on committee to analyze new product/service introductions (New Products Group)."
+-
+  position_id: 7
+  description: "Worked with multiple departments simultaneously to manage and complete projects."
+-
+  position_id: 7
+  description: "Helped launch and co-manage an email marketing program."
+-
+  position_id: 7
+  description: "Offered guidance on integrating public website and email marketing to optimize campaigns."
+-
+  position_id: 7
+  description: "Helped to optimize NSF revenue for approximately $500,000 in increased annual revenue."
+-
+  position_id: 7
+  description: "Managed redesign and branding of corporate intranet, “Inside Citywide” which helped improve employee efficiency and reduce the existence of duplicate documents."
+-
+  position_id: 7
+  description: "Implemented a Document Management system to improve efficiency of corporate intranet saving approximately 1 FTE."
+-
+  position_id: 7
+  description: "Programmed an online, employee Bulletin Board where employees could post non-business information eliminating bankwide “non-business” emails."
+-
+  position_id: 7
+  description: "Custom designed an online, internal employee forum where employees could discuss best practices and ask questions related to various projects."
+-
+  position_id: 7
+  description: "Developed internal “prospect pipeline” to help bankers track and manage relationships with prospects."
+-
+  position_id: 7
+  description: "Oversaw online banking promotion for a 1% increase in product penetration among senior customers."
+-
+  position_id: 7
+  description: "Planned Overdraft Protection opt-in campaign with a 97% opt-in rate among targeted customers."
+-
+  position_id: 7
+  description: "Wrote contract to license use of company trademarks to corporate subsidiary."
+-
+  position_id: 7
+  description: "Created models to estimate service charge revenue and customer movement within deposit products to aid in product design and pricing."
+-
+  position_id: 7
+  description: "Assisted in planning long- and short-term strategy to build brand awareness, attract prospects and increase profitability of existing customers."
+-
+  position_id: 7
+  description: "Wrote and managed delivery of customer disclosure letters for annual pricing changes"
+
+positions:
+-
+  user_id: 1
+  title: "Client Analytics Intern"
+  company: "Datalogix"
+  city: "Westminster"
+  state: "CO"
+  start_date: "2012-05-31 00:00:00"
+  end_date: "2012-08-22 00:00:00"
+-
+  user_id: 1
+  title: "Product Analyst"
+  company: "Citywide Banks"
+  city: "Aurora"
+  state: "CO"
+  start_date: "2007-01-03 00:00:00"
+  end_date: "2010-08-18 00:00:00"
+-
+  user_id: 1
+  title: "Marketing Intern"
+  company: "Citywide Banks"
+  city: "Aurora"
+  state: "CO"
+  start_date: "2006-06-30 00:00:00"
+  end_date: "2007-01-01 00:00:00"
+-
+  user_id: 1
+  title: "Owner"
+  company: "Structured Pixels"
+  city: "Denver"
+  state: "CO"
+  start_date: "2010-02-01 00:00:00"
+  end_date: "2012-08-23 00:00:00"
+-
+  user_id: 1
+  title: "Marketing Intern"
+  company: "My Beer Nation"
+  city: "Denver"
+  state: "CO"
+  start_date: "2012-01-23 00:00:00"
+  end_date: "2012-05-15 00:00:00"
+
+skills:
+-
+  user_id: 1
+  description: "Web Design"
+-
+  user_id: 1
+  description: "Programming"
+-
+  user_id: 1
+  description: "SQL"
+-
+  user_id: 1
+  description: "Ruby on Rails"
+-
+  user_id: 1
+  description: "PHP"
+-
+  user_id: 1
+  description: "Javascript"
+-
+  user_id: 1
+  description: "HTML/CSS"
+
+styles:
+-
+  description: "Basic"
+  screen_filename_file_name: "basic-print.css"
+  screen_filename_content_type: "text/css"
+  screen_filename_file_size: 3261
+  screen_filename_updated_at: "2012-08-22 04:19:05"
+  print_filename_file_name: "basic-screen.css"
+  print_filename_content_type: "text/css"
+  print_filename_file_size: 3258
+  print_filename_updated_at: "2012-08-22 04:19:05"
+  base_style: 1
+
+tags:
+-
+  description: "Marketing"
+  user_id: 1
+-
+  description: "Product"
+  user_id: 1
+-
+  description: "Online Marketing"
+  user_id: 1
+...
