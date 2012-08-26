@@ -2,7 +2,7 @@ class MasterResumesController < ApplicationController
 	before_filter :signed_in_user
 
 	def index
-		@activities = current_user.activities..order("start_date DESC")
+		@activities = current_user.activities.order("start_date DESC")
 		@awards = current_user.award.order("date DESC")
 		@education = current_user.education.order("start_date DESC")
 		@positions = Position.build_position_by_user_id(current_user.id)

@@ -1,6 +1,6 @@
 class BetaRequest < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :email, :beta_code_id
+  attr_accessible :email, :beta_code_id, :approved_at
 
   belongs_to :beta_codes
 

@@ -23,7 +23,7 @@ class Position < ActiveRecord::Base
 	end
 
 	def self.build_position_by_user_id(user)
-		pos = Position.find_all_by_user_id(user).order("start_date DESC")
+		pos = Position.order("start_date DESC").find_all_by_user_id(user)
 
 		data = Array.new
 		i = 0

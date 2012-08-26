@@ -5,7 +5,7 @@ class BetaRequestsController < ApplicationController
   # GET /beta_requests
   # GET /beta_requests.json
   def index
-    @beta_requests = BetaRequest.all
+    @beta_requests = BetaRequest.order("created_at ASC").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -53,6 +53,7 @@ class BetaRequestsController < ApplicationController
   def update
     @beta_request = BetaRequest.find(params[:id])
     beta_code = BetaCode.find(params[:beta_request][:beta_code_id]).code
+    @beta_request.approved_at = Time.now
     email = BetaRequest.find(params[:id]).email
 
     respond_to do |format|
