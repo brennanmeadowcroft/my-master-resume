@@ -42,6 +42,7 @@ end
 
 group :production do
 	gem 'mysql2', '0.3.11'
+	gem 'newrelic_rpm'
 end
 
 # To use ActiveModel has_secure_password
