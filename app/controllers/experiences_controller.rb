@@ -25,9 +25,23 @@ class ExperiencesController < ApplicationController
 		end
 	end
 
+	def mass_add
+		pos = current_user.positions.find(params[:pos])
+		@position_id = pos.id.to_i
+
+		respond_to do |format|
+			format.html
+		end
+	end
+
 	def create
 		@position = Position.find(params[:experience][:position_id])
 		@experience = @position.experiences.new(params[:experience])
+
+		# Parse the text into an array
+
+		# For each item in the array, 
+
 		params[:experience][:tag_ids] ||= []
 
 		respond_to do |format|
@@ -39,6 +53,37 @@ class ExperiencesController < ApplicationController
 				flash[:error] = "There was an error saving your experience"
 				format.html { render action: "new" }
 				format.json { render json: @experience, status: :unprocessable_entity }
+			end
+		end
+	end
+
+	def mass_create
+		error = 0
+		# Grab the form elements
+		position = Position.find(params[:position_id])
+		list = params[:experience]
+
+		# Loop through the form element and add the experiences to the database
+		individual_exp = list.split("\r\n")
+		individual_exp.each do |exp|
+			experience_item = Experience.new
+			experience_item.position_id = position.id
+			experience_item.description = exp
+			if experience_item.save
+				error += 0
+			else 
+				error += 1
+			end
+		end
+
+		# Notify the user of success or failure
+		respond_to do |format|
+			if error == 0
+				flash[:success] = "All your experience was successfully created!"
+				format.html { redirect_to master_resumes_url }
+			else 
+				flash[:error] = "There was an error inputting #{error} or more of your experiences"
+				format.html { render action: "mass_new" }
 			end
 		end
 	end

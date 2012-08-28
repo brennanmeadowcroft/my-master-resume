@@ -41,7 +41,8 @@
 					</div>
 				<% end %>
 				<div class="row">
-					<%= link_to "Add Experience", new_experience_path({ :pos => job[:position].id }) %>
+					<%= link_to "Add Experience", new_experience_path({ :pos => job[:position].id }) %> | 
+					<%= link_to "Add Multiple Experiences", experience_mass_add_path({ :pos => job[:position].id }) %>
 				</div>
 			</ul>
 		</div>

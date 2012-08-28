@@ -9,7 +9,7 @@ ResumeApp::Application.routes.draw do
   resources :awards
   resources :education
   resources :positions
-  resources :experiences
+  resources :experiences, :only => [:new, :edit, :create, :update, :destroy]
   resources :skills
   resources :styles
   resources :beta_requests
@@ -31,6 +31,9 @@ ResumeApp::Application.routes.draw do
 
   match 'resumes/:id/export', to: 'resumes#export', :as => "export_resume"
   match 'styles/:id/set_base_style', to: 'styles#set_base_style', :as => "set_base_style", :via => :post
+
+  match 'experiences/mass_add', to: 'experiences#mass_add', :as => "experience_mass_add"
+  match 'experiences/mass_create', to: 'experiences#mass_create', :as => "experience_mass_create", :via => :post
 
   match 'master_resumes/', to: 'master_resumes#index', :as => "master_resumes"
   match 'master_resumes/edit', to: 'master_resumes#edit', :as => "edit_master_resumes"

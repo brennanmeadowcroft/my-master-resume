@@ -1,0 +1,19 @@
+<%= form_tag '/experiences/mass_create', :method => :post do %>
+    <div class="row experience-form">
+        <div class="span7">
+            <%= hidden_field_tag :position_id, @position_id %>
+            <div class="field">
+                <%= text_area_tag 'experience', nil, :cols => "50", :rows => "15" %>
+            </div>
+        </div>
+        <div class="span5">
+            <h3>Create your experience for this position all at once!</h3>
+            <p>Add all your experience into the text area.  Make sure you put each experience
+                on a new line to have them created correctly.</p>
+        </div>
+    </div>
+    <div class="row">
+        <%= submit_tag "Save", :class => 'btn-large btn-primary' %>
+        <%= link_to "Cancel", master_resumes_url %>
+    </div>
+<% end %>
