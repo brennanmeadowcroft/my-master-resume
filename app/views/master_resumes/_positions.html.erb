@@ -1,0 +1,17 @@
+<div class="row new-section">
+	<div class="row">
+		<div class="span6">
+			<h2 class="section-header">Positions</h2>
+		</div>
+		<div class="span2 pull-right">
+			<%= link_to "Add New Position", new_position_path, :class => "btn" %>
+		</div>
+	</div>
+	<% if @positions.nil? %>
+		<%= render 'no_positions' %>
+	<% else %>
+		<% @positions.each do |job| %>
+			<%= render 'position_detail', :job => job %>
+		<% end %>
+	<% end %>
+</div>

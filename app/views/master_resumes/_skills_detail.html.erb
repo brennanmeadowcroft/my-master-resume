@@ -1,0 +1,24 @@
+<ul>
+	<% @skills.each do |skill| %>
+		<div class="row">
+			<div class="span6">
+				<li>
+					<%= skill.description %>
+					<br />
+					<div class="tag-list">
+						<% skill.tags.each do |t| %>
+							<%= render 'tag_list', :t => t %>
+						<% end %>
+					</div>
+				</li>
+			</div>
+			<div class="span2">
+				<ul class="actions">
+					<li><%= link_to "Edit", edit_skill_path(skill) %></li>
+					<li><%= link_to "Tag", edit_skill_path(skill) %></li>
+					<li><%= link_to "Delete", skill_path(skill), confirm: 'Are you sure?', method: :delete %></li>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+</ul>

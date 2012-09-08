@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="span6">
+		<li><%= exp.description %> 
+			<br />
+			<div class="tag-list">
+				<% exp.tags.each do |t| %>
+					<%= render 'tag_list', :t => t %>
+				<% end %>
+			</div>
+		</li>
+	</div>
+	<div class="span2">
+		<ul class="actions">
+			<li><%= link_to "Edit", edit_experience_path(exp.id) %></li>
+			<li><%= link_to "Tag", edit_experience_path(exp) %></li>
+			<li><%= link_to "Delete", experience_path(exp), 
+				confirm: 'Are you sure?', method: :delete %></li>
+		</ul>
+	</div>
+</div>

@@ -17,6 +17,7 @@ ResumeApp::Application.routes.draw do
 
   root to: 'static_pages#index'
 
+  match '/sitemap', to: 'sitemaps#show'
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
