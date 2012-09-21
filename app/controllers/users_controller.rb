@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_filter :correct_user, only: [:edit, :update, :show]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :linked_in, :import]
+  before_filter :correct_user, only: [:edit, :update, :show, :linked_in, :import]
   before_filter :admin_user, only: [:index, :destroy]
 
   # GET /users
@@ -39,6 +39,48 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+  end
+
+  def linkedin
+    @user = User.find(params[:id])
+
+    client = LinkedIn::Client.new("twcsgivs3zzd", "LaxvcuYD59XwZhxL")
+
+    if @user.linkedin_atoken.nil?
+      flash[:error] = "It does not appear you have connected your LinkedIn account"
+      redirect_to(@user)
+    elsif client.authorize_from_access(@user.linkedin_atoken, @user.linkedin_secret)
+      @profile = client.profile(:fields => %w(firstName lastName phoneNumbers mainAddress publicProfileUrl))
+
+      respond_to do |format|
+        format.html
+      end
+    else
+      flash[:error] = "There was a problem authenticating your LinkedIn account.  Please retry connecting it."
+      redirect_to(current_user)
+    end
+  end
+
+  def import
+    @user = User.find(params[:id])
+
+    @user.first_name = params[:user_first_name]
+    @user.last_name = params[:user_last_name]
+    @user.website = params[:user_website]
+
+    if @user.save!
+      flash.now[:success] = "Your profile has been updated!"
+      respond_to do |format|
+        sign_in @user
+        format.html { redirect_to @user }
+      end
+    else
+      flash.now[:error] = "There was a problem updating your profile!"
+      respond_to do |format|
+        format.html { render action: "linkedin" }
+      end
+    end
+
   end
 
   def password

@@ -8,6 +8,11 @@
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/analytics' %>
+		<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+			api_key: twcsgivs3zzd
+			authorize: true
+			onLoad: onLinkedInLoad
+		</script>
 	</head>
 	<body>
 		<%= render 'layouts/header' %>

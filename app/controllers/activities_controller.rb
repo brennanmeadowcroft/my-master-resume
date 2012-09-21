@@ -46,6 +46,64 @@ class ActivitiesController < ApplicationController
 		end
 	end
 
+	def linkedin
+		@user = User.find(current_user)
+
+	    client = LinkedIn::Client.new("twcsgivs3zzd", "LaxvcuYD59XwZhxL")
+
+		if @user.linkedin_atoken.nil?
+			flash[:error] = "It does not appear you have connected your LinkedIn account"
+			redirect_to(@user)
+		elsif client.authorize_from_access(@user.linkedin_atoken, @user.linkedin_secret)
+			linkedin = client.profile(:fields => %w(associations))
+#raise linkedin.to_yaml
+#raise linkedin.honors.split(/[\n]/).to_yaml
+			@activities = Array.new
+			if !linkedin.associations.nil?
+				activities = linkedin.associations.split(/(,)/)
+
+				activities.each do |item|
+					if item != ','
+						@activities.push(item)
+					end
+				end
+
+			end
+			@current = current_user.activities.all
+
+			respond_to do |format|
+				format.html
+			end
+		else
+			flash[:error] = "There was a problem authenticating your LinkedIn account.  Please retry connecting it."
+			redirect_to(current_user)
+		end
+	end
+
+	def import
+		error = 0
+
+		params[:import].each do |activity|
+			new_activity = current_user.activities.create(:organization => activity)
+
+			if new_activity.save!
+				error += 0
+			else 
+				error += 1
+			end
+		end
+
+		if error = 0
+			flash[:success] = "Activities were imported successfully"
+			redirect_to(current_user)
+		else
+			flash[:error] = "Your activities may not have fully loaded"
+			respond_to do |format|
+				format.html { render action: "linkedin" }
+			end
+		end
+	end
+
 	def edit
 		@activity = Activity.find(params[:id])
 		@tags = current_user.tags

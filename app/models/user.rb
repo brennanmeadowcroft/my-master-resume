@@ -25,8 +25,8 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   attr_accessible :address_1, :address_2, :beta_code_id, :city, :email, :first_name, :last_name, :middle_name, 
-                  :password, :password_confirmation, :password_reset_token, :password_reset_at, 
-                  :phone, :state, :terms, :verification_code, :verified, :website, :zip
+                  :linkedin_atoken, :linkedin_id, :linkedin_secret, :password, :password_confirmation, :password_reset_token, 
+                  :password_reset_at, :phone, :state, :terms, :verification_code, :verified, :website, :zip
   has_secure_password
 
 # Databse relationships
@@ -68,6 +68,13 @@ class User < ActiveRecord::Base
 
   def revoke_admin
     self.admin = false
+    save!
+  end
+
+  def add_linkedin_authentication(uid, token, secret)
+    self.linkedin_id = uid
+    self.linkedin_atoken = token
+    self.linkedin_secret = secret
     save!
   end
 

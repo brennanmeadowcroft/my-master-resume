@@ -25,7 +25,21 @@
 			border: none;
 		}
 	}
+}
 
+.linkedin-bullet-point {
+	width: 15px;
+}
+
+.sidebar-nav {
+	padding: 10px;
+
+	a {
+		&:hover {
+			color: $mmrGreen;
+			background-color: none;
+		}
+	}
 }
 
 .gravatar {

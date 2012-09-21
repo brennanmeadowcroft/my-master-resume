@@ -1,0 +1,17 @@
+<% provide(:title, "Import Education") %>
+<div class="row">     
+    <div class="span12">
+		<p id="notice"><%= notice %></p>
+	</div>
+</div>
+
+<div class="row">
+	<%= render 'users/sidebar' %>
+	<div class="span9 offset1 linkedin-import">
+		<div class="row linkedin-instructions">
+			<h1>Import Education From LinkedIn</h1>
+			<p>You can import any schools you have on your LinkedIn account.  LinkedIn does not have all the same information that we use at My Master Resume such as the city and state of your school so, after importing, make sure you double check the information before sending out any resumes!</p>
+		</div>
+		<%= render 'linkedin_form' %>
+	</div>
+</div>

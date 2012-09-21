@@ -1,0 +1,31 @@
+<% if @user.linkedin_atoken.nil? %>
+	<li><%= link_to "/auth/linkedin" do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Connect Linkedin
+		<% end %>
+	</li>
+<% else %>
+	<li><%= link_to linkedin_user_path(current_user) do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Import Profile
+		<% end %>
+	</li>
+	<li><%= link_to linkedin_positions_path(current_user) do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Import Positions
+		<% end %>
+	</li>
+	<li><%= link_to linkedin_education_path(current_user) do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Import Education
+		<% end %>
+	</li>
+	<li><%= link_to linkedin_awards_path(current_user) do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Import Awards
+		<% end %>
+	</li>
+	<li><%= link_to linkedin_skills_path(current_user) do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Import Skills
+		<% end %>
+	</li>
+	<li><%= link_to linkedin_activities_path(current_user) do %>
+			<%= image_tag "linkedin.png", :class => "linkedin-bullet-point" %> Import Activities
+		<% end %>
+	</li>
+<% end %>

@@ -1,0 +1,17 @@
+<% provide(:title, "Import Profile") %>
+<div class="row">     
+    <div class="span12">
+		<p id="notice"><%= notice %></p>
+	</div>
+</div>
+
+<div class="row">
+	<%= render 'users/sidebar' %>
+	<div class="span9 offset1 linkedin-import">
+		<div class="row linkedin-instructions">
+			<h1>Import Profile Information From LinkedIn</h1>
+			<p>Indicate which profile information you would like to import from LinkedIn and which of your existing information you'd like to keep.</p>
+		</div>
+		<%= render 'linkedin_form' %>
+	</div>
+</div>

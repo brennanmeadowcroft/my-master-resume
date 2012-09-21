@@ -46,6 +46,82 @@ class EducationController < ApplicationController
     end
   end
 
+  def linkedin
+    @user = User.find(current_user)
+
+      client = LinkedIn::Client.new("twcsgivs3zzd", "LaxvcuYD59XwZhxL")
+
+    if @user.linkedin_atoken.nil?
+      flash[:error] = "It does not appear you have connected your LinkedIn account"
+      redirect_to(@user)
+    elsif client.authorize_from_access(@user.linkedin_atoken, @user.linkedin_secret)
+      linkedin = client.profile(:fields => %w(educations))
+#raise linkedin.educations.all.to_yaml
+
+      @education = linkedin.educations.all
+
+      @current = current_user.education.all
+
+      respond_to do |format|
+        format.html
+      end
+    else
+      flash[:error] = "There was a problem authenticating your LinkedIn account.  Please retry connecting it."
+      redirect_to(current_user)
+    end
+  end
+
+  def import
+    error = 0
+
+    user = User.find(current_user)
+    client = LinkedIn::Client.new("twcsgivs3zzd", "LaxvcuYD59XwZhxL")
+    client.authorize_from_access(user.linkedin_atoken, user.linkedin_secret)
+    linkedin = client.profile(:fields => %w(educations))
+
+    params[:import].each do |school|
+      linkedin.educations.all.each do |item|
+        if school.to_i == item.id    
+          if item.startDate.nil?
+            start_date = Date.today.to_s
+          else 
+            start_date = "9/1/#{item.startDate}"
+          end
+
+          if item.endDate.nil?
+            end_date = Date.today.to_s
+          else 
+            end_date = "5/31/#{item.endDate}"
+          end
+
+          new_education = current_user.education.create(
+              :school => item.schoolName,
+              :major => item.fieldOfStudy,
+              :degree => item.degree,
+              :start_date => start_date,
+              :end_date => end_date
+            )
+
+          if new_education.save!
+            error += 0
+          else 
+            error += 1
+          end
+        end
+      end
+    end
+
+    if error = 0
+      flash[:success] = "Schools were imported successfully"
+      redirect_to(current_user)
+    else
+      flash[:error] = "Your schools may not have fully loaded"
+      respond_to do |format|
+        format.html { render action: "linkedin" }
+      end
+    end
+  end
+
   def edit
     @education = Education.find(params[:id])
     @tags = current_user.tags

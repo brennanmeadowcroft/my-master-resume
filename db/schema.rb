@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120826183547) do
+ActiveRecord::Schema.define(:version => 20120914035455) do
 
   create_table "activities", :force => true do |t|
     t.string   "organization"
@@ -179,6 +179,9 @@ ActiveRecord::Schema.define(:version => 20120826183547) do
     t.string   "password_reset_token"
     t.datetime "password_reset_at"
     t.integer  "beta_code_id"
+    t.string   "linkedin_atoken"
+    t.string   "linkedin_id"
+    t.string   "linkedin_secret"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

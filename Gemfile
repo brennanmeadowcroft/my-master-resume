@@ -8,6 +8,10 @@ gem 'date_validator'
 gem 'paperclip', '3.1.4'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~>0.9.9.1'
+gem 'linkedin', '~>0.3.7'
+gem 'oauth', '~>0.4.7'
+gem 'omniauth', '~>1.1.1'
+gem 'omniauth-linkedin', '~>0.0.8'
 
 
 # Bundle edge Rails instead:

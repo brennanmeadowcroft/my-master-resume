@@ -1,0 +1,55 @@
+<div class="linkedin-form">
+    <%= form_tag("/users/#{@user.id}/import", :method => "put") do %>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>From LinkedIn</th>
+                        <th>From My Master Resume</th>
+                    <tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>First Name</th>
+                        <td>
+                            <%= radio_button_tag("user_first_name", @profile.first_name) %>
+                            <%= @profile.first_name %>
+                        </td>
+                        <td>
+                            <%= radio_button_tag("user_first_name", @user.first_name, :checked => true) %>
+                            <%= @user.first_name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <td>
+                            <%= radio_button_tag("user_last_name", @profile.last_name) %>
+                            <%= @profile.last_name %>
+                        </td>
+                        <td>
+                            <%= radio_button_tag("user_last_name", @user.last_name, :checked => true) %>
+                            <%= @user.last_name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Website</th>
+                        <td>
+                            <%= radio_button_tag("user_website", @profile.public_profile_url) %>
+                            <span class="website-label"><%= @profile.public_profile_url %></span>
+                        </td>
+                        <td>
+                            <%= radio_button_tag("user_website", @user.website, :checked => true) %>
+                            <span class="website-label"><%= @user.website %></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row import-buttons">
+            <%= hidden_field_tag("user_id", @user.id) %>
+            <%= submit_tag "Save", :class => 'btn-large btn-primary' %>
+            <%= link_to "Cancel", @user, :class => 'btn btn-large', :style => "margin: 0 0 0 0;" %>
+        </div>
+    <% end %>
+</div>

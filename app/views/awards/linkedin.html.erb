@@ -1,0 +1,17 @@
+<% provide(:title, "Import Awards") %>
+<div class="row">     
+    <div class="span12">
+		<p id="notice"><%= notice %></p>
+	</div>
+</div>
+
+<div class="row">
+	<%= render 'users/sidebar' %>
+	<div class="span9 offset1 linkedin-import">
+		<div class="row linkedin-instructions">
+			<h1>Import Awards From LinkedIn</h1>
+        	<p>Please note that due to the way that LinkedIn handles Honors and Awards, you will need to input the appropriate dates after you have imported your awards.</p>
+		</div>
+		<%= render 'linkedin_form' %>
+	</div>
+</div>

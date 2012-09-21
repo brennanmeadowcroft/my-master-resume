@@ -1,0 +1,49 @@
+<div class="linkedin-form">
+	<% if @awards.count == 0 %>
+		<div class="row import-header">
+			<h4>You do not have any awards on your LinkedIn account!</h4>
+		</div>
+	<% else %>
+		<%= form_tag("/awards/#{@user.id}/import") do %>
+			<div class="row">
+				<div class="row import-header">
+					<div class="span1">
+						<h4>Import</h4>
+					</div>
+					<div class="span4">
+						<h4>Description</h4>
+					</div>
+					<div class="span3">
+						<h4>Currently In Your Resume</h4>
+					</div>
+				</div>
+				<div class="row import-content">
+					<div class="span5 import-form">
+						<% @awards.each do |option| %>
+							<div class="row option">
+								<div class="span1 checkbox">
+									<%= check_box_tag('import[]', option) %>
+								</div>
+							</div>
+							<div class="span4 description">
+								<%= option %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="span3 current-items">
+					<ul>
+						<% @current.each do |skill| %>
+							<li><%= skill.organization %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+			<div class="row import-buttons">
+				<%= hidden_field_tag("user_id", @user.id) %>
+				<%= submit_tag "Save", :class => 'btn-large btn-primary' %>
+				<%= link_to "Cancel", @user, :class => 'btn btn-large', :style => "margin: 0 0 0 0;" %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

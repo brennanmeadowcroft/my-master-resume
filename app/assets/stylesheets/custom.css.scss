@@ -45,6 +45,47 @@ h1, h2, h3, h4 {
 	}
 }
 
+.linkedin-import {
+	.linkedin-instructions {
+		h1 {
+			margin-bottom: 10px;
+		}
+		p.sidenote {
+			font-size: .8em;
+			font-style: italic;
+		}
+	}
+
+	.linkedin-form {
+		margin-top: 15px;
+
+		.import-header {
+			margin-bottom: 5px;
+		}
+
+		.import-content {
+			.import-form {
+				.option {}
+
+				.import-checkbox {}
+			}
+		}
+
+		.current-items {
+			padding-left: 10px;
+			border-left: 1px solid #000000;
+		}
+
+		.import-buttons {
+			margin-top: 10px;
+		}
+
+		.website-label {
+			font-size: .8em;
+		}
+	}
+}
+
 .form-list {
 	list-style-type: none;
 	li {
@@ -157,4 +198,21 @@ footer {
 	width: 100%;
 	margin-top: 45px;
 	@include box_sizing;
+}
+
+.import-choices {
+	@extend .row;
+}
+
+.linkedin-choices {
+	@extend .span4;
+}
+.mmr-choices {
+	@extend .span4;
+	@extend .offset1;
+}
+
+
+.update-form-buttons {
+	@extend .row;
 }

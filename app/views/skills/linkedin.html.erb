@@ -1,0 +1,18 @@
+<% provide(:title, "Import Skills") %>
+<div class="row">     
+    <div class="span12">
+		<p id="notice"><%= notice %></p>
+	</div>
+</div>
+
+<div class="row">
+	<%= render 'users/sidebar' %>
+	<div class="span9 offset1 linkedin-import">
+		<div class="row linkedin-instructions">
+			<h1>Import Skills From LinkedIn</h1>
+			<p>Import any of the skills from your LinkedIn profile for use in your resume.</p>
+			<p class="sidenote"><i class="icon-search icon-exclamation-sign"></i> Indicates you may already have a similar skill in your master resume.</p>
+		</div>
+		<%= render 'linkedin_form' %>
+	</div>
+</div>

@@ -16,19 +16,34 @@ ResumeApp::Application.routes.draw do
   resources :beta_codes, :only => [:index, :new, :edit, :create, :update, :destroy]
 
   root to: 'static_pages#index'
-
   match '/sitemap', to: 'sitemaps#show'
+
+# User actions paths
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
-
   match 'users/:id/password', to: 'users#password', :as => "edit_password"
   match 'users/:id/make_admin', to: 'users#make_admin', :as => "make_admin"
   match 'users/:id/revoke_admin', to: 'users#revoke_admin', :as => "revoke_admin"
-
+  match 'users/:id/linkedin', to: 'users#linkedin', :as => "linkedin_user"
+  match 'users/:id/import', to: 'users#import', :as => "linkedin_user_import", :via => :put
   match '/request_invite', to: 'beta_requests#new', :as => "request_invite"
-
   match 'password_resets/:id/admin_password_reset', to: 'password_resets#admin_password_reset', :as => "admin_password_reset"
+
+# LinkedIn Import Paths
+#  match '/auth', to: 'authorizations#auth', :as => "authorization" (For authorizations1)
+#  match '/auth/callback', to: 'authorizations#callback', :as => "authorization_callback"
+  match '/auth/:provider/callback', to: 'authorizations#create', :as => "authorization"
+  match '/activities/:id/linkedin', to: 'activities#linkedin', :as => "linkedin_activities"
+  match '/activities/:id/import', to: 'activities#import', :as => "linkedin_activities_import"
+  match '/awards/:id/linkedin', to: 'awards#linkedin', :as => "linkedin_awards"
+  match '/awards/:id/import', to: 'awards#import', :as => "linkedin_awards_import"
+  match '/education/:id/linkedin', to: 'education#linkedin', :as => "linkedin_education"
+  match '/education/:id/import', to: 'education#import', :as => "linkedin_education_import"
+  match '/positions/:id/linkedin', to: 'positions#linkedin', :as => "linkedin_positions"
+  match '/positions/:id/import', to: 'positions#import', :as => "linkedin_positions_import"
+  match '/skills/:id/linkedin', to: 'skills#linkedin', :as => "linkedin_skills"
+  match '/skills/:id/import', to: 'skills#import', :as => "linkedin_skills_import"
 
   match 'resumes/:id/export', to: 'resumes#export', :as => "export_resume"
   match 'styles/:id/set_base_style', to: 'styles#set_base_style', :as => "set_base_style", :via => :post
