@@ -1,6 +1,6 @@
 <div class="education-block">
-	<% if @education.nil? %>
-		<div class="education-body">
+	<% if @education.count == 0 %>
+		<div></div>
 	<% else %>
 		<div class="education-header">
 			<h3>Education</h3>
