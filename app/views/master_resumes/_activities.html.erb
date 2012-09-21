@@ -1,27 +1,41 @@
-<div class="row new-section">
-	<h3 class="section-header">Activities</h3>
-		<p class="add-new"><%= link_to "(Add New Activity)", new_activity_path %></p>
+<div class="new-section row">
+	<div class="new-section-header">
+		<h2>Activities</h2>
+		<%= link_to "Add New Activity", new_activity_path, :class=> "add-new btn btn-small pull-right" %>
+	</div>
 	<% if @activities.nil? %>
-		<div class="row line-item">
-			<p>You have no activities entered!  <%= link_to "Add One Now", new_activity_path %></p>
+		<div class="line-item row">
+			<h4>You have no activities entered!  <%= link_to "Add One Now", new_activity_path %></h4>
 		</div>
 	<% else %>
 		<% @activities.each do |activity| %>
-			<div class="row line-item">
-				<div class="span6">
-					<p><%= activity.organization %> (<%= display_date(activity.start_date) %>
-						<% if activity.start_date != activity.end_date %>
-							- <%= display_date(activity.end_date) %>
+			<div class="line-item">
+				<p class="description">
+					<%= activity.organization %> (<%= display_date(activity.start_date) %>
+					<% if activity.start_date != activity.end_date %>
+						- <%= display_date(activity.end_date) %>
+					<% end %>
+					)
+				</p>
+				<ul class="actions span2 pull-right">
+					<li><%= link_to edit_activity_path(activity) do %>
+							<i class="icon-search icon-edit"></i>
 						<% end %>
-					)</p>
-				</div>
-				<div class="span2">
-					<ul class="actions">
-						<li><%= link_to "Edit", edit_activity_path(activity) %></li>
-						<li><%= link_to "Tag", edit_activity_path(activity) %></li>
-						<li><%= link_to "Delete", activity_path(activity), confirm: 'Are you sure?' 	, method: :delete %></li>
-					</ul>
-				</div>
+					</li>
+					<li><%= link_to edit_activity_path(activity) do %>
+							<i class="icon-search icon-tag"></i>
+						<% end %>
+					</li>
+					<li><%= link_to activity_path(activity), confirm: 'Are you sure?' 	, method: :delete do %>
+							<i class="icon-search icon-trash"></i>
+						<% end %>
+					</li>
+				</ul>
+				<ul class="tag-list">
+					<% activity.tags.each do |t| %>
+						<%= render 'tag_list', :t => t %>
+					<% end %>
+				</ul>
 			</div>
 		<% end %>
 	<% end %>

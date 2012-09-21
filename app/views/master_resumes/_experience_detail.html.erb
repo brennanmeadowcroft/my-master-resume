@@ -1,20 +1,29 @@
-<div class="row">
-	<div class="span6">
-		<li><%= exp.description %> 
-			<br />
-			<div class="tag-list">
-				<% exp.tags.each do |t| %>
-					<%= render 'tag_list', :t => t %>
-				<% end %>
-			</div>
-		</li>
-	</div>
-	<div class="span2">
-		<ul class="actions">
-			<li><%= link_to "Edit", edit_experience_path(exp.id) %></li>
-			<li><%= link_to "Tag", edit_experience_path(exp) %></li>
-			<li><%= link_to "Delete", experience_path(exp), 
-				confirm: 'Are you sure?', method: :delete %></li>
-		</ul>
-	</div>
-</div>
+<ul>
+	<% job[:experience].each do |exp| %>
+		<div class="experience-item row">
+			<li class="experience-description span6"><%= exp.description %>
+				<ul>
+					<div class="tag-list">
+						<% exp.tags.each do |t| %>
+							<%= render 'tag_list', :t => t %>
+						<% end %>
+					</div>
+				</ul>
+			</li>
+			<ul class="actions span2 pull-right">
+				<li><%= link_to edit_experience_path(exp.id) do %>
+						<i class="icon-search icon-edit"></i>
+					<% end %>
+				</li>
+				<li><%= link_to edit_experience_path(exp) do %>
+						<i class="icon-search icon-tag"></i>
+					<% end %>
+				</li>
+				<li><%= link_to experience_path(exp), confirm: 'Are you sure?' 	, method: :delete do %>
+						<i class="icon-search icon-trash"></i>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+	<% end %>
+</ul>

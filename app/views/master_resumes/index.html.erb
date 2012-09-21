@@ -1,20 +1,16 @@
 <% provide(:title, "#{current_user.first_name}'s Master Resume") %>
-<div class="row">
-	<div class="span11 offset1">
-		<div class="row">
-			<h1><%= current_user.first_name %>'s Master Resume</h1>
-			<p>This is a collection of all your experiences related to your career.  From 		here, you can tag, edit or delete any line item.</p>
-			<hr />
-		</div>
-		<div class="row background">
+<div class="master-resume row">
+	<div class="master-resume-content span11 offset1">
+		<h1><%= current_user.first_name %>'s Master Resume</h1>
+		<p>This is a collection of all your experiences related to your career.  From 		here, you can tag, edit or delete any line item.</p>
+		<hr />
+		<div class="background row">
 			<div class="resume box-shadow">
-				<div class="offset1">
-					<%= render 'experiences' %>
-					<%= render 'education' %>
-					<%= render 'awards' %>
-					<%= render 'skills' %>
-					<%= render 'activities' %>
-				</div>
+				<%= render 'positions' %>
+				<%= render 'education' %>
+				<%= render 'awards' %>
+				<%= render 'skills' %>
+				<%= render 'activities' %>
 			</div>
 		</div>
 	</div>

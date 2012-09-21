@@ -1,23 +1,37 @@
-<div class="row new-section">
-	<h3 class="section-header">Skills</h3>
-	<p class="add-new"><%= link_to "(Add New Skill)", new_skill_path %></p>
+<div class="new-section row">
+	<div class="new-section-header">
+		<h2>Skills</h2>
+		<%= link_to "Add New Skill", new_skill_path, :class=> "add-new btn btn-small pull-right" %>
+	</div>
 	<% if @skills.nil? %>
-		<div class="row line-item">
-			<p>You have no skills entered!  <%= link_to "Add One Now", new_skill_path %></p>
+		<div class="line-item row">
+			<h4>You have no skills entered!  <%= link_to "Add One Now", new_skill_path %></h4>
 		</div>
 	<% else %>
 		<% @skills.each do |skill| %>
-			<div class="row line-item">
-				<div class="span6">
-					<p><%= skill.description %></p>
-				</div>
-				<div class="span2">
-					<ul class="actions">
-						<li><%= link_to "Edit", edit_skill_path(skill) %></li>
-						<li><%= link_to "Tag", edit_skill_path(skill) %></li>
-						<li><%= link_to "Delete", skill_path(skill), confirm: 'Are you sure?', method: :delete %></li>
-					</ul>
-				</div>
+			<div class="line-item">
+				<p class="description">
+					<%= skill.description %>
+				</p>
+				<ul class="actions span2 pull-right">
+					<li><%= link_to edit_skill_path(skill) do %>
+							<i class="icon-search icon-edit"></i>
+						<% end %>
+					</li>
+					<li><%= link_to edit_skill_path(skill) do %>
+							<i class="icon-search icon-tag"></i>
+						<% end %>
+					</li>
+					<li><%= link_to skill_path(skill), confirm: 'Are you sure?', method: :delete do %>
+							<i class="icon-search icon-trash"></i>
+						<% end %>
+					</li>
+				</ul>
+				<ul class="tag-list">
+					<% skill.tags.each do |t| %>
+						<%= render 'tag_list', :t => t %>
+					<% end %>
+				</ul>
 			</div>
 		<% end %>
 	<% end %>
