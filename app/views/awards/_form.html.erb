@@ -22,11 +22,16 @@
             </div>
         </div>
         <div class="span4">
-            <h4>Choose Tags</h4>
-            <% @tags.each do |tag| %>
-                <%= check_box_tag "award[tag_ids][]", tag.id, @award.tags.include?(tag) %>
-                <%= tag.description %>
-            <% end %>
+            <h3>Choose Tags</h3>
+            <%= check_box_tag "select_all" %> Select All
+            <ul>
+                <% @tags.each do |tag| %>
+                    <li>
+                        <%= check_box_tag "award[tag_ids][]", tag.id, @award.tags.include?(tag), :class => "checkbox" %>
+                        <%= tag.description %>
+                    </li>
+                <% end %>
+            </ul>
             <p><%= link_to "Create A New Tag", new_tag_path %></p>
         </div>
     </div>

@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+	$("#select_all").click(function() {
+		$(".checkbox").attr("checked", true);
+	});
+});
