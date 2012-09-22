@@ -1,6 +1,6 @@
 class BetaRequestsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_filter :admin_user
+  before_filter :admin_user, only: [:index, :edit, :update, :destroy]
 
   # GET /beta_requests
   # GET /beta_requests.json
