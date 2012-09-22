@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %>| My Master Resume :: Resume Customization &amp; Optimization</title>
+   <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/analytics' %>
+</head>
+<body>
+	<div class="navbar bm-nav">
+		<div class="container">
+			<div class="bm-brand">
+				<%= link_to root_path do %>
+					<%= image_tag "Logo.png", :width => 250 %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<%= yield %>
+		<%= debug(params) if Rails.env.development? %>
+	</div>
+</body>
+</html>

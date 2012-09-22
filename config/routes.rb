@@ -1,4 +1,8 @@
 ResumeApp::Application.routes.draw do
+  get "errors/error_404"
+
+  get "errors/error_500"
+
   resources :tags
   resources :users
   resources :resumes
@@ -61,6 +65,11 @@ ResumeApp::Application.routes.draw do
   match 'static_pages/contact_form', to: 'static_pages#contact_form'
   match '/privacy_policy', to: 'static_pages#privacy_policy', :as => "privacy"
   match '/terms_of_service', to: 'static_pages#terms_of_service', :as => "terms"
+
+
+  #unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

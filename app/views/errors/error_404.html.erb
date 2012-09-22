@@ -1,0 +1,21 @@
+<div class="error-title row">
+	<h1>Hmm... that's interesting... We have no idea what you're asking for...</h1>
+</div>
+<div class="error-body row">
+	<div class="error-image span5">
+		<%= image_tag "paper-hole1.png", :width => 400 %>
+	</div>
+	<div class="error-suggestions span6">
+		<h3>But maybe we can help you find your way; were you looking for?</h3>
+		<ul>
+			<li><%= link_to "The My Master Resume homepage?", root_path %></li>
+			<li><%= link_to "The Features page?", features_path %></li>
+			<li><%= link_to "Signing up for the beta?", request_invite_path %></li>
+			<li><%= link_to "Access your resumes?", resumes_path %></li>
+			<li><%= link_to "Signing in?", signin_path %></li>
+			<% if !current_user.nil? %>
+				<li><%= link_to "Get into your account?", users_path(current_user) %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="error-title row">
+	<h1>We must have spilt the coffee on the keyboard or something...</h1>
+</div>
+<div class="error-body row">
+	<div class="error-image span5">
+		<%= image_tag "spilled-coffee.png", :width => 400 %>
+	</div>
+	<div class="error-suggestions span6">
+		<h3>...because something broke!</h3>
+		<p>Why don't you try a different link while we go get another cup?</p>
+		<ul>
+			<li><%= link_to "My Master Resume homepage", root_path %></li>
+			<li><%= link_to "Learn About the Features", features_path %></li>
+			<li><%= link_to "Sign Up for the Beta", request_invite_path %></li>
+			<li><%= link_to "Check out your Resumes", resumes_path %></li>
+			<li><%= link_to "Sign In", signin_path %></li>
+			<% if !current_user.nil? %>
+				<li><%= link_to "Get into your account?", users_path(current_user) %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
