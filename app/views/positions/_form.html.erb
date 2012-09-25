@@ -36,6 +36,10 @@
                 <%= f.label :end_date %><br />
                 <%= f.date_select :end_date, :start_year => 1980 %>
             </div>
+            <div class="field">
+                <%= f.label "I currently work here:" %><br />
+                <%= f.check_box :current %>
+            </div>
         </div>
     </div>
     <div class="row">

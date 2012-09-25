@@ -1,6 +1,6 @@
 class Position < ActiveRecord::Base
-  	attr_accessible :city, :company, :end_date, :start_date, :state, :title, :user_id, 
-  					:experiences_attributes
+  	attr_accessible :city, :company, :current, :end_date, :start_date, :state, :title, 
+  					:user_id, :experiences_attributes
 
 # Associations
  	has_many :experiences, dependent: :destroy

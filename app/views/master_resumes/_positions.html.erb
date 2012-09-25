@@ -11,7 +11,7 @@
 		<% @positions.each do |job| %>
 			<div class="line-item line-item-position">
 				<h4 class="description"><%= job[:position].company %> - <%= job[:position].title %>, <%= job[:position].city %>, <%= job[:position].state %> (<%= display_date(job[:position].start_date) %> - 
-						<% if job[:position].start_date == job[:position].end_date || job[:position].end_date == Date.today %>
+						<% if job[:position].current %>
 							Current
 						<% else %>
 							<%= display_date(job[:position].end_date) %>
