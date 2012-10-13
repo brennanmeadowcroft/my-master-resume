@@ -36,4 +36,7 @@ ResumeApp::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+  # Allow Rails to serve static assets... like the resume styles
+  config.serve_static_assets = true
 end
