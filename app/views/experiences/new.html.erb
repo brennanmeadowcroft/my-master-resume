@@ -1,5 +1,5 @@
 <% provide(:title, "Create A New Experience") %>
 
-<h1>Create New Experience</h1>
+<h1>Create New Experience for <%= @experience.position.company %></h1>
 <%= link_to "I want to add a bunch of experiences at once...", experience_mass_add_path({ :pos => params[:pos] }) %>
 <%= render 'form' %>
