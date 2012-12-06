@@ -11,20 +11,20 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  def render_404(exception)
-    @not_found_path = exception.message
+    def render_404(exception)
+      @not_found_path = exception.message
 
-    respond_to do |format|
-      format.html { render template: 'errors/error_404', layout: 'layouts/error', status: 404 }
-      format.all { render nothing: true, status: 404 }
+      respond_to do |format|
+        format.html { render template: 'errors/error_404', layout: 'layouts/error', status: 404 }
+        format.all { render nothing: true, status: 404 }
+      end
     end
-  end
 
-  def render_500(exception)
-    @error = exception
-    respond_to do |format|
-      format.html { render template: 'errors/error_500', layout: 'layouts/error', status: 500 }
-      format.all { render nothing: true, status: 500}
+    def render_500(exception)
+      @error = exception
+      respond_to do |format|
+        format.html { render template: 'errors/error_500', layout: 'layouts/error', status: 500 }
+        format.all { render nothing: true, status: 500}
+      end
     end
-  end
 end

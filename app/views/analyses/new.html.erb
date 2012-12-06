@@ -1,0 +1,33 @@
+<% provide(:title, 'Prepare Your Analysis') %>
+
+ <div class="row">
+	<%= render 'resumes/sidebar' %>
+	<div class="span8">
+		<h1>Select Job Descriptions</h1>
+		<p>To get started, we need to know a bit more about how you want to analyze your resume.</p>
+		<p>We've took a guess at potential job titles you might want to consider.  Please choose a few below or, if none of those apply, tell us which ones you want to see.  Also, if you have a specific job in mind, you can add that job description.</p>
+		<%= form_tag("/analysis/new", :method => :post) do %>
+			<h2>Suggested Job Titles</h2>
+			<div class="field">
+				<% @job_titles.each do |j| %>
+	                <%= j.check_box(:job_description_id) %> <%= label(:job_description_id, :job_title) %>
+				<% end %>
+			</div>
+			<h2>Custom Job Titles</h2>
+			<div class="field">
+				<%= label_tag :custom_title, "Choose Specific Titles (Separated with a comma)" %>
+				<%= text_field_tag :custom_title %>
+			</div>
+			<h2>Specific Job Description</h2>
+			<div class="field">
+				<% current_user.job_descriptions.each do |c| %>
+	                <%= c.check_box(:job_description_id) %> <%= label(:job_description_id, :job_title) %>
+				<% end %>
+			</div>
+			<p>Have a job in mind?  <%= link_to "Add Its Description", "#" %></p>
+			<div class="actions">
+				<%= submit_tag "Submit" %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -21,6 +21,7 @@ class Resume < ActiveRecord::Base
   attr_accessible :address, :city, :description, :email, :middle_name, :phone, :style_id, :tag_id, 
   					:user_id, :website
 
+  has_many :analyses, dependent: :destroy
   belongs_to :user
   belongs_to :tag
   belongs_to :style

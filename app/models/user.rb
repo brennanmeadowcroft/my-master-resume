@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   has_many :education, dependent: :destroy
   has_many :positions, dependent: :destroy
   has_many :skills, dependent: :destroy
+  has_many :analyses, dependent: :destroy
   belongs_to :beta_codes
 
 # Callbacks

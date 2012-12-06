@@ -3,9 +3,17 @@
 	<head>
 		<title><%= yield(:title) %> | My Master Resume</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= stylesheet_link_tag yield(:screen_style), :media => "screen" %>
-		<%= stylesheet_link_tag yield(:print_style), :media => "print" %>
+		<% if content_for?(:screen_style) %>
+			<%= stylesheet_link_tag yield(:screen_style), :media => "screen" %>
+		<% end %>
+		<% if content_for?(:print_style) %>
+			<%= stylesheet_link_tag yield(:print_style), :media => "print" %>
+		<% end %>
 		<%= javascript_include_tag "application" %>
+			<%= javascript_include_tag "https://www.google.com/jsapi" %>
+			<script type="text/javascript">
+				<%= yield :frequency_distribution %>
+			</script>
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/analytics' %>
 		<script type="text/javascript" src="http://platform.linkedin.com/in.js">

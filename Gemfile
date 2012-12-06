@@ -12,6 +12,7 @@ gem 'linkedin', '~>0.3.7'
 gem 'oauth', '~>0.4.7'
 gem 'omniauth', '~>1.1.1'
 gem 'omniauth-linkedin', '~>0.0.8'
+gem 'google_visualr', '>= 2.1'
 
 
 # Bundle edge Rails instead:
