@@ -6,6 +6,7 @@ class Position < ActiveRecord::Base
  	has_many :experiences, dependent: :destroy
  	accepts_nested_attributes_for :experiences, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
  	has_many :tags, :through => :experiences
+ 	has_many :skills, :through => :experiences
   	belongs_to :user
 
 # Validations

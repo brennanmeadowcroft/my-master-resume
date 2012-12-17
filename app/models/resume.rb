@@ -19,11 +19,12 @@
 
 class Resume < ActiveRecord::Base
   attr_accessible :address, :city, :description, :email, :middle_name, :phone, :style_id, :tag_id, 
-  					:user_id, :website
+  					:user_id, :website, :skill_id
 
   has_many :analyses, dependent: :destroy
   belongs_to :user
   belongs_to :tag
+  belongs_to :skill
   belongs_to :style
 
   def get_user_info

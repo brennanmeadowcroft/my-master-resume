@@ -42,17 +42,32 @@
             </div>
         </div>
         <div class="span4">
-            <h3>Choose Tags</h3>
-            <%= check_box_tag "select_all" %> Select All
-            <ul>
-                <% @tags.each do |tag| %>
-                    <li>
-                        <%= check_box_tag "education[tag_ids][]", tag.id, @education.tags.include?(tag), :class => "checkbox" %>
-                        <%= tag.description %>
-                    </li>
-                <% end %>
-            </ul>
-            <p><%= link_to "Create A New Tag", new_tag_path %></p>
+            <div class="row">
+                <h3>Choose Tags</h3>
+                <%= check_box_tag "select_all_tags" %> Select All
+                <ul>
+                    <% @tags.each do |tag| %>
+                        <li>
+                            <%= check_box_tag "education[tag_ids][]", tag.id, @education.tags.include?(tag), :class => "tag_checkbox" %>
+                            <%= tag.description %>
+                        </li>
+                    <% end %>
+                </ul>
+                <p><%= link_to "Create A New Tag", new_tag_path %></p>
+            </div>
+            <div class="row">
+                <h3>Choose Skills</h3>
+                <%= check_box_tag "select_all_skills" %> Select All
+                <ul>
+                    <% @skills.each do |skill| %>
+                        <li>
+                            <%= check_box_tag "education[skill_ids][]", skill.id, @education.skills.include?(skill), :class => "skill_checkbox" %>
+                            <%= skill.description %>
+                        </li>
+                    <% end %>
+                </ul>
+                <p><%= link_to "Create A New Skill", new_skill_path %></p>
+            </div>
         </div>
     </div>
     <div class="row">

@@ -51,6 +51,8 @@ ResumeApp::Application.routes.draw do
 
   match 'resumes/:id/export', to: 'resumes#export', :as => "export_resume"
   match 'resumes/:id/analyze', to: 'resumes#analyze', :as => "analyze_resume"
+  match 'resumes/:id/map', to: 'resumes#map', :as => "map_resume"
+  match 'resumes/:id/get_map_data', to: 'resumes#get_map_data', :as => "get_map_data"
   match 'styles/:id/set_base_style', to: 'styles#set_base_style', :as => "set_base_style", :via => :post
 
   match 'experiences/mass_add', to: 'experiences#mass_add', :as => "experience_mass_add"

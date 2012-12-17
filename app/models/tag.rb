@@ -16,7 +16,7 @@ class Tag < ActiveRecord::Base
     has_and_belongs_to_many :awards
     has_and_belongs_to_many :education
     has_and_belongs_to_many :experiences
-    has_many :positions, :through => :experiences
+    has_many :positions, :through => :experiences, :uniq => true
     has_and_belongs_to_many :skills
     has_many :resumes
     belongs_to :user

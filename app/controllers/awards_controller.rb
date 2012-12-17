@@ -22,6 +22,7 @@ class AwardsController < ApplicationController
 	def new
 		@award = Award.new
 		@tags = current_user.tags
+		@skills = current_user.skills
 
 		respond_to do |format|
 			format.html
@@ -32,6 +33,7 @@ class AwardsController < ApplicationController
 	def create
 		@award = current_user.award.new(params[:award])
 		params[:award][:tag_ids] ||= []
+		params[:award][:skill_ids] ||= []
 		@tags = current_user.tags
 
 		respond_to do |format|
@@ -112,6 +114,7 @@ class AwardsController < ApplicationController
 	def edit
 		@award = Award.find(params[:id])
 		@tags = current_user.tags
+		@skills = current_user.skills
 	end
 
 	def update

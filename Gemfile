@@ -13,7 +13,7 @@ gem 'oauth', '~>0.4.7'
 gem 'omniauth', '~>1.1.1'
 gem 'omniauth-linkedin', '~>0.0.8'
 gem 'google_visualr', '>= 2.1'
-
+gem 'rabl'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

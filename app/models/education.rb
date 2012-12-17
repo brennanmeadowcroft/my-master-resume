@@ -17,10 +17,11 @@
 
 class Education < ActiveRecord::Base
 	attr_accessible :city, :degree, :end_date, :major, :school, :start_date, :state, 
-					:user_id, :tag_ids
+					:user_id, :tag_ids, :skill_ids
 
 #	has_many :tags, :through => :education_tag
 	has_and_belongs_to_many :tags
+	has_and_belongs_to_many :skills
 	belongs_to :user
 
 # Validations

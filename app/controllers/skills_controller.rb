@@ -6,7 +6,7 @@ class SkillsController < ApplicationController
 
 		respond_to do |format|
 			format.html
-			format.json { render json: @skills }
+			format.json
 		end
 	end
 
@@ -15,7 +15,6 @@ class SkillsController < ApplicationController
 
 		respond_to do |format|
 			format.html
-			format.json { render json: @skill }
 		end
 	end
 

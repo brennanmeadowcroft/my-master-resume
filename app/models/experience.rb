@@ -11,13 +11,14 @@
 #
 
 class Experience < ActiveRecord::Base
-  	attr_accessible :description, :position_id, :tag_ids
+  	attr_accessible :description, :position_id, :tag_ids, :skill_ids
 
 # Associations
 #	has_and_belongs_to_many :tags
   	belongs_to :position
 
   	has_and_belongs_to_many :tags
+  	has_and_belongs_to_many :skills
 
 # Validations
 	validates :description, :presence => true

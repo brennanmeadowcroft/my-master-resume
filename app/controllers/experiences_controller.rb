@@ -18,6 +18,7 @@ class ExperiencesController < ApplicationController
 		@position_id = pos.id.to_i
 		@experience = pos.experiences.new
 		@tags = current_user.tags
+		@skills = current_user.skills
 
 		respond_to do |format|
 			format.html
@@ -43,6 +44,7 @@ class ExperiencesController < ApplicationController
 		# For each item in the array, 
 
 		params[:experience][:tag_ids] ||= []
+		params[:experience][:skill_ids] ||= []
 
 		respond_to do |format|
 			if @experience.save
@@ -92,6 +94,7 @@ class ExperiencesController < ApplicationController
 		@experience = Experience.find(params[:id])
 		@position_id = @experience.position_id
 		@tags = current_user.tags
+		@skills = current_user.skills
 	end
 
 	def update

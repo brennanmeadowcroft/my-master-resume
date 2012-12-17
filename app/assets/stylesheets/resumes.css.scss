@@ -37,3 +37,18 @@
 		}
 	}
 }
+
+#options {
+	ul {
+		margin-left: 0;
+	}
+	li {
+		margin-left: 20px;
+		list-style-type: none;
+		display: inline;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}

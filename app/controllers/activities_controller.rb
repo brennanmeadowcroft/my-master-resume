@@ -22,6 +22,7 @@ class ActivitiesController < ApplicationController
 	def new
 		@activity = Activity.new
 		@tags = current_user.tags
+		@skills = current_user.skills
 
 		respond_to do |format|
 			format.html
@@ -32,6 +33,7 @@ class ActivitiesController < ApplicationController
 	def create
 		@activity = current_user.activities.new(params[:activity])
 		params[:activity][:tag_ids] ||= []
+		params[:activity][:skill_ids] ||= []
 
 		respond_to do |format|
 			if @activity.save
@@ -107,6 +109,7 @@ class ActivitiesController < ApplicationController
 	def edit
 		@activity = Activity.find(params[:id])
 		@tags = current_user.tags
+		@skills = current_user.skills
 	end
 
 	def update

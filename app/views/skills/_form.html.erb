@@ -19,11 +19,11 @@
         </div>
         <div class="span4">
             <h3>Tag This Skill</h3>
-            <%= check_box_tag "select_all" %> Select All
+            <%= check_box_tag "select_all_tags" %> Select All
             <ul>
                 <% @tags.each do |tag| %>
                     <li>
-                        <%= check_box_tag "skill[tag_ids][]", tag.id, @skill.tags.include?(tag), :class => "checkbox" %>
+                        <%= check_box_tag "skill[tag_ids][]", tag.id, @skill.tags.include?(tag), :class => "tag_checkbox" %>
                         <%= tag.description %>
                     </li>
                 <% end %>

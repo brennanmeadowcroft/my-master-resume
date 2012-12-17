@@ -29,7 +29,6 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @data }
     end
   end
 
@@ -41,8 +40,8 @@ class ResumesController < ApplicationController
     @tags = current_user.tags
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @resume }
+      format.html
+      format.json { render :partial => "resumes/show.json" }
     end
   end
 
@@ -175,6 +174,33 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       format.html
+    end
+  end
+
+  def map
+    @resume = Resume.find(params[:id])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def get_map_data
+    @resume = Resume.find(params[:id])
+#    @tag = Tag.find(@resume.tag_id)
+
+#    map = Array.new
+#    map += tag.awards
+#    map += tag.activities
+#    map += tag.education
+#    map += tag.positions
+
+#    sorted_map = map.sort_by(&:start_date)
+
+@map_data = Analysis.map_json(@resume.tag_id)
+
+    respond_to do |format|
+      format.json
     end
   end
 

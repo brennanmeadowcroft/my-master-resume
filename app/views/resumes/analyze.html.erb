@@ -1,12 +1,25 @@
 <% provide(:title, @resume[:description]) %>
 <% provide(:frequency_distribution, frequency_distribution_chart(@frequency_array)) %>
- <div class="row">
+
+
+<div class="row">
 	<%= render 'resumes/sidebar' %>
 	<div class="span8">
 		<h1>Your Resume, Broken Down...</h1>
-		<p>We have broken down all the content on your resume into a frequency distribution, making it easy to see which words you use most frequently.  Hover over the bar to get more information about that word.</p>
-		<p>One way to determine how well your resume stacks up is to <%= link_to "compare the keywords to your target job descriptions", "#" %>.</p>
-		<div id='chart'></div>
-		<%= render_chart(@chart, 'chart') %>
+
+		<ul class="nav nav-pills" id="myTab">
+			<li class="active"><a href="#chart" data-toggle="tab">Chart</a></li>
+			<li><a href="#map" data-toggle="tab">Map</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane active" id="chart">
+				<p>Look at the words you use in your resume to identify the ones used most frequently.</p>
+				<div id='chart'></div>
+				<%= render_chart(@chart, 'chart') %>
+			</div>
+			<div class="tab-pane" id="map">
+				<%= render 'map' %>
+			</div>
+		</div>
 	</div>
 </div>

@@ -13,7 +13,14 @@ class Skill < ActiveRecord::Base
   	attr_accessible :description, :user_id, :tag_ids
 
 # Associations
-	has_and_belongs_to_many :tags
+	has_and_belongs_to_many :activities
+    has_and_belongs_to_many :awards
+    has_and_belongs_to_many :education
+    has_and_belongs_to_many :experiences
+    has_many :positions, :through => :experiences
+    has_and_belongs_to_many :tags
+    has_many :resumes
+    belongs_to :user
 
 # Validations
 	# validates :description, :presence => true

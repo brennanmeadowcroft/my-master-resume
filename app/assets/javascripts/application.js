@@ -10,13 +10,16 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require_tree .
 
 $(document).ready(function() {
-	$("#select_all").click(function() {
-		$(".checkbox").attr("checked", true);
+	$("#select_all_tags").click(function() {
+		$(".tag_checkbox").attr("checked", true);
+	});
+	$("#select_all_skills").click(function() {
+		$(".skill_checkbox").attr("checked", true);
 	});
 });

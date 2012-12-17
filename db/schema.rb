@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024043248) do
+ActiveRecord::Schema.define(:version => 20121215233553) do
+
+  create_table "actitivites_skills", :id => false, :force => true do |t|
+    t.integer "skill_id"
+    t.integer "activity_id"
+  end
 
   create_table "activities", :force => true do |t|
     t.string   "organization"
@@ -21,6 +26,11 @@ ActiveRecord::Schema.define(:version => 20121024043248) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "user_id"
+  end
+
+  create_table "activities_skills", :id => false, :force => true do |t|
+    t.integer "skill_id"
+    t.integer "activity_id"
   end
 
   create_table "activities_tags", :id => false, :force => true do |t|
@@ -48,6 +58,11 @@ ActiveRecord::Schema.define(:version => 20121024043248) do
     t.datetime "date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "awards_skills", :id => false, :force => true do |t|
+    t.integer "skill_id"
+    t.integer "award_id"
   end
 
   create_table "awards_tags", :id => false, :force => true do |t|
@@ -83,6 +98,11 @@ ActiveRecord::Schema.define(:version => 20121024043248) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "education_skills", :id => false, :force => true do |t|
+    t.integer "skill_id"
+    t.integer "education_id"
+  end
+
   create_table "education_tags", :id => false, :force => true do |t|
     t.integer "tag_id"
     t.integer "education_id"
@@ -93,6 +113,11 @@ ActiveRecord::Schema.define(:version => 20121024043248) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "experiences_skills", :id => false, :force => true do |t|
+    t.integer "skill_id"
+    t.integer "experience_id"
   end
 
   create_table "experiences_tags", :id => false, :force => true do |t|

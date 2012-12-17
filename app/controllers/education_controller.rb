@@ -22,6 +22,7 @@ class EducationController < ApplicationController
   def new
     @education = Education.new
     @tags = current_user.tags
+    @skills = current_user.skills
 
     respond_to do |format|
       format.html
@@ -32,6 +33,7 @@ class EducationController < ApplicationController
   def create
     @education = current_user.education.new(params[:education])
     params[:education][:tag_ids] ||= []
+    params[:education][:skill_ids] ||= []
 
     respond_to do |format|
       if @education.save
@@ -125,6 +127,7 @@ class EducationController < ApplicationController
   def edit
     @education = Education.find(params[:id])
     @tags = current_user.tags
+    @skills = current_user.skills
   end
 
   def update

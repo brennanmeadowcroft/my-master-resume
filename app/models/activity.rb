@@ -13,10 +13,11 @@
 #
 
 class Activity < ActiveRecord::Base
-  	attr_accessible :end_date, :organization, :position, :start_date, :user_id, :tag_ids
+  	attr_accessible :end_date, :organization, :position, :start_date, :user_id, :tag_ids, :skill_ids
 
 # Associations
 	has_and_belongs_to_many :tags
+	has_and_belongs_to_many :skills
   	belongs_to :user
 
 # Validations
