@@ -21,8 +21,8 @@ test:
 production:
   adapter: mysql2
   database: mymaster_production
-#  username: mymaster_mmr
-#  password: bm3ad0wcr0ft
-  username: root
-  password: ''
+  username: mymaster_mmr
+  password: bm3ad0wcr0ft
+#  username: root
+#  password: ''
   hostname: localhost

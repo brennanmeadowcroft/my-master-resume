@@ -15,3 +15,9 @@ doc/
 .project
 .DS_Store
 .idea
+
+# Ignore database information
+/config/database.yml
+
+# Ignore assets
+/app/assets/
