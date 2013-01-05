@@ -11,7 +11,8 @@
 #
 
 class Experience < ActiveRecord::Base
-  	attr_accessible :description, :position_id, :tag_ids, :skill_ids
+  	attr_accessible :description, :position_id, :tag_ids, :skill_ids, :skill_tokens, :tag_tokens
+    attr_reader :skill_tokens, :tag_tokens
 
 # Associations
 #	has_and_belongs_to_many :tags
@@ -24,11 +25,19 @@ class Experience < ActiveRecord::Base
 	validates :description, :presence => true
 	validates :position_id, :presence => true
 
-	# scope :by_tag, lambda do |tag|
- #    	joins(:experiences_tags).where('experiences_tags.tag_id = ?', tag) unless tag.nil?
- #  	end
+# scope :by_tag, lambda do |tag|
+#    	joins(:experiences_tags).where('experiences_tags.tag_id = ?', tag) unless tag.nil?
+#  	end
 
-  	def self.by_tag(tag_id)
-  		joins(:tags).where("tag_id = #{tag_id}")
-  	end
+	def self.by_tag(tag_id)
+		joins(:tags).where("tag_id = #{tag_id}")
+	end
+
+
+  def skill_tokens=(tokens)
+#   self.skill_ids = Skill.ids_from_tokens(tokens)
+  end
+
+  def tag_tokens=(tokens)
+  end
 end

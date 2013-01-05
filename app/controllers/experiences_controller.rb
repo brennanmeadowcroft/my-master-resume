@@ -1,4 +1,6 @@
 class ExperiencesController < ApplicationController
+	include ApplicationHelper
+	
 	before_filter :signed_in_user
 	
 	def index
@@ -39,12 +41,8 @@ class ExperiencesController < ApplicationController
 		@position = Position.find(params[:experience][:position_id])
 		@experience = @position.experiences.new(params[:experience])
 
-		# Parse the text into an array
-
-		# For each item in the array, 
-
-		params[:experience][:tag_ids] ||= []
-		params[:experience][:skill_ids] ||= []
+		@experience.tag_ids = parse_tags(params[:experience][:tag_tokens], 'Tag')
+		@experience.skill_ids = parse_tags(params[:experience][:skill_tokens], 'Skill')
 
 		respond_to do |format|
 			if @experience.save
@@ -100,7 +98,12 @@ class ExperiencesController < ApplicationController
 	def update
 		position = Position.find(params[:experience][:position_id])
 		@experience = position.experiences.find(params[:id])
+
 		params[:experience][:tag_ids] ||= []
+		params[:experience][:skill_ids] ||= []
+
+		params[:experience][:tag_ids] = parse_tags(params[:experience][:tag_tokens], 'Tag')
+		params[:experience][:skill_ids] = parse_tags(params[:experience][:skill_tokens], 'Skill')
 
 		respond_to do |format|
 			if @experience.update_attributes(params[:experience])

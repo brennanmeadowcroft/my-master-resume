@@ -2,11 +2,11 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = current_user.tags.all
+    @tags = current_user.tags
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @tags }
+      format.json { render json: @tags.tokens(params[:q]) }
     end
   end
 

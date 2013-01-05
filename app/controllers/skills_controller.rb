@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+	include ApplicationHelper
+
 	before_filter :signed_in_user
 	
 	def index
@@ -6,7 +8,8 @@ class SkillsController < ApplicationController
 
 		respond_to do |format|
 			format.html
-			format.json
+			# Provide a JSON output for the token input fields
+			format.json { render json: @skills.tokens(params[:q]) }
 		end
 	end
 
@@ -24,24 +27,23 @@ class SkillsController < ApplicationController
 
 		respond_to do |format|
 			format.html
-			format.json { render json: @skill }
+			format.js
 		end
 	end
 
 	def create
 		@skill = current_user.skills.new(params[:skill])
-		params[:skill][:tag_ids] ||= []
-#		@tags = current_user.tags
+		@skill.tag_ids = parse_tags(params[:skill][:tag_tokens], 'Tag')
 
 		respond_to do |format|
 			if @skill.save
 				flash[:success] = "Skill was successfully created!"
 				format.html { redirect_to master_resumes_url }
-				format.json { render json: @skill, status: :created, location: @skill }
+				format.js
 			else 
 				flash.now[:error] = "There was an error saving your skill."
 				format.html { render action: "new" }
-				format.json { render json: master_resumes_url, status: :unprocessable_entity }
+				format.js { render action: "new" }
 			end
 		end
 	end
@@ -104,8 +106,9 @@ class SkillsController < ApplicationController
 
 	def update
 		@skill = Skill.find(params[:id])
+		
 		params[:skill][:tag_ids] ||= []
-#		@tags = current_user.tags
+		params[:skill][:tag_ids] = parse_tags(params[:skill][:tag_tokens], 'Tag')
 
 		respond_to do |format|
 			if @skill.update_attributes(params[:skill])

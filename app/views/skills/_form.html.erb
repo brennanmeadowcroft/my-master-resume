@@ -10,28 +10,22 @@
             </ul>
         </div>
     <% end %>
-    <div class="row">
-        <div class="span4">
-            <div class="field">
-                <%= f.label :description %><br />
-                <%= f.text_field :description %>
-            </div>
-        </div>
-        <div class="span4">
-            <h3>Tag This Skill</h3>
-            <%= check_box_tag "select_all_tags" %> Select All
-            <ul>
-                <% @tags.each do |tag| %>
-                    <li>
-                        <%= check_box_tag "skill[tag_ids][]", tag.id, @skill.tags.include?(tag), :class => "tag_checkbox" %>
-                        <%= tag.description %>
-                    </li>
-                <% end %>
-            </ul>
-            <p><%= link_to "Create A New Tag", new_tag_path %></p>
+    <div class="item-form">
+        <div class="organization">
+            <%= f.label :description %><br />
+            <%= f.text_field :description %>
         </div>
     </div>
-    <div class="row">
+
+
+    <div class="item-tags">
+        <h3><i class="icon-plus icon-white"></i>Choose Tags</h3>
+        <div class="tag-field">
+            <%= f.text_field :tag_tokens, data: { load: @skill.tags } %>
+        </div>
+    </div>
+
+    <div class="item-buttons">
         <%= f.submit "Save", :class => 'btn-large btn-primary' %>
         <%= link_to "Cancel", master_resumes_url %>
     </div>

@@ -17,7 +17,8 @@
 
 class Education < ActiveRecord::Base
 	attr_accessible :city, :degree, :end_date, :major, :school, :start_date, :state, 
-					:user_id, :tag_ids, :skill_ids
+					:user_id, :tag_ids, :skill_ids, :skill_tokens, :tag_tokens
+  	attr_reader :skill_tokens, :tag_tokens
 
 #	has_many :tags, :through => :education_tag
 	has_and_belongs_to_many :tags
@@ -39,4 +40,12 @@ class Education < ActiveRecord::Base
 			self.end_date = self.start_date
 		end
 	end
+
+	
+	def skill_tokens=(tokens)
+#        self.skill_ids = Skill.ids_from_tokens(tokens)
+    end
+
+    def tag_tokens=(tokens)
+    end
 end

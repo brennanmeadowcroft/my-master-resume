@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "overrides";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 
 /* User List */
 .users {
@@ -47,3 +49,94 @@
 	width: 130px;
 }
 
+
+.item-form, .item-skills, .item-tags {
+	margin-bottom: 20px;
+}
+
+.item-form {
+	@include makeRow();
+	@include makeColumn(9);
+	margin-top: 15px;
+
+	label {
+		margin-bottom: 0;
+		margin-top: 5px;
+		padding: 0;
+		font-weight: bold;
+	}
+
+	input, select {
+		margin-top: -15px;
+	}
+
+	input {
+		width: 90%;
+	}
+
+	.uf-name {
+		@include makeRow();
+
+		.uf-first-name, .uf-middle-name, .uf-last-name {
+			@include makeColumn(3);
+		}
+	}
+
+	.uf-mailing-address, .uf-contact-info {
+		@include makeRow();
+		margin-top: 30px;
+	}
+	.uf-mailing-address {
+		.uf-address-1 {
+			@include makeColumn(6);
+		}
+
+		.uf-address-2 {
+			@include makeColumn(3);
+		}
+	}
+	.uf-location {
+		@include makeRow();
+
+		.uf-city {
+			@include makeColumn(5);
+		}
+
+		.uf-state {
+			@include makeColumn(2);
+		}
+
+		.uf-zip {
+			@include makeColumn(2);
+
+			input {
+				width: 86%;
+			}
+		}
+	}
+
+	.uf-contact-info {
+		.uf-phone {
+			@include makeColumn(2);
+		}
+		.uf-website {
+			@include makeColumn(7);
+
+			input {
+				width: 97%;
+			}
+		}
+		.uf-email {
+			@include makeRow();
+			@include makeColumn(9);
+
+			input {
+				width: 98%;
+			}
+		}
+	}
+}
+
+.uf-buttons {
+	@include makeColumn(9);
+}

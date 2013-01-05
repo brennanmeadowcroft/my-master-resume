@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+	include ApplicationHelper
+
 	before_filter :signed_in_user
 	
 	def index
@@ -32,12 +34,13 @@ class ActivitiesController < ApplicationController
 
 	def create
 		@activity = current_user.activities.new(params[:activity])
-		params[:activity][:tag_ids] ||= []
-		params[:activity][:skill_ids] ||= []
+
+		@activity.tag_ids = parse_tags(params[:activity][:tag_tokens], 'Tag')
+		@activity.skill_ids = parse_tags(params[:activity][:skill_tokens], 'Skill')
 
 		respond_to do |format|
 			if @activity.save
-				flash[:success] = "Activity was successfully updated!"
+				flash[:success] = "Activity was successfully created!"
 				format.html { redirect_to master_resumes_url }
 				format.json { render json: @activity, status: :created, location: @activity }
 			else 
@@ -58,8 +61,6 @@ class ActivitiesController < ApplicationController
 			redirect_to(@user)
 		elsif client.authorize_from_access(@user.linkedin_atoken, @user.linkedin_secret)
 			linkedin = client.profile(:fields => %w(associations))
-#raise linkedin.to_yaml
-#raise linkedin.honors.split(/[\n]/).to_yaml
 			@activities = Array.new
 			if !linkedin.associations.nil?
 				activities = linkedin.associations.split(/(,)/)
@@ -114,7 +115,12 @@ class ActivitiesController < ApplicationController
 
 	def update
 		@activity = Activity.find(params[:id])
+
 		params[:activity][:tag_ids] ||= []
+		params[:activity][:skill_ids] ||= []
+
+		params[:activity][:tag_ids] = parse_tags(params[:activity][:tag_tokens], 'Tag')
+		params[:activity][:skill_ids] = parse_tags(params[:activity][:skill_tokens], 'Skill')
 
 		respond_to do |format|
 			if @activity.update_attributes(params[:activity])

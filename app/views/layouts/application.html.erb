@@ -15,10 +15,11 @@
 		<% end %>
 		<%= javascript_include_tag "https://www.google.com/jsapi" %>
 		<%= javascript_include_tag "raphael-min.js" %>
-		<%= javascript_include_tag "jquery.qtip.min.js" %>
-		<script type="text/javascript">
-			<%= yield :frequency_distribution %>
-		</script>
+		<% if content_for?(:frequency_distribution) %>
+			<script type="text/javascript">
+				<%= yield :frequency_distribution %>
+			</script>
+		<% end %>
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/analytics' %>
 <!--		

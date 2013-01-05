@@ -1,3 +1,103 @@
-// Place all the styles related to the awards controller here.
+// Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "overrides";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+
+.item-form, .item-skills, .item-tags {
+	margin-bottom: 20px;
+}
+
+.item-form {
+	@include makeRow();
+	@include makeColumn(12);
+	margin-top: 15px;
+
+	label {
+		margin-bottom: 0;
+		margin-top: 5px;
+		padding: 0;
+		font-weight: bold;
+	}
+
+	input, select {
+		margin-top: -10px;
+	}
+
+	input {
+		width: 90%;
+	}
+
+	.description {
+		@include makeRow();
+	}
+}
+
+.item-dates {
+	@include makeRow();
+	margin-left: -40px;
+
+	.field {
+		@include makeColumn(6);
+		display: inline;
+
+		select {
+			width: 115px;
+		}
+	}
+}
+
+.item-tags, .item-skills {
+	@include makeRow();
+	@include makeColumn(12);
+
+	margin-left: -5px;
+
+
+	h3 {
+		padding: 5px;
+		background-color: $mmrGreen;
+		cursor: pointer;
+		color: $white;
+		width: 93%;
+
+		i {
+			padding-right: 5px;
+			margin-top: 4px;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 5px;
+
+		li {
+			display: inline-block;
+			width: 19%;
+
+			&:first-child {
+				font-weight: bold;
+			}
+			&:nth-child(-n+5) {
+				width: 19%;
+			}
+			&:nth-child(6), &:nth-child(4n+6) {
+				margin-left: 19.5%;
+			}
+		}
+	}
+}
+
+.item-buttons {}
+
+ul.token-input-list-facebook {
+	margin-top: 10px;
+	width: 873px;
+
+	li input {
+		width: 100%;
+	}
+}

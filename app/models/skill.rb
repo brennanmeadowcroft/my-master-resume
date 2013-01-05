@@ -10,7 +10,8 @@
 #
 
 class Skill < ActiveRecord::Base
-  	attr_accessible :description, :user_id, :tag_ids
+  	attr_accessible :description, :user_id, :tag_ids, :tag_tokens
+    attr_reader :tag_tokens
 
 # Associations
 	has_and_belongs_to_many :activities
@@ -25,4 +26,20 @@ class Skill < ActiveRecord::Base
 # Validations
 	# validates :description, :presence => true
 	# validates :user_id, :presence => true
+
+    def self.tokens(query)
+        skills = where("UPPER(description) like UPPER(?)", "%#{query}%")
+
+        if skills.empty?
+            [{id: "<<<#{query}>>>", description: "New: \"#{query}\""}]
+        else 
+            skills
+        end
+    end
+
+    def self.ids_from_tokens(tokens)
+    end
+
+    def tag_tokens=(tokens)
+    end
 end

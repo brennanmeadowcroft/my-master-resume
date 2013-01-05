@@ -10,28 +10,33 @@
             </ul>
         </div>
     <% end %>
-    <div class="row">
-        <div class="span4">
-            <div class="field">
-                <%= f.label :school %><br />
-                <%= f.text_field :school %>
-            </div>
-            <div class="field">
+    <div class="item-form">
+        <div class="school">
+            <%= f.label :school %><br />
+            <%= f.text_field :school %>
+        </div>
+        <div class="location">
+            <div class="city">
                 <%= f.label :city %><br />
                 <%= f.text_field :city %>
             </div>
-            <div class="field">
+            <div class="state">
                 <%= f.label :state %><br />
                 <%= f.text_field :state %>
             </div>
-            <div class="field">
+        </div>
+        <div class="degree-info">
+            <div class="degree">
                 <%= f.label :degree %><br />
                 <%= f.text_field :degree %>
             </div>
-            <div class="field">
+            <div class="major">
                 <%= f.label :major %><br />
                 <%= f.text_field :major %>
             </div>
+        </div>
+
+        <div class="item-dates">
             <div class="field">
                 <%= f.label :start_date %><br />
                 <%= f.date_select :start_date, :start_year => 1980 %>
@@ -41,36 +46,20 @@
                 <%= f.date_select :end_date, :start_year => 1980 %>
             </div>
         </div>
-        <div class="span4">
-            <div class="row">
-                <h3>Choose Tags</h3>
-                <%= check_box_tag "select_all_tags" %> Select All
-                <ul>
-                    <% @tags.each do |tag| %>
-                        <li>
-                            <%= check_box_tag "education[tag_ids][]", tag.id, @education.tags.include?(tag), :class => "tag_checkbox" %>
-                            <%= tag.description %>
-                        </li>
-                    <% end %>
-                </ul>
-                <p><%= link_to "Create A New Tag", new_tag_path %></p>
-            </div>
-            <div class="row">
-                <h3>Choose Skills</h3>
-                <%= check_box_tag "select_all_skills" %> Select All
-                <ul>
-                    <% @skills.each do |skill| %>
-                        <li>
-                            <%= check_box_tag "education[skill_ids][]", skill.id, @education.skills.include?(skill), :class => "skill_checkbox" %>
-                            <%= skill.description %>
-                        </li>
-                    <% end %>
-                </ul>
-                <p><%= link_to "Create A New Skill", new_skill_path %></p>
-            </div>
+    </div>
+    <div class="item-tags">
+        <h3><i class="icon-plus icon-white"></i>Choose Tags</h3>
+        <div class="tag-field">
+            <%= f.text_field :tag_tokens, data: { load: @education.tags } %>
         </div>
     </div>
-    <div class="row">
+    <div class="item-skills">
+        <h3><i class="icon-plus icon-white"></i>Choose Skills</h3>
+        <div class="skill-field">
+            <%= f.text_field :skill_tokens, data: { load: @education.skills } %>
+        </div>
+    </div>
+    <div class="item-buttons">
         <%= f.submit "Save", :class => 'btn-large btn-primary' %>
         <%= link_to "Cancel", master_resumes_url %>
     </div>

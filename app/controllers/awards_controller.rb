@@ -1,4 +1,6 @@
 class AwardsController < ApplicationController
+	include ApplicationHelper
+
 	before_filter :signed_in_user
 	
 	def index
@@ -32,9 +34,8 @@ class AwardsController < ApplicationController
 
 	def create
 		@award = current_user.award.new(params[:award])
-		params[:award][:tag_ids] ||= []
-		params[:award][:skill_ids] ||= []
-		@tags = current_user.tags
+		@award.tag_ids = parse_tags(params[:award][:tag_tokens], 'Tag')
+		@award.skill_ids = parse_tags(params[:award][:skill_tokens], 'Skill')
 
 		respond_to do |format|
 			if @award.save
@@ -120,6 +121,10 @@ class AwardsController < ApplicationController
 	def update
 		@award = Award.find(params[:id])
 		params[:award][:tag_ids] ||= []
+		params[:award][:skill_ids] ||= []
+
+		params[:award][:tag_ids] = parse_tags(params[:award][:tag_tokens], 'Tag')
+		params[:award][:skill_ids] = parse_tags(params[:award][:skill_tokens], 'Skill')
 
 		respond_to do |format|
 		  if @award.update_attributes(params[:award])

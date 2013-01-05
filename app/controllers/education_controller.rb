@@ -1,4 +1,6 @@
 class EducationController < ApplicationController
+  include ApplicationHelper
+  
   before_filter :signed_in_user
   
   def index
@@ -32,8 +34,9 @@ class EducationController < ApplicationController
 
   def create
     @education = current_user.education.new(params[:education])
-    params[:education][:tag_ids] ||= []
-    params[:education][:skill_ids] ||= []
+    @education.tag_ids = parse_tags(params[:education][:tag_tokens], 'Tag')
+    @education.skill_ids = parse_tags(params[:education][:skill_tokens], 'Skill')
+
 
     respond_to do |format|
       if @education.save
@@ -132,7 +135,12 @@ class EducationController < ApplicationController
 
   def update
     @education = Education.find(params[:id])
+
     params[:education][:tag_ids] ||= []
+    params[:education][:skill_ids] ||= []
+
+    params[:education][:tag_ids] = parse_tags(params[:education][:tag_tokens], 'Tag')
+    params[:education][:skill_ids] = parse_tags(params[:education][:skill_tokens], 'Skill')
 
     respond_to do |format|
       if @education.update_attributes(params[:education])
