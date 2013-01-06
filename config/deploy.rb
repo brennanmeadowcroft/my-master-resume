@@ -18,8 +18,8 @@ set :use_sudo,	false
 default_run_options[:pty] = true
 #ssh_options[:forward_agent] = true
 
-after 'deploy:update_code', 'deploy:assets:precompile'
-after 'deploy:create-_symlink', 'deploy:link_release_to_public'
+#after 'deploy:update_code', 'deploy:assets:precompile'
+after 'deploy:create_symlink', 'deploy:link_release_to_public'
 
 desc "deploy the precompiled assets"
 namespace :deploy do
@@ -60,11 +60,10 @@ namespace :deploy do
 		run "cd ~"
 
 		# remove the "current" directory under the application
-		run "rm -rf ~/#{current_path}"
+		run "rm -rf ~/#{current_path} && ln -sf ~/#{current_release} ~/#{current_path}"
 
 		# create a symlink between the most recent release and the "current" directory.
 		# Since "current/" was deleted in the previous step, it will create it
-		run "ln -sf ~/#{current_release} ~/#{current_path}"
 		
 		# Link the assets in the shared path to the current deployment's assets
 		run "ln -sf ~/#{shared_path}/assets ~/#{current_path}/public/assets"
