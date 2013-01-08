@@ -2,16 +2,16 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'date_validator'
+gem 'date_validator', '0.6.3'
 gem 'paperclip', '3.1.4'
-gem 'wicked_pdf'
+gem 'wicked_pdf', '0.8.0'
 gem 'wkhtmltopdf-binary', '~>0.9.9.1'
 gem 'linkedin', '~>0.3.7'
 gem 'oauth', '~>0.4.7'
 gem 'omniauth', '~>1.1.1'
 gem 'omniauth-linkedin', '~>0.0.8'
 gem 'google_visualr', '>= 2.1'
-gem 'rabl'
+gem 'rabl', '0.7.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -60,7 +60,7 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '2.13.5'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

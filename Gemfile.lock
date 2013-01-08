@@ -181,7 +181,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     websocket (1.0.6)
-    wicked_pdf (0.9.0)
+    wicked_pdf (0.8.0)
       rails
     wkhtmltopdf-binary (0.9.9.1)
     xpath (0.1.4)
@@ -194,10 +194,10 @@ DEPENDENCIES
   annotate (~> 2.4.1.beta)
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (~> 2.2.2.0)
-  capistrano
+  capistrano (= 2.13.5)
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
-  date_validator
+  date_validator (= 0.6.3)
   google_visualr (>= 2.1)
   jquery-rails (~> 2.0.2)
   linkedin (~> 0.3.7)
@@ -207,11 +207,11 @@ DEPENDENCIES
   omniauth (~> 1.1.1)
   omniauth-linkedin (~> 0.0.8)
   paperclip (= 3.1.4)
-  rabl
+  rabl (= 0.7.9)
   rails (= 3.2.3)
   rspec-rails (= 2.10.0)
   sass-rails (~> 3.2.3)
   sqlite3 (= 1.3.5)
   uglifier (>= 1.0.3)
-  wicked_pdf
+  wicked_pdf (= 0.8.0)
   wkhtmltopdf-binary (~> 0.9.9.1)
