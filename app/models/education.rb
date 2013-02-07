@@ -26,10 +26,11 @@ class Education < ActiveRecord::Base
 	belongs_to :user
 
 # Validations
-	# validates :end_date, :date => { :after => :start_date }, :if => "!end_date.nil?"
-	# validates :major, :presence => true
-	# validates :start_date, :presence => true, :date => { :before => Time.now }
-	# validates :school, :presence => true
+	validates :end_date, :date => { :after => :start_date }, :if => "!end_date.nil?"
+	validates :major, :presence => true
+	validates :start_date, :presence => true, :date => { :before => Time.now }
+	validates :school, :presence => true
+	validates :user_id, :presence => true
 
 # Callbacks
 

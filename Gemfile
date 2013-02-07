@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'rails', '3.2.11'
 gem 'date_validator', '0.6.3'
 gem 'paperclip', '3.1.4'
 gem 'wicked_pdf', '0.8.0'
@@ -20,8 +19,10 @@ gem 'rabl', '0.7.9'
 
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
-	gem 'rspec-rails', '2.10.0'
+	gem 'rspec-rails', '2.12.2'
 	gem 'annotate', '~> 2.4.1.beta'
+  gem 'factory_girl_rails', '~> 3.2.0'
+  gem 'guard-rspec', '~> 0.7.0'
 end
 
 
@@ -42,7 +43,11 @@ end
 
 
 group :test do
+  gem 'faker', '~> 1.0.1'
 	gem 'capybara', '1.1.2'
+  gem 'database_cleaner', '~> 0.9.1'
+  gem 'launchy', '~>2.1.0'
+  gem 'shoulda-matchers', '~>1.2.0'
 end
 
 group :production do
@@ -51,7 +56,8 @@ group :production do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'bcrypt-ruby', '3.0.1'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

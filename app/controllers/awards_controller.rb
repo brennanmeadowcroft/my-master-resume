@@ -13,11 +13,8 @@ class AwardsController < ApplicationController
 	end
 
 	def show
-		@award = Award.find(params[:id])
-
 		respond_to do |format|
-			format.html
-			format.json { render json: @award }
+			format.html { redirect_to master_resumes_url }
 		end
 	end
 
@@ -33,7 +30,7 @@ class AwardsController < ApplicationController
 	end
 
 	def create
-		@award = current_user.award.new(params[:award])
+		@award = current_user.awards.new(params[:award])
 		@award.tag_ids = parse_tags(params[:award][:tag_tokens], 'Tag')
 		@award.skill_ids = parse_tags(params[:award][:skill_tokens], 'Skill')
 

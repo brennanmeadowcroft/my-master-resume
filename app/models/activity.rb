@@ -22,10 +22,10 @@ class Activity < ActiveRecord::Base
   	belongs_to :user
 
 # Validations
-	# validates :end_date, :date => { :after => :start_date }, :if => "!end_date.nil?"
-	# validates :start_date, :presence => true, :date => { :before => Time.now }
-	# validates :organization, :presence => true
-	# validates :user_id, :presence => true
+	validates :end_date, :date => { :after => :start_date }, :if => "!end_date.nil?"
+	validates :start_date, :presence => true, :date => { :before => Time.now }
+	validates :organization, :presence => true
+	validates :user_id, :presence => true
 
 # Callbacks
 	before_save :init

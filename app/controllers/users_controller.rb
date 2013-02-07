@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :show, :linked_in, :import]
   before_filter :admin_user, only: [:index, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
 
@@ -14,8 +12,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find(params[:id])
 
@@ -25,8 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.json
   def new
     @user = User.new
 
@@ -36,7 +30,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
   end
@@ -87,8 +80,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(params[:user])
     code = BetaCode.find_by_code(params[:beta_code])
@@ -114,8 +105,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
   def update
     @user = User.find(params[:id])
 
@@ -157,8 +146,7 @@ class UsersController < ApplicationController
 
     redirect_to users_url
   end
-  # DELETE /users/1
-  # DELETE /users/1.json
+
   def destroy
     @user = User.find(params[:id])
     unless current_user?(@user)
@@ -192,7 +180,6 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
-      # || current_user.admin?
     end
 
     def admin_user

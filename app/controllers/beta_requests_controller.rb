@@ -2,8 +2,6 @@ class BetaRequestsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :admin_user, only: [:index, :edit, :update, :destroy]
 
-  # GET /beta_requests
-  # GET /beta_requests.json
   def index
     @beta_requests = BetaRequest.order("created_at ASC").all
 
@@ -13,8 +11,6 @@ class BetaRequestsController < ApplicationController
     end
   end
 
-  # GET /beta_requests/new
-  # GET /beta_requests/new.json
   def new
     @beta_request = BetaRequest.new
 
@@ -24,14 +20,11 @@ class BetaRequestsController < ApplicationController
     end
   end
 
-  # GET /beta_requests/1/edit
   def edit
     @beta_request = BetaRequest.find(params[:id])
     @beta_codes = BetaCode.create_codes_array  
   end
 
-  # POST /beta_requests
-  # POST /beta_requests.json
   def create
     @beta_request = BetaRequest.new(params[:beta_request])
 
@@ -48,8 +41,6 @@ class BetaRequestsController < ApplicationController
     end
   end
 
-  # PUT /beta_requests/1
-  # PUT /beta_requests/1.json
   def update
     @beta_request = BetaRequest.find(params[:id])
     beta_code = BetaCode.find(params[:beta_request][:beta_code_id]).code
@@ -69,8 +60,6 @@ class BetaRequestsController < ApplicationController
     end
   end
 
-  # DELETE /beta_requests/1
-  # DELETE /beta_requests/1.json
   def destroy
     @beta_request = BetaRequest.find(params[:id])
     @beta_request.destroy

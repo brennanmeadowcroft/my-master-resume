@@ -12,14 +12,17 @@
 class Tag < ActiveRecord::Base
  	attr_accessible :description, :user_id
 
-    has_and_belongs_to_many :activities
-    has_and_belongs_to_many :awards
-    has_and_belongs_to_many :education
-    has_and_belongs_to_many :experiences
-    has_many :positions, :through => :experiences, :uniq => true
-    has_and_belongs_to_many :skills
-    has_many :resumes
-    belongs_to :user
+  has_and_belongs_to_many :activities
+  has_and_belongs_to_many :awards
+  has_and_belongs_to_many :education
+  has_and_belongs_to_many :experiences
+  has_many :positions, :through => :experiences, :uniq => true
+  has_and_belongs_to_many :skills
+  has_many :resumes
+  belongs_to :user
+
+  # Validations
+  validates :description, :presence => true
 
   	def build_resume_by_tag
 

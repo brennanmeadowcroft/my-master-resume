@@ -1,44 +1,44 @@
 <% provide(:title, "Features") %>
-<div class="row">
-	<div class="span12 feature-content">
+
+	<div class="feature-content">
 		<h1>My Master Resume in 3 easy steps...</h1>
-		<div class="row primary-features">
-			<div class="span4">
+		<div class="primary-features">
+			<div class="feature">
 				<h2>Build...</h2>
-				<%= image_tag "wrench-icon.png", :width => 150, :class=> "feature-image" %>
+				<%= image_tag "wrench-icon.png", :class=> "feature-image" %>
 				<p>...and maintain a comprehensive list of all your work experience.</p>
 			</div>
-			<div class="span4">
+			<div class="feature">
 				<h2>Tag...</h2>
-				<%= image_tag "tag-icon.png", :width => 150, :class=> "feature-image" %>
+				<%= image_tag "tag-icon.png", :class=> "feature-image" %>
 				<p>..your experience with your own keywords.</p>
 			</div>
-			<div class="span4">
+			<div class="feature">
 				<h2>Customize...</h2>
-				<%= image_tag "roller-icon.png", :width => 150, :class => "feature-image" %>
+				<%= image_tag "roller-icon.png", :class => "feature-image" %>
 				<p>...additional resumes with only a few clicks.</p>
 			</div>
 		</div>
-		<div class="row secondary-features">
-			<div class="span3">
+		<div class="secondary-features">
+			<div class="feature">
 				<h3>Import Easily</h3>
 				<p>Have a LinkedIn profile?  Save time by starting your master resume with the information you've already painstakingly typed in.</p>
 			</div>
-			<div class="span3">
+			<div class="feature">
 				<h3>One Change Everywhere</h3>
 				<p>Find a better way of explaining that specialized task?  Make a change on your master and it flows down to all your other resumes.</p>
 			</div>
-			<div class="span3">
+			<div class="feature">
 				<h3>Change Your Style</h3>
 				<p>Feeling frisky?  Change the style of your resume with the click of the mouse.</p>
 			</div>
-			<div class="span3">
+			<div class="feature">
 				<h3>Export Your Resume</h3>
 				<p>All done?  Download your resume as a PDF file for attaching to email, applications, printing or just having it on your computer to show people how awesome you are.</p>
 			</div>
 		</div>
-		<div class="row request-invite">
-				<%= link_to "Request Invite", request_invite_path, :class => "btn btn-success btn-extra-large" %>
+		<div class="request-invite">
+				<%= link_to "Request Invite", request_invite_path, :class => "button" %>
 		</div>
 	</div>
 </div>

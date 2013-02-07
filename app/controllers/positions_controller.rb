@@ -11,11 +11,8 @@ class PositionsController < ApplicationController
 	end
 
 	def show
-		@position = Position.build_position_by_position_id(params[:id])
-
 		respond_to do |format|
-			format.html
-			format.json { render json: @position }
+			format.html { redirect_to master_resumes_url }
 		end
 	end
 
@@ -54,7 +51,6 @@ class PositionsController < ApplicationController
 			redirect_to(@user)
 		elsif client.authorize_from_access(@user.linkedin_atoken, @user.linkedin_secret)
 			linkedin = client.profile(:fields => %w(positions))
-#raise linkedin.positions.all.to_yaml
 
 			@positions = linkedin.positions.all
 

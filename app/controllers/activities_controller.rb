@@ -1,6 +1,5 @@
 class ActivitiesController < ApplicationController
 	include ApplicationHelper
-
 	before_filter :signed_in_user
 	
 	def index
@@ -13,11 +12,8 @@ class ActivitiesController < ApplicationController
 	end
 
 	def show
-		@activity = Activity.find(params[:id])
-
 		respond_to do |format|
-			format.html
-			format.json { render json: @activity }
+			format.html { redirect_to master_resumes_url }
 		end
 	end
 
@@ -140,25 +136,6 @@ class ActivitiesController < ApplicationController
 		
 		respond_to do |format|
 			flash[:notice] = "Activity deleted"
-			format.html { redirect_to master_resumes_url }
-			format.json { head :no_content }
-		end
-	end
-
-	def tag
-		@tags = current_user.tags.all
-		@activity = Activity.find(params[:id])
-
-		respond_to do |format|
-			format.html { render action: "tag" }
-			format.json { head :no_content }
-		end
-	end
-
-	def create_tag
-		model.find(params[:activity_id]).tags << Tag.find(params[:tag])
-
-		respond_to do |format|
 			format.html { redirect_to master_resumes_url }
 			format.json { head :no_content }
 		end

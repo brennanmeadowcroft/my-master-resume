@@ -20,12 +20,12 @@ class Skill < ActiveRecord::Base
     has_and_belongs_to_many :experiences
     has_many :positions, :through => :experiences
     has_and_belongs_to_many :tags
-    has_many :resumes
+    #has_many :resumes
     belongs_to :user
 
 # Validations
-	# validates :description, :presence => true
-	# validates :user_id, :presence => true
+	validates :description, :presence => true
+	validates :user_id, :presence => true
 
     def self.tokens(query)
         skills = where("UPPER(description) like UPPER(?)", "%#{query}%")

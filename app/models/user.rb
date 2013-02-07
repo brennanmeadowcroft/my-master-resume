@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   has_many :resumes, dependent: :destroy
   has_many :tags, dependent: :destroy
   has_many :activities, dependent: :destroy
-  has_many :award, dependent: :destroy
+  has_many :awards, dependent: :destroy
   has_many :education, dependent: :destroy
   has_many :positions, dependent: :destroy
   has_many :skills, dependent: :destroy

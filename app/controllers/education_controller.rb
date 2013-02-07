@@ -13,11 +13,8 @@ class EducationController < ApplicationController
   end
 
   def show
-    @education = Education.find(params[:id])
-
     respond_to do |format|
-      format.html
-      format.json { render json: @education }
+      format.html { redirect_to master_resumes_url }
     end
   end
 

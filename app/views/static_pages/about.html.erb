@@ -1,7 +1,7 @@
 <% provide(:title, "About Us") %>
 		
-<div class="row">
-	<div class="span12 about-content">
+<div class="about-page">
+	<div class="about-content">
 		<h1>About My Master Resume</h1>
 		<p>Job hunting is already a stressful situation.  When you start to add in multiple resumes into the mix, it just gets harder and more stressful.  This was the prospect we faced completing grad school and, when combined with finals, made us want to give up all together and use our mad business skills to be the best fry cook we could be.</p>
 		<p>In that moment of resignation, My Master Resume was born.  While trying to juggle all of the resumes for all of the job applications, we asked... "Why can't this be easier?".  With that, we set out to create My Master Resume because frankly, it can be easier.</p>
@@ -13,84 +13,32 @@
 			<li><h4>Provide a tool that gets out of the way and makes job applications easier.</h4></li>
 		</ol>
 	</div>
-</div>
-<div class="row">
-	<div class="span12">
+	<div class="about-team">
 		<h2>The Team</h2>
-		<div class="row">
-			<div class="span6 team-profile">
-				<h3>Brennan Meadowcroft</h3>
-				<div class="row">
-					<div class="span2">
-						<%= image_tag "brennan-avatar.png", :width => 100 %>
-					</div>
-					<div class="row">
-						<div class="span4">
-							<p>With experience in marketing, analytics and web development, Brennan has helped small businesses utilize web technologies to make them more effective.  When not working, he can usually be found exploring Colorado or catching a happy hour with friends.</p>
-							<ul class="contact-info">
-								<li><%= link_to "mailto:brennan@mymasterresume.com", :class=> "image-link" do %>
-										<%= image_tag "openclipart-mail.png", :width => 40, :alt => "Email Brennan Meadowcroft", :class => "image-link" %>
-									<% end %>
-								</li>
-								<li><%= link_to "http://www.twitter.com/bmeadowcroft", :class => "image-link" do %>
-										<%= image_tag "twitter.png", :width => 25, :alt => "Brennan Meadowcroft on Twitter", :class => "image-link" %>
-									<% end %>
-								</li>
-								<li><%= link_to "http://www.facebook.com/brennanmeadowcroft", :class => "image-link" do %>
-										<%= image_tag "facebook.png", :width => 25, :alt => "Brennan Meadowcroft on Facebook", :class => "image-link" %>
-									<% end %>
-								</li>
-								<li><%= link_to "http://www.linkedin.com/in/brennanmeadowcroft", :class =>"image-link" do %>
-										<%= image_tag "linkedin.png", :width => 25, :alt => "Brennan Meadowcroft on LinkedIn", :class => "image-link" %>
-									<% end %>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+		<div class="team-profile">
+			<h3>Brennan Meadowcroft</h3>
+			<div class="bio">
+				<%= image_tag "brennan-avatar.png", :width => 100 %>
+				<p>With experience in marketing, analytics and web development, Brennan has helped small businesses utilize web technologies to make them more effective.  When not working, he can usually be found exploring Colorado or catching a happy hour with friends.</p>
+				<ul class="contact-info">
+					<li><%= link_to "mailto:brennan@mymasterresume.com", :class=> "image-link" do %>
+							<%= image_tag "openclipart-mail.png", :width => 40, :alt => "Email Brennan Meadowcroft", :class => "image-link" %>
+						<% end %>
+					</li>
+					<li><%= link_to "http://www.twitter.com/bmeadowcroft", :class => "image-link" do %>
+							<%= image_tag "twitter.png", :width => 25, :alt => "Brennan Meadowcroft on Twitter", :class => "image-link" %>
+						<% end %>
+					</li>
+					<li><%= link_to "http://www.facebook.com/brennanmeadowcroft", :class => "image-link" do %>
+							<%= image_tag "facebook.png", :width => 25, :alt => "Brennan Meadowcroft on Facebook", :class => "image-link" %>
+						<% end %>
+					</li>
+					<li><%= link_to "http://www.linkedin.com/in/brennanmeadowcroft", :class =>"image-link" do %>
+							<%= image_tag "linkedin.png", :width => 25, :alt => "Brennan Meadowcroft on LinkedIn", :class => "image-link" %>
+						<% end %>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 </div>
-
-<!--		<h1>About My Master Resume</h1>
-		<p>As the end of my MBA program drew to a close, I needed to work on finding employment.  I created multiple versions of my resume for different types of jobs.  The whole process was stressful and tiring as I tried to juggle customizing my resumes and adjusting how things were worded.  More than once did I miss out on including a great piece of work experience because it was on another resume.  To alleviate that, I created My Master Resume.  It makes it much easier to keep track of my work experience so I can focus on the other frustrating thing about 
-		job hunting: writing cover letters.</p>
-
-<div class="row">
-	<div class="span12">
-		<h2>The Team</h2>
-		<div class="row">
-			<div class="span6 team-profile">
-				<h4>Brennan Meadowcroft</h4>
-				<div class="row">
-					<div class="span2">
-						<%= image_tag "brennan-avatar.png", :width => 100 %>
-					</div>
-					<div class="row">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum purus non felis feugiat in euismod arcu varius. Integer sagittis metus ut neque congue vulputate. </p>
-						<ul class="contact-info">
-							<li><%= link_to "mailto:brennan@mymasterresume.com", :class=> "image-link" do %>
-									<%= image_tag "openclipart-mail.png", :width => 40, :alt => "Email Brennan Meadowcroft", :class => "image-link" %>
-								<% end %>
-							</li>
-							<li><%= link_to "http://www.twitter.com/bmeadowcroft", :class => "image-link" do %>
-									<%= image_tag "twitter.png", :width => 25, :alt => "Brennan Meadowcroft on Twitter", :class => "image-link" %>
-								<% end %>
-							</li>
-							<li><%= link_to "http://www.facebook.com/brennanmeadowcroft", :class => "image-link" do %>
-									<%= image_tag "facebook.png", :width => 25, :alt => "Brennan Meadowcroft on Facebook", :class => "image-link" %>
-								<% end %>
-							</li>
-							<li><%= link_to "http://www.linkedin.com/in/brennanmeadowcroft", :class =>"image-link" do %>
-									<%= image_tag "linkedin.png", :width => 25, :alt => "Brennan Meadowcroft on LinkedIn", :class => "image-link" %>
-								<% end %>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
--->

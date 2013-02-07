@@ -1,32 +1,28 @@
 <% provide(:title, "Contact Us") %>
 		
-<div class="row contact-content">
-	<div class="span12">
-		<div class="row contact-intro">
-			<h1>Contact Us</h1>
-			<p>We'd love to hear from you!  We also are available via 
-				<%= link_to "Get Satisfaction", "https://getsatisfaction.com/mymasterresume/" %>, 
-				<%= link_to "Facebook", "http://www.facebook.com/mymasterresume" %>,
-				<%= link_to "Twitter", "http://www.twitter.com/mymasterresume" %>,
-				and <%= link_to "LinkedIn", "http://www.linkedin.com/in/mymasterresume" %>
-			</p>
-			<p>Looking for a beta invite?  <%= link_to "Request One Here.", request_invite_path %></p>
-		</div>
-		<div class="row">
-			<div class="span6 contact-form">
-				<%= form_tag '/static_pages/contact_form', :method => :post do %>
-					<%= text_field_tag 'name', nil, :placeholder => "Name", 
-						:class=>"contact-form-field" %>
-					<%= text_field_tag 'email', nil, :placeholder => "Email", 
-						:class=>"contact-form-field" %>
-					<%= text_area_tag 'message', nil, :placeholder => "Message", :rows => 10, 
-						:class=>"contact-form-field" %>
-					<%= submit_tag "Send Message", :class=>"btn btn-large" %>
-				<% end %>
-			</div>
-			<div class="span6">
-				<iframe width="425" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;safe=off&amp;q=boulder+co&amp;ie=UTF8&amp;hq=&amp;hnear=Boulder,+Colorado&amp;gl=us&amp;ll=40.014986,-105.270546&amp;spn=0.039573,0.067463&amp;t=m&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?hl=en&amp;safe=off&amp;q=boulder+co&amp;ie=UTF8&amp;hq=&amp;hnear=Boulder,+Colorado&amp;gl=us&amp;ll=40.014986,-105.270546&amp;spn=0.039573,0.067463&amp;t=m&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-			</div>
-		</div>
+<div class="contact-page">
+	<div class="contact-intro">
+		<h1>Contact Us</h1>
+		<p>We'd love to hear from you!  We also are available via 
+			<%= link_to "Get Satisfaction", "https://getsatisfaction.com/mymasterresume/" %>, 
+			<%= link_to "Facebook", "http://www.facebook.com/mymasterresume" %>,
+			<%= link_to "Twitter", "http://www.twitter.com/mymasterresume" %>,
+			and <%= link_to "LinkedIn", "http://www.linkedin.com/in/mymasterresume" %>
+		</p>
+		<p>Looking for a beta invite?  <%= link_to "Request One Here.", request_invite_path %></p>
+	</div>
+	<div class="contact-form">
+		<%= form_tag '/static_pages/contact_form', :method => :post do %>
+			<%= text_field_tag 'name', nil, :placeholder => "Name", 
+				:class=>"contact-form-field" %>
+			<%= text_field_tag 'email', nil, :placeholder => "Email", 
+				:class=>"contact-form-field" %>
+			<%= text_area_tag 'message', nil, :placeholder => "Message", :rows => 10, 
+				:class=>"contact-form-field" %>
+			<%= submit_tag "Send Message", :class=>"button" %>
+		<% end %>
+	</div>
+	<div class="contact-map">
+		<iframe width="425" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;safe=off&amp;q=boulder+co&amp;ie=UTF8&amp;hq=&amp;hnear=Boulder,+Colorado&amp;gl=us&amp;ll=40.014986,-105.270546&amp;spn=0.039573,0.067463&amp;t=m&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?hl=en&amp;safe=off&amp;q=boulder+co&amp;ie=UTF8&amp;hq=&amp;hnear=Boulder,+Colorado&amp;gl=us&amp;ll=40.014986,-105.270546&amp;spn=0.039573,0.067463&amp;t=m&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 	</div>
 </div>

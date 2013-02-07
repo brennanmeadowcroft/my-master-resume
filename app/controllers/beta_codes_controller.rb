@@ -1,35 +1,28 @@
 class BetaCodesController < ApplicationController
   before_filter :signed_in_user
 
-  # GET /beta_requests
-  # GET /beta_requests.json
   def index
     @beta_codes = BetaCode.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @beta_codes }
     end
   end
 
-  # GET /beta_requests/new
-  # GET /beta_requests/new.json
   def new
     @beta_code = BetaCode.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @beta_code }
     end
   end
 
-  # GET /beta_requests/1/edit
   def edit
     @beta_code = BetaCode.find(params[:id])
   end
 
-  # POST /beta_requests
-  # POST /beta_requests.json
   def create
     @beta_code = BetaCode.new(params[:beta_code])
 
@@ -58,8 +51,6 @@ class BetaCodesController < ApplicationController
     end
   end
 
-  # DELETE /beta_requests/1
-  # DELETE /beta_requests/1.json
   def destroy
     @beta_code = BetaCode.find(params[:id])
     @beta_code.destroy

@@ -15,7 +15,11 @@ module ApplicationHelper
 	def parse_tags(tag_string, model_name)
 		tag_array = Array.new
 
-		string_array = tag_string.split(',')
+		if tag_string.nil?
+			tag_string = ""
+		end
+		
+		string_array = tag_string.split(/,/)
 		string_array.map do |token|
 			if token.match(/<<<(.*)>>>/)
 				# Determine the correct distance to move from the right to strip the >>>

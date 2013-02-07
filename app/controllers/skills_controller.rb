@@ -14,10 +14,8 @@ class SkillsController < ApplicationController
 	end
 
 	def show
-		@skill = Skill.find(params[:id])
-
 		respond_to do |format|
-			format.html
+			format.html { redirect_to master_resumes_url }
 		end
 	end
 
@@ -49,9 +47,9 @@ class SkillsController < ApplicationController
 	end
 
 	def linkedin
-	    @user = User.find(current_user)
+			@user = User.find(current_user)
 
-	    client = LinkedIn::Client.new("twcsgivs3zzd", "LaxvcuYD59XwZhxL")
+			client = LinkedIn::Client.new("twcsgivs3zzd", "LaxvcuYD59XwZhxL")
 
 		if @user.linkedin_atoken.nil?
 			flash[:error] = "It does not appear you have connected your LinkedIn account"

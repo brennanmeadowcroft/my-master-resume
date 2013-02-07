@@ -1,20 +1,15 @@
 class ResumesController < ApplicationController
   before_filter :signed_in_user
-  
-  # GET /resumes
-  # GET /resumes.json
+
   def index
     @resumes = current_user.resumes
 
       respond_to do |format|
-        format.html # index.html.erb
+        format.html
         format.json { render json: @resumes }
       end
- #   end
   end
 
-  # GET /resumes/1
-  # GET /resumes/1.json
   def show
     @resume = Resume.find(params[:id])
     tag = Tag.find(@resume.tag_id)
@@ -28,12 +23,10 @@ class ResumesController < ApplicationController
     @user_info = @resume.get_user_info
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
     end
   end
 
-  # GET /resumes/new
-  # GET /resumes/new.json
   def new
     @resume = current_user.resumes.new
     @styles = Style.create_styles_array
@@ -45,15 +38,12 @@ class ResumesController < ApplicationController
     end
   end
 
-  # GET /resumes/1/edit
   def edit
     @resume = Resume.find(params[:id])
     @styles = Style.create_styles_array
     @tags = current_user.tags
   end
 
-  # POST /resumes
-  # POST /resumes.json
   def create
     @resume = current_user.resumes.new(params[:resume])
 
@@ -69,8 +59,6 @@ class ResumesController < ApplicationController
     end
   end
 
-  # PUT /resumes/1
-  # PUT /resumes/1.json
   def update
     @resume = Resume.find(params[:id])
 
@@ -86,8 +74,6 @@ class ResumesController < ApplicationController
     end
   end
 
-  # DELETE /resumes/1
-  # DELETE /resumes/1.json
   def destroy
     @resume = Resume.find(params[:id])
     @resume.destroy
@@ -108,15 +94,11 @@ class ResumesController < ApplicationController
     @education = tag.education.order("start_date DESC")
     @skills = tag.skills
 
-
-#    @data = @tag.build_resume_by_tag
     @user_info = @resume.get_user_info
 
         render :pdf => "resume", 
                :template => "/resumes/export.html.erb",
                :show_as_html => params[:debug].present? # renders html version if you set debug=true in URL
-#               :user_style_sheet => @resume.style.screen_filename.path
-#               :user_style_sheet => 'test1'
   end
 
   def analyze
@@ -164,21 +146,7 @@ class ResumesController < ApplicationController
                vAxis: { :textPosition => 'out' },
                chartArea: { :left => '40%', :top => 20, :height => '100%', :width => '100%' }
              }
-#    formatter = GoogleVisualr::BarFormat.new()
-#    formatter.columns(1)
-
-#    data_table.format(formatter)
-#    options = { :width => 300, :allowHtml => true }
-#    @chart = GoogleVisualr::Interactive::Table.new(data_table, options)
      @chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
-
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def map
-    @resume = Resume.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -187,17 +155,7 @@ class ResumesController < ApplicationController
 
   def get_map_data
     @resume = Resume.find(params[:id])
-#    @tag = Tag.find(@resume.tag_id)
-
-#    map = Array.new
-#    map += tag.awards
-#    map += tag.activities
-#    map += tag.education
-#    map += tag.positions
-
-#    sorted_map = map.sort_by(&:start_date)
-
-@map_data = Analysis.map_json(@resume.tag_id)
+    @map_data = Analysis.map_json(@resume.tag_id)
 
     respond_to do |format|
       format.json

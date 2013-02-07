@@ -2,11 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "overrides";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/buttons";
 
 body {
 	padding-top: 80px;
 	padding-bottom: 40px;
 	background: url(<%= image_path("blue-fade-background.png") %>) top left repeat-x;
+}
+
+.static_content {
+	@include makeRow();
+	@include makeColumn(12);
 }
 
 .bm-nav {
@@ -79,6 +87,9 @@ p.center-image {
 }
 
 .feature-content {
+	@include makeRow();
+	@include makeColumn(12);
+
 	margin-bottom: 20px;
 	h1 {
 		margin-bottom: 10px;
@@ -90,8 +101,18 @@ p.center-image {
 	}
 
 	.primary-features {
+		@include makeRow();
+
 		margin-top: 20px;
 		text-align: center;
+
+		.feature {
+			@include makeColumn(4);
+
+			img {
+				width: 150;
+			}
+		}
 
 		.feature-image {
 			margin: auto;
@@ -106,66 +127,126 @@ p.center-image {
 	}
 
 	.secondary-features {
+		@include makeRow();
+
 		margin-top: 80px;
 		text-align: center;
+
+		.feature {
+			@include makeColumn(3);
+		}
 	}
 
 	.request-invite {
+		@include makeRow();
+
+		margin-top: 20px;
 		text-align: center;
-	}
-}
 
-.about-content {
-	margin-bottom: 20px;
-	h1 {
-		margin-bottom: 10px;
-	}
-
-	ol {
-		list-style-type: none;
-		padding: 0 0 0 0;
-		margin: 0 0 0 0;
-
-		li {
-			padding: 10px;
-			width: 30%;
-			display: inline-block;
-			vertical-align: top;
+		.button {
+			@extend .btn; 
+			@extend .btn-success; 
+			@extend .btn-extra-large;
 		}
 	}
 }
 
-.contact-info {
-	padding: 0 0 0 0;
-	list-style-type: none;
+.about-page {
+	.about-content {
+		@include makeRow();
+		@include makeColumn(12);
 
-	li {
-		padding: 0 0 0 0;
-		margin: 0 0 0 0;
-		display: inline;
+		margin-bottom: 20px;
+		h1 {
+			margin-bottom: 10px;
+		}
+
+		ol {
+			list-style-type: none;
+			padding: 0 0 0 0;
+			margin: 0 0 0 0;
+
+			li {
+				padding: 10px;
+				width: 30%;
+				display: inline-block;
+				vertical-align: top;
+			}
+		}
+	}
+
+	.about-team {
+		@include makeRow();
+		@include makeColumn(12);
+
+		.team-profile {
+			@include makeRow();
+			@include makeColumn(6);
+
+			h3 {
+				border-bottom: 1px solid $mmrGray;
+			}
+
+			.bio {
+				@include makeRow();
+				@include makeColumn(6);
+
+				img {
+					display: inline;
+				}
+
+				p {
+					@include makeColumn(4, 2);
+					display: inline;
+					width: 50%;
+				}
+				.contact-info {
+					@include makeRow();
+					padding: 0 0 0 0;
+					list-style-type: none;
+
+					li {
+						padding: 0 0 0 0;
+						margin: 0 0 0 0;
+						display: inline;
+
+						img {
+							width: 33px;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
-.team-profile {
-	margin-top: 10px;
 
-	h3 {
-		margin-bottom: 10px;
-		border-bottom: 1px solid $mmrGray;
-	}
-}
-
-.contact-content {
+.contact-page {
+	@include makeRow();
+	@include makeColumn(12);
 	
 	.contact-form {
+		@include makeRow();
+		@include makeColumn(6);
+
 		.contact-form-field {
 			display: block;
 			width: 300px;
 		}
+
+		.button {
+			@extend .btn;
+		}
 	}
 
 	.contact-intro {
+		@include makeRow();
+
 		margin-bottom: 20px;
+	}
+
+	.contact_map {
+		@include makeColumn(6);
 	}
 
 	a {
