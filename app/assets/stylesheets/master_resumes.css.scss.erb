@@ -1,111 +1,266 @@
 // Place all the styles related to the master_resumes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "overrides";
+@import "bootstrap";
 
+.master-resume {
+	@include makeRow();
+	@extend .container;
 
-.master-resume {}
+	.master-resume-content {
+		@include makeColumn(12);
 
-.master-resume-content {
-	h1 {
-	}
-
-	.background {
-		margin: 0px;
-		padding: 40px;
-		background: url(<%= image_path("blue-fabric-texture.jpeg") %>) top left repeat;
-		border: 1px solid #333333;
+		h1 {}
 
 		.resume {
-			margin: auto;
+			@include makeRow();
+			@include makeColumn(12);
+/*				margin: auto;
 			padding: 40px;
-			background: url(<%= image_path("white.gif") %>) top left repeat;	/* http://www.flickriver.com/photos/wheatfields/tags/textures/ */
-			border: 1px solid #444444;
+			background: url(<%= image_path("white.gif") %>) top left repeat;	 http://www.flickriver.com/photos/wheatfields/tags/textures/ 
+			border: 1px solid $mmrText;
 			box-shadow: 2px 2px 3px #000;
 			-moz-box-shadow: 2px 2px 3px #000;
 			-webkit-box-shadow: 2px 2px 3px #000;
-		}
+*/		}
 	}
-
 }
 
-.new-section {
+.master-section {
+	@include makeRow();
 	padding: 0;
 	margin: 20px 0 0 0;
 
-	.new-section-header {
+	.master-section-header {
 		padding-bottom: 5px;
 		margin-bottom: 10px;
-		border-bottom: 1px solid #000000;
+		border-bottom: 1px solid $mmrText;
 
 		h2 {
 			display: inline;
 		}
-
-		.add-new {}
-
-		.line-item {
-			padding: 0 0 0 20px;
-
-			&:first-child {
-				margin: 0;
-			}
-		}
 	}
 
 	.line-item {
+		@include makeRow();
+
+		&:first-child {
+			margin: 0;
+		}
+		
 		.description {
 			margin: 0;
 			padding: 0;
 			display: inline;
 		}
+	}
 
-		.line-item-position {
-			margin-top: 40px;
-			margin-bottom: 40px;
+	.actions {
+		@include makeColumn(2);
+		@extend .pull-right;
+		text-align: right;
 
-			h4.description {
-				display: inline;
-				font-size: 2.0em;
-			}
+		li {
+			margin: 0;
+			padding: 0 0 0 5px;
+			display: inline;
+			border-left: 1px solid $mmrText;
+			text-align: right;
 
-			.position-options {}
-
-			.experience-item {
-				display: inline;
-
-				li.experience-description {
-					width: 60%;
-					display: inline;
-				}
+			&:first-child {
+				padding: 0 0 0 0;
+				border: none;
 			}
 		}
+	}
 
-		.tag-list {
-			margin-top: 0;
-			padding-top: 0;
+	.line-item-activity {
+		@extend line-item;
+		@include makeColumn(12);
+		padding: 3px;
+		margin: 0 0 3px 0;
+		border-left: 5px solid #cccccc;
 
-			li {
+		&:hover {
+			background: #cccccc;
+		}
+
+		.description {
+			@include makeColumn(9);
+
+			p {
 				margin: 0;
 				padding: 0;
-				display: inline;
 			}
 		}
 
 		.actions {
-			display: inline;
+			@extend .actions;
+		}
+	}
 
-			li {
+	.line-item-award {
+		@extend line-item;
+		@include makeColumn(12);
+		padding: 10px;
+		margin: 0 0 3px 0;
+		border-left: 5px solid #cccccc;
+
+		&:hover {
+			background: #cccccc;
+		}
+
+		.description {
+			@include makeColumn(9);
+
+			h4 {
 				margin: 0;
-				padding: 0 0 0 5px;
-				display: inline;
-				border-left: 1px solid #000000;
+				padding: 0;
+				font-size: 2.0em;
+			}
+		}
 
-				&:first-child {
-					padding: 0 0 0 0;
-					border: none;
+		.actions {
+			@extend .actions;
+		}
+	}
+
+	.line-item-education {
+		@extend line-item;
+		@include makeColumn(12);
+		padding: 10px;
+		margin: 0 0 3px 0;
+		border-left: 5px solid #cccccc;
+
+		&:hover {
+			background: #cccccc;
+		}
+
+		.description {
+			@include makeColumn(9);
+
+			h4 {
+				margin: 0;
+				padding: 0;
+				font-size: 2.0em;
+			}
+		}
+
+		.actions {
+			@extend .actions;
+		}
+	}
+
+	.line-item-position {
+		@extend .line-item;
+		margin-bottom: 40px;
+
+		.description {
+			@include makeColumn(12);
+			padding: 10px;
+			margin-bottom: 3px;
+			border-left: 5px solid #cccccc;
+
+			h4 {
+				@include makeColumn(10);
+				margin: 0;
+				padding: 0;
+				font-size: 2.0em;
+			}
+
+			.position-options {
+				@include makeColumn(2);
+				@extend .dropdown;
+				@extend .pull-right;
+				font-weight: bold;
+				font-size: 1.5em;
+
+				a {
+					&:hover {
+						color: $mmrGray;
+						background: none;
+					}
 				}
 			}
 		}
-		
+
+		.experience-item {
+			@include makeRow();
+			@include makeColumn(12);
+			@extend .container;
+			padding-left: 10px;
+			margin-bottom: 3px;
+			border-left: 5px solid $mmrBlue;
+
+			&:hover {
+				background: #cccccc;
+			}
+
+			.experience-description {
+				@include makeColumn(9);
+				margin: 0;
+				padding: 0;
+
+				p {
+					margin: 0;
+					padding: 0;
+				}
+			}
+
+			.actions {
+				@extend .actions;
+			}
+		}
 	}
+
+	.line-item-skill {
+		@extend line-item;
+		@include makeColumn(12);
+		padding: 3px;
+		margin: 0 0 3px 0;
+		border-left: 5px solid #cccccc;
+
+		&:hover {
+			background: #cccccc;
+		}
+
+		.description {
+			@include makeColumn(9);
+
+			p {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		.actions {
+			@extend .actions;
+		}
+	}
+
+	.tag-list {
+		@include makeRow();
+		margin-top: 0;
+		padding-top: 0;
+
+		li {
+			margin: 0;
+			padding: 0 5px 0 0;
+			display: inline;
+			color: $mmrDarkBlue;
+			font-style: italic;
+		}
+	}
+
+	.no-tag {
+		border-left: 5px solid $mmrGreen;
+	}
+}
+
+
+.add-new-button {
+	@extend .btn;
+	@extend .btn-small;
+	@extend .pull-right;
 }

@@ -1,0 +1,46 @@
+<a id="awards">
+<div class="master-section">
+	<div class="master-section-header">
+		<h2>Awards</h2>
+		<%= link_to "Add New Award", new_award_path, :class=> "add-new btn btn-small pull-right" %>
+	</div>
+	<% if @awards.nil? %>
+		<div class="line-item">
+			<h4>You have no awards entered!  <%= link_to "Add One Now", new_award_path %></h4>
+		</div>
+	<% else %>
+		<% @awards.each do |award| %>
+			<div class="line-item-award<% if award.tags.count == 0 %> no-tag<% end %>">
+				<div class="description">
+					<h4><%= award.description %> (<%= display_date(award.date) %>)</h4>
+					<% if award.tags.count > 0 %>
+						<div class="tag-list">
+							<ul>
+								<i class="icon-search icon-tag"></i>
+								<% award.tags.each do |t| %>
+									<%= render 'tags/master_tag_list', :t => t %>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+				</div>
+				<div class="actions">
+					<ul>
+						<li><%= link_to edit_award_path(award) do %>
+								<i class="icon-search icon-edit"></i>
+							<% end %>
+						</li>
+						<li><%= link_to edit_award_path(award) do %>
+								<i class="icon-search icon-tag"></i>
+							<% end %>
+						</li>
+						<li><%= link_to award_path(award), confirm: 'Are you sure?', method: :delete do %>
+								<i class="icon-search icon-trash"></i>
+							<% end %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

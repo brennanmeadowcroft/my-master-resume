@@ -1,33 +1,31 @@
 <% provide(:title, "Home") %>
-<div class="hero-unit">
-	<div class="row">
-		<h1 class="smaller-text">Easily Target Your Resume</h1>
-		<div class="span7">
+<div class="homepage-content">
+	<div class="masthead">
+		<h1>Easily Target Your Resume</h1>
+		<div class="heading-copy">
 			<p>Job hunting is stressful enough...  Why add the extra chore of having to be worried about 
 				messing with the wording of your resume?  With My Master Resume, you can now easily create new, optimized resumes with only a couple clicks.</p>
-			<p><%= link_to "Learn More  >>", features_path, :class => "btn btn-primary btn-extra-large" %>
-			   <%= link_to "Request An Invite", request_invite_path, :class => "btn btn-success btn-extra-large" %>
-			</p>
+			<p><%= link_to "Request An Invite", request_invite_path, :class => "get-started-btn" %></p>
 		</div>
 	</div>
-</div>
-<div class="row top-margin">
-	<div class="span4">
-		<h2>One Change, Everywhere</h2>
-		<p>You shouldn't have to spend all your time trying to remember which of your resumes had that 
-			great wording about how your awesome experience made your last company millions of dollars. With My Master Resume, you make one change and it flows to all your other resumes so every resume has optimal wording.</p>
-		<p><%= link_to "Learn More >>", features_path, :class => "btn btn-primary" %></p>
-	</div>
-	<div class="span4">
-		<h2>Change Your Style</h2>
-		<p>You wouldn't show up to an interview at an investment bank wearing Chuck Taylors and a
-			sports coat so why send a resume geared towards a casual work environment to a conservative company?  Edit the entire style of your resume without changing anything else... same experience, same activities... different look.</p>
-		<p><%= link_to "Learn More  >>", features_path, :class => "btn btn-primary" %></p>
-	</div>
-	<div class="span4">
-		<h2>Quickly Tailor Your Resume</h2>
-		<p>You have a ton of awesome experience and you should be proud of your hard work.  
-			Unfortunately, not everyone thinks your speed at stocking milk at your local coffee shop is as important as you do. With My Resume Master, just a couple of clicks and you'll have a resume that features your most relevant experience.</p>
-		<p><%= link_to 'Learn More >>', features_path, :class => "btn btn-primary" %></p>
+	<div class="banner-features">
+		<div class="feature">
+			<h2>One Change, Everywhere</h2>
+			<p>You shouldn't have to spend all your time trying to remember which of your resumes had that 
+				great wording about how your awesome experience made your last company millions of dollars. With My Master Resume, you make one change and it flows to all your other resumes so every resume has optimal wording.</p>
+			<p><%= link_to "Learn More >>", features_path, :class => "learn-more-button" %></p>
+		</div>
+		<div class="feature">
+			<h2>Change Your Style</h2>
+			<p>You wouldn't show up to an interview at an investment bank wearing Chuck Taylors and a
+				sports coat so why send a resume geared towards a casual work environment to a conservative company?  Edit the entire style of your resume without changing anything else... same experience, same activities... different look.</p>
+			<p><%= link_to "Learn More  >>", features_path, :class => "learn-more-button" %></p>
+		</div>
+		<div class="feature">
+			<h2>Quickly Tailor Your Resume</h2>
+			<p>You have a ton of awesome experience and you should be proud of your hard work.  
+				Unfortunately, not everyone thinks your speed at stocking milk at your local coffee shop is as important as you do. With My Resume Master, just a couple of clicks and you'll have a resume that features your most relevant experience.</p>
+			<p><%= link_to 'Learn More >>', features_path, :class => "learn-more-button" %></p>
+		</div>
 	</div>
 </div>

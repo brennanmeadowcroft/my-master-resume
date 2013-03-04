@@ -1,0 +1,53 @@
+<div class="row new-section">
+	<h3 class="section-header">Positions</h3>
+	<p class="add-new"><%= link_to "(Add New Position)", new_position_path %></p>
+	<br />
+	<% if @positions.nil? %>
+		<div class="row line-item">
+			<p>You have no positions entered!  <%= link_to "Add One Now", new_position_path %></p>
+		</div>
+	<% else %>
+	<% @positions.each do |job| %>
+		<div class="row line-item">
+			<h4><%= job[:position].company %> - <%= job[:position].title %>, 
+			<%= job[:position].city %>, <%= job[:position].state %>
+			(<%= display_date(job[:position].start_date) %> - 
+				<% if job[:position].start_date == job[:position].end_date || 
+					  job[:position].end_date == Date.today %>
+					Current
+				<% else %>
+					<%= display_date(job[:position].end_date) %>
+				<% end %>
+				)</h4>
+			<p class="add-new">(
+				<%= link_to "Edit", edit_position_path(job[:position].id) %> | 
+				<%= link_to "Delete", position_path(job[:position].id), 
+					confirm: 'Are you sure?', method: :delete %>)
+			</p>
+			<ul>
+				<% job[:experience].each do |exp| %>
+					<div class="row">
+						<div class="span6">
+							<li><%= exp.description %></li>
+						</div>
+						<div class="span2">
+							<ul class="actions">
+								<li><%= link_to "Edit", edit_experience_path(exp.id) %></li>
+								<li><%= link_to "Tag", edit_experience_path(exp) %></li>
+								<li><%= link_to "Delete", experience_path(exp), 
+									confirm: 'Are you sure?', method: :delete %></li>
+							</ul>
+						</div>
+					</div>
+				<% end %>
+				<div class="row">
+					<%= link_to "Add Experience", new_experience_path({ :pos => job[:position].id }) %> | 
+					<%= link_to "Add Multiple Experiences", experience_mass_add_path({ :pos => job[:position].id }) %>
+				</div>
+			</ul>
+		</div>
+	<% end %>	
+
+
+<% end %>
+</div>

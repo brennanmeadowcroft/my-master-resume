@@ -1,0 +1,46 @@
+<a id="skills">
+<div class="master-section">
+	<div class="master-section-header">
+		<h2>Skills</h2>
+		<%= link_to "Add New Skill", new_skill_path, :class=> "add-new btn btn-small pull-right" %>
+	</div>
+	<% if @skills.nil? %>
+		<div class="line-item">
+			<h4>You have no skills entered!  <%= link_to "Add One Now", new_skill_path %></h4>
+		</div>
+	<% else %>
+		<% @skills.each do |skill| %>
+			<div class="line-item-skill<% if skill.tags.count == 0 %> no-tag<% end %>">
+				<div class="description">
+					<p><%= skill.description %></p>
+					<% if skill.tags.count > 0 %>
+						<div class="tag-list">
+							<ul>
+								<i class="icon-search icon-tag"></i>
+								<% skill.tags.each do |t| %>
+									<%= render 'tags/master_tag_list', :t => t %>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+				</div>
+				<div class="actions">
+					<ul>
+						<li><%= link_to edit_skill_path(skill) do %>
+								<i class="icon-search icon-edit"></i>
+							<% end %>
+						</li>
+						<li><%= link_to edit_skill_path(skill) do %>
+								<i class="icon-search icon-tag"></i>
+							<% end %>
+						</li>
+						<li><%= link_to skill_path(skill), confirm: 'Are you sure?', method: :delete do %>
+								<i class="icon-search icon-trash"></i>
+							<% end %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

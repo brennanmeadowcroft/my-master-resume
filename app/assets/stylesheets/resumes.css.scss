@@ -3,18 +3,91 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "overrides";
-
-/* Resume List */
-.master-block:hover {
-	color: #ffffff;
-	background-color: #d4d4d4;
-}
+@import "bootstrap";
 
 
 .resume-header {
 	.contact-info {
 		.hidden {
 			display: none;
+		}
+	}
+}
+
+.resume-content {
+	@include makeRow();
+	@include makeColumn(12);
+
+	h1 {
+		margin-bottom: 20px;
+	}
+
+	.resume-options {
+		@include makeColumn(3);
+
+		margin: 0;
+		padding: 0;
+
+		.option-item {
+			margin-bottom: 20px;
+			border: 1px solid $mmrGray;
+			text-align: center;
+			width: 125px;
+			height: 125px;
+			background-color: $mmrBlue;
+
+			a {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			h4 {
+				padding-top: 35px;
+				&:hover {
+					font-color: $mmrGray;
+				}
+			}
+
+			&:hover {
+				background: $mmrDarkBlue;
+			}
+
+			&:nth-child(3n+1) {
+				@include makeRow();
+			}
+		}
+	}
+
+	.resume-list {
+		@include makeColumn(9);
+
+		.list-item {
+			@include makeColumn(3);
+			margin-top: 0;
+			margin-bottom: 20px;
+			border: 1px solid $mmrGray;
+			text-align: center;
+			width: 210px;
+			height: 125px;
+
+			.resume-details {
+				margin-top: 40px;
+
+				p {
+					margin: 0;
+				}
+			}
+
+			&:hover {
+				background: $mmrDarkBlue;
+			}
+		}
+
+		.master-resume-option {
+			@include makeColumn(9);
+			width: 675px;
+			background-color: $mmrGreen;
 		}
 	}
 }

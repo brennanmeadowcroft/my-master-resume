@@ -1,35 +1,39 @@
 <% provide(:title, "#{current_user.first_name}'s Resumes") %>
-<div class="row">
-	<div class="span12">
-		<h1>My Resumes</h1>
-	</div>
-</div>
+<div class="resume-content">
+	<h1>My Resumes</h1>
 
-<div class="row">
-	<div class="span10 offset1">
-			<%= link_to master_resumes_path do %>
-				<div class="well master-block">
-					<h2>Master Resume</h2>
+	<div class="resume-options">
+		<%= link_to new_resume_path do %>
+			<div class="option-item">
+				<h4>Create New Resume</h4>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="resume-list">
+		<%= link_to master_resumes_path do %>
+			<div class="list-item master-resume-option">
+				<h4>Master Resume</h4>
+			</div>
+		<% end %>
+		<% @resumes.each do |resume| %>
+			<%= link_to resume_path(resume.id) do %>
+				<div class="list-item">
+					<h4><%= resume.description %></h4>
+					<div class="resume-details">
+						<p><i class="icon-search icon-tags"></i> <%= resume.tag.description %></p>
+						<p>Created: <%= display_date(resume.created_at) %></p>
+					</div>
 				</div>
 			<% end %>
+		<% end %>
 	</div>
-</div>
 
-<% @resumes.each do |resume| %>
 	<div class="row">
-		<div class="span10 offset1" style="border-bottom: 1px solid #000000;">
-			<h3><%= link_to resume.description, resume_path(resume.id) %></h3>
-			<p>
-				<i class="icon-search icon-tags"></i> <%= resume.tag.description %> | 
-				Created: <%= resume.created_at %>
-			</p>
+		<div class="span10 offset1">
+			<br />
+			
 		</div>
 	</div>
-<% end %>
-
-<div class="row">
-	<div class="span10 offset1">
-		<br />
-		<%= link_to 'New Resume', new_resume_path, :class => "btn" %>
-	</div>
 </div>
+

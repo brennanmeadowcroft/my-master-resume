@@ -1,0 +1,39 @@
+<a id="positions">
+<div class="master-section">
+	<div class="master-section-header">
+		<h2>Positions</h2>
+		<%= link_to "Add New Position", new_position_path, :class=> "add-new-button" %>
+	</div>
+	<% if @positions.nil? %>
+		<div class="line-item">
+			<h4>You have no positions entered!  <%= link_to "Add One Now", new_position_path %></h4>
+		</div>
+	<% else %>
+		<% @positions.each do |job| %>
+			<div class="line-item-position">
+				<div class="description">
+					<h4><%= job[:position].company %> - <%= job[:position].title %>, <%= job[:position].city %>, <%= job[:position].state %> (<%= display_date(job[:position].start_date) %> - 
+							<% if job[:position].current %>
+								Current
+							<% else %>
+								<%= display_date(job[:position].end_date) %>
+							<% end %>)
+					</h4>
+					<div class="position-options">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+							Options
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li><%= link_to "Add Experience", new_experience_path({ :pos => job[:position].id }) %></li>
+							<li><%= link_to "Add Multiple Experiences", experience_mass_add_path({ :pos => job[:position].id }) %></li>
+							<li><%= link_to "Edit Position", edit_position_path(job[:position].id) %></li>
+							<li><%= link_to "Delete Position", position_path(job[:position].id), confirm: 'Are you sure?', method: :delete %></li>
+						</ul>
+					</div>
+				</div>
+				<%= render 'experiences/master_experience_detail', :job => job %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

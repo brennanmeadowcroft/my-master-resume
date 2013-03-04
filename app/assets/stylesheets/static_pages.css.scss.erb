@@ -5,11 +5,15 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 @import "bootstrap/buttons";
+@import "bootstrap/hero-unit";
+@import "bootstrap/layouts";
+@import "bootstrap/navbar";
 
 body {
 	padding-top: 80px;
 	padding-bottom: 40px;
 	background: url(<%= image_path("blue-fade-background.png") %>) top left repeat-x;
+	font-size: 10px;
 }
 
 .static_content {
@@ -17,73 +21,64 @@ body {
 	@include makeColumn(12);
 }
 
-.bm-nav {
-	margin-top: -70px;
+.paper-box-background {
+	background-image: url(<%= image_path("paperwork.jpeg") %>);
+	background-color: $white;
+	background-position: 20% 50%;
+	background-repeat: no-repeat;
 }
 
-.navbar .nav {
-	margin: 0 0 40px 0;
-	li {
-		a {
-			/*color: #5b86c5;*/
-			color: $mmrDarkBlue;
-			font-family: $headingsFontFamily;
-			font-size: 1.5em;
+a.get-started-btn {
+	@extend .btn;
+	@extend .btn-large;
+	@extend .btn-success;
 
-			&:hover {
-				color: $mmrGreen;
+	&:visited {
+		font-color: $white;
+	}
+}
+
+.homepage-content {
+	@include makeRow();
+	@include makeColumn(12);
+
+	.masthead {
+		@extend .hero-unit;
+		@include makeRow();
+		@extend .paper-box-background;
+		border: 1px solid #d4d4d4;
+
+		h1 {
+			margin-bottom: 10px;
+			margin-right: 15px;
+		}
+
+		.heading-copy {
+			@include makeColumn(7);
+
+			p {
+				margin: 0 0 40px 0;
 			}
 		}
 	}
-}
 
+	.banner-features {
+		@include makeRow();
+		padding-top: 40px;
 
-.feature-text {
-	font-size: 1.2em;
-	line-height: 1.4em;
-}
+		.feature {
+			@include makeColumn(4);
 
-.bm-vertical-spacing {
-	padding-top: 60px;
-}
+			h2 {
+				font-size: 2em;
+			}
 
-.bm-background {
-	background: url(<%= image_path("white.gif") %>) top left repeat;
-}
-
-
-
-
-p.center-image {
-	text-align: center;
-}
-
-.btn-extra-large {
-	margin-right: 30px;
-	padding: 20px 30px 20px 30px;
-}
-
-.hero-unit {
-	background-color: $white;
-	background-image: url(<%= image_path("paperwork.jpeg") %>);
-	background-position: 20% 50%;
-	background-repeat: no-repeat;
-	border: 1px solid #d4d4d4;
-
-	h1 {
-		margin-bottom: 10px;
-		margin-right: 15px;
-		font-size: 3.5em;
+			.learn-more-button {
+				@extend .btn;
+				@extend .btn-primary;
+			}
+		}
 	}
-	p {
-		margin: 0 0 40px 0;
-		font-size: 1.15em;
-	}
-}
-
-.image-link:hover {
-	background: none;
-	text-decoration: none;
 }
 
 .feature-content {
@@ -179,7 +174,7 @@ p.center-image {
 		@include makeRow();
 		@include makeColumn(12);
 
-		.team-profile {
+		.team-profile-left {
 			@include makeRow();
 			@include makeColumn(6);
 
@@ -191,27 +186,34 @@ p.center-image {
 				@include makeRow();
 				@include makeColumn(6);
 
-				img {
-					display: inline;
+				.bio-pic {
+					@include makeColumn(2);
+
+					img {
+						width: 150px;
+					}
 				}
 
-				p {
-					@include makeColumn(4, 2);
-					display: inline;
-					width: 50%;
-				}
-				.contact-info {
-					@include makeRow();
-					padding: 0 0 0 0;
-					list-style-type: none;
+				.bio-content {
+					@include makeColumn(3);
 
-					li {
+					.contact-info {
+						@include makeRow();
 						padding: 0 0 0 0;
-						margin: 0 0 0 0;
-						display: inline;
+						list-style-type: none;
 
-						img {
-							width: 33px;
+						li {
+							padding: 0 0 0 0;
+							margin: 0 0 0 0;
+							display: inline;
+
+							img {
+								width: 33px;
+							}
+
+							a:hover {
+								background: transparent;
+							}
 						}
 					}
 				}
@@ -219,7 +221,6 @@ p.center-image {
 		}
 	}
 }
-
 
 .contact-page {
 	@include makeRow();
@@ -251,5 +252,55 @@ p.center-image {
 
 	a {
 		text-decoration: underline;
+	}
+}
+
+.invite-content {
+	p {
+		margin-top: 15px;
+	}
+	a {
+		font-size: 0.7em;	
+	}
+	.form-box {
+		@extend .hero-unit;
+		@include makeRow();
+		@extend .paper-box-background;
+	}
+
+	.form-copy {
+		@include makeColumn(7);
+
+		form {
+			margin-top: 20px;
+			margin-bottom: -10px;
+		}
+
+		.invite-button {
+			@extend .btn;
+			@extend .btn-success;
+			margin-top: -10px;
+		}
+	}
+}
+
+.signin-content {
+	.form-box {
+		@extend .hero-unit;
+		@include makeRow();
+		@extend .paper-box-background;
+	}
+
+	.form-list {
+		list-style-type: none;
+		li {
+			margin: 0;
+			padding: 10px 0 0 0;
+			text-indent: -1.7em;
+		}
+
+		label {
+			display: inline;
+		}
 	}
 }

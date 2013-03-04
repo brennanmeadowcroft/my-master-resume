@@ -1,0 +1,43 @@
+<% if job[:experience].count == 0 %>
+	<div class="experience-item">
+		<div class="experience-description">
+			<p>You have no experience entered!  
+				<%= link_to "Add Some Now", new_experience_path({ :pos => job[:position].id })%>
+			</p>
+		</div>
+	</div>
+<% else %>
+	<% job[:experience].each do |exp| %>
+		<div class="experience-item<% if exp.tags.count == 0 %> no-tag<% end %>">
+			<div class="experience-description">
+				<p><%= exp.description %></p>
+				<% if exp.tags.count > 0 %>
+					<div class="tag-list">
+						<ul>
+							<i class="icon-search icon-tag"></i>
+							<% exp.tags.each do |t| %>
+								<%= render 'tags/master_tag_list', :t => t %>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
+			</div>
+			<div class="actions">
+				<ul>
+					<li><%= link_to edit_experience_path(exp.id) do %>
+							<i class="icon-search icon-edit"></i>
+						<% end %>
+					</li>
+					<li><%= link_to edit_experience_path(exp) do %>
+							<i class="icon-search icon-tag"></i>
+						<% end %>
+					</li>
+					<li><%= link_to experience_path(exp), confirm: 'Are you sure?' 	, method: :delete do %>
+							<i class="icon-search icon-trash"></i>
+						<% end %>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+<% end %>
