@@ -14,12 +14,15 @@
 			<%= javascript_include_tag yield(:page_javascript) %>
 		<% end %>
 		<%= javascript_include_tag "https://www.google.com/jsapi" %>
-		<%= javascript_include_tag "raphael-min.js" %>
+
 		<% if content_for?(:frequency_distribution) %>
 			<script type="text/javascript">
 				<%= yield :frequency_distribution %>
 			</script>
 		<% end %>
+		<script type="text/javascript">
+			$('.dropdown-toggle').dropdown()
+		</script>
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/analytics' %>
 <!--		
