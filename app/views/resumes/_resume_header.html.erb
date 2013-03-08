@@ -4,7 +4,7 @@
 		<%= current_user.last_name %>
 	</h1>
   	<ul class="contact-info">
-		<li>
+		<li class="<%= @user_info[:address] %>">
 			<span class="address <%= @user_info[:address] %>">
 				<%= current_user[:address_1] %> 
 				<%= current_user[:address_2] %>

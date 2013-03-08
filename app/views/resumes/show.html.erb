@@ -1,12 +1,12 @@
 <% provide(:title, @resume[:description]) %>
-<% provide(:screen_style, "/assets/resume_styles/#{@resume.style.screen_filename_file_name}") %>
-<% provide(:print_style, Rails.root.join('public', 'assets', 'resume_styles', @resume.style.screen_filename_file_name)) %>
+<% provide(:screen_style, "/resume_styles/#{@resume.style.screen_filename_file_name}") %>
+<% provide(:print_style, "/resume_styles/#{@resume.style.print_filename_file_name}") %>
 
- <div class="row">
+ <div class="resume-content">
 	<%= render 'resumes/sidebar' %>
-	<div class="span8 resume-body">
+	<div class="resume-body">
 		<%= render 'resumes/resume_header' %>
-		<div class="resume-content">
+		<div class="resume-info">
 			<%= render 'resumes/education' %>
 			<%= render 'resumes/experiences' %>
 			<%= render 'resumes/awards' %>

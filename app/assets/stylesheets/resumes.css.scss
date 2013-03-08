@@ -6,14 +6,6 @@
 @import "bootstrap";
 
 
-.resume-header {
-	.contact-info {
-		.hidden {
-			display: none;
-		}
-	}
-}
-
 .resume-content {
 	@include makeRow();
 	@include makeColumn(12);
@@ -90,9 +82,21 @@
 			background-color: $mmrGreen;
 		}
 	}
+
+	.resume-body {
+		@include makeColumn(8);
+
+		.resume-header {
+			.contact-info {
+				.hidden {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
-.resume-options {
+.resume-specific-options {
 	padding: 20px;
 
 	li {
@@ -101,27 +105,6 @@
 
 		&:first-child {
 			margin-top: 0;
-		}
-
-		a {
-			&:hover {
-				background-color: $mmrGreen;
-			}
-		}
-	}
-}
-
-#options {
-	ul {
-		margin-left: 0;
-	}
-	li {
-		margin-left: 20px;
-		list-style-type: none;
-		display: inline;
-
-		&:first-child {
-			margin-left: 0;
 		}
 	}
 }

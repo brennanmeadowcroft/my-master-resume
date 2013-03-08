@@ -13,12 +13,15 @@ class Style < ActiveRecord::Base
 	attr_accessible :base_style, :description, :print_filename, :screen_filename
 
 	has_attached_file :screen_filename, 
-					  :url => "public/assets/resume_styles/:basename.:extension",
-					  :path => ":rails_root/public/assets/resume_styles/:basename.:extension"
+#					  :url => "/system/:class/:attachment/:id/:style/:basename.:extension",
+#					  :path => ":rails_root/public/system/:class/:attachment/:id/:style/:basename.:extension"
+					  :url => "/resume_styles/:basename.:extension",
+					  :path => ":rails_root/public/resume_styles/:basename.:extension"
+
 
 	has_attached_file :print_filename,
-					  :url => "public/assets/resume_styles/:basename.:extension",
-					  :path => ":rails_root/public/assets/resume_styles/:basename.:extension"
+					  :url => "/resume_styles/:basename.:extension",
+					  :path => ":rails_root/public/resume_styles/:basename.:extension"
 	has_many :resumes
 
 # Validations
