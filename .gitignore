@@ -21,3 +21,6 @@ doc/
 
 # Ignore assets
 /app/assets/
+
+# Ignore all uploaded resume styles
+/public/resume_styles/
