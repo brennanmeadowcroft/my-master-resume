@@ -1,7 +1,5 @@
-<div class="work-block">
-	<% if @positions.count == 0 %>
-		<div></div>
-	<% else %>
+<% if @positions.count > 0 %>
+	<div class="work-block">
 		<div class="position-header">
 			<h3>Experience</h3>
 		</div>
@@ -30,6 +28,6 @@
 				</div>
 			<% end %>
 		</div>
-	<% end %>
-	<br class="clrFloat" />
-</div>
+		<br class="clrFloat" />
+	</div>
+<% end %>

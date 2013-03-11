@@ -3,8 +3,10 @@
 		<span class="middle-name <%= @user_info[:middle_name] %>"><%= current_user.middle_name %></span> 
 		<%= current_user.last_name %>
 	</h1>
+	<% if @user_info[:address] != 'hidden' && @user_info[:city] != 'hidden' && @user_info[:state] != 'hidden' && @user_info[:phone] != 'hidden' && @user_info[:email] != 'hiddne' && @user_info[:website] != 'hidden' %>
+
   	<ul class="contact-info">
-		<li class="<%= @user_info[:address] %>">
+		<li class="address <%= @user_info[:address] %>">
 			<span class="address <%= @user_info[:address] %>">
 				<%= current_user[:address_1] %> 
 				<%= current_user[:address_2] %>
@@ -19,6 +21,7 @@
 		</li>
 		<li class="phone <%= @user_info[:phone] %>"><%= current_user[:phone] %></li>
 		<li class="email <%= @user_info[:email] %>"><%= current_user[:email] %></li>
-		<li class="website <%= @user_info[:website] %>"><%= current_user[:website] %></li>
+		<li class="website <%= @user_info[:website] %>"><%= clipped_url(current_user[:website]) %></li>
 	</ul>
+	<% end %>
 </div>

@@ -1,7 +1,5 @@
-<div class="activities-block">
-	<% if @activities.count == 0 %>
-		<div></div>
-	<% else %>
+<% if @activities.count > 0 %>
+	<div class="activities-block">
 		<div class="activity-header">
 			<h3>Activities</h3>
 		</div>
@@ -25,6 +23,6 @@
 				</div>
 			<% end %>
 		<div>
-	<% end %>
-	<br class="clrFLoat" />
-</div>
+		<br class="clrFLoat" />
+	</div>
+<% end %>

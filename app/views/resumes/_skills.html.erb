@@ -1,7 +1,5 @@
-<div class="skills-block">
-	<% if @skills.count == 0 %>
-		<div></div>
-	<% else %>
+<% if @skills.count > 0 %>
+	<div class="skills-block">
 		<div class="skill-header">
 			<h3>Skills</h3>
 		</div>
@@ -13,6 +11,6 @@
 				<% end %>
 			</ul>
 		</div>
-	<% end %>
-	<br class="clrFloat" />
-</div>
+		<br class="clrFloat" />
+	</div>
+<% end %>

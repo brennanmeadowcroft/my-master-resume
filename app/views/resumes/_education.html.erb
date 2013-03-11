@@ -1,7 +1,5 @@
-<div class="education-block">
-	<% if @education.count == 0 %>
-		<div></div>
-	<% else %>
+<% if @education.count > 0 %>
+	<div class="education-block">
 		<div class="education-header">
 			<h3>Education</h3>
 		</div>
@@ -17,6 +15,6 @@
 				</div>
 			<% end %>
 		</div>
-	<% end %>
-	<br class="clrFloat" />
-</div>
+		<br class="clrFloat" />
+	</div>
+<% end %>

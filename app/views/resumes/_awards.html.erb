@@ -1,26 +1,25 @@
-<div class="awards-block">
-	<% if @awards.count == 0 %>
-		<div></div>
-	<% else %>
-		<div class="award-header">
-			<h3>Awards</h3>
-		</div>
-		<div class="award-body">
-			<% @awards.each do |ribbon| %>
-				<div class="award">
-					<ul>
-						<li>
-							<span class="award-description">
-								<%= ribbon.description %> 
-							</span>
-							<span class="award-date">
-								(<%= display_date(ribbon.date) %>)
-							</span>
-						</li>
-					</ul>
-				</div>
-			<% end %>
-		</div>
-	<% end %>
-	<br class="clrFloat" />
-</div>
+<% if @awards.count > 0 %>
+	<div class="awards-block">
+			<div></div>
+			<div class="award-header">
+				<h3>Awards</h3>
+			</div>
+			<div class="award-body">
+				<% @awards.each do |ribbon| %>
+					<div class="award">
+						<ul>
+							<li>
+								<span class="award-description">
+									<%= ribbon.description %> 
+								</span>
+								<span class="award-date">
+									(<%= display_date(ribbon.date) %>)
+								</span>
+							</li>
+						</ul>
+					</div>
+				<% end %>
+			</div>
+		<br class="clrFloat" />
+	</div>
+<% end %>
