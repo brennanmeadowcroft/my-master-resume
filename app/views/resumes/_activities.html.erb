@@ -5,21 +5,20 @@
 		</div>
 
 		<div class="activity-body">
+			<ul>
 			<% @activities.each do |extracurricular| %>
 				<div class="activity">
-					<ul>
-						<li>
-							<span class="activity-organization">
-								<%= extracurricular.organization %>
-							</span>
-							<span class="activity-date"> (<%= display_date(extracurricular.	start_date) %>
-								<% if extracurricular.start_date.strftime("%m/%Y") != extracurricular.end_date.strftime("%m/%Y") %>
-									- <%= display_date(extracurricular.end_date) %>
-								<% end %>
-								)
-							</span>
-						</li>
-					</ul>
+					<li>
+						<span class="activity-organization">
+							<%= extracurricular.organization %>
+						</span>
+						<span class="activity-date"> (<%= display_date(extracurricular.	start_date) %>
+							<% if extracurricular.start_date.strftime("%m/%Y") != extracurricular.end_date.strftime("%m/%Y") %>
+								- <%= display_date(extracurricular.end_date) %>
+							<% end %>
+							)
+						</span>
+					</li>
 				</div>
 			<% end %>
 		<div>

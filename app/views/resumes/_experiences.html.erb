@@ -14,6 +14,9 @@
 						<span class="position-company">
 							<%= job.company %> 
 						</span>
+						<span class="position-location">
+							(<%= job.city %>, <%= job.state %>)
+						</span>
 						<span class="position-dates">
 							<%= display_date(job.start_date) %> - <%= display_date(job.end_date) %>
 						</span>

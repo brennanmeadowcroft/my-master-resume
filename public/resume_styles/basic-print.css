@@ -13,13 +13,13 @@ body {
 	font-size: 12pt;
 }
 h3 {
-	margin-bottom: 0;
+	margin: 0 0 5px 0;
+	padding: 0;
 }
 .resume-body {
 	width: 612pt;
+	height: 880pt;
 	overflow: none;
-	border: 1px solid #000000;
-	background: url("white.gif") top left repeat;	
 }
 .hidden {
 	display: none;
@@ -40,7 +40,7 @@ h3 {
 .resume-header {
 	border-bottom: 1px solid #000000;
 }
-.resume-header H1 {
+.resume-header h1 {
 	font-size: 1.5em;
 	text-align: center;
 }
@@ -52,6 +52,7 @@ h3 {
 .resume-header li {
 	display: inline-block;
 	width: 49%;
+	margin-bottom: 5px;
 }
 .resume-header li:nth-child(even) {
 	text-align: right;
@@ -62,9 +63,14 @@ h3 {
 *	Education Block Formatting
 *****************************************************************************/
 .education-block {}
-.education-block h3 {}
+.education-block h3 {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
 .education-block p {
 	margin: 0;
+	margin-bottom: 5px;
+
 }
 .school {
 	margin-bottom: 10px;
@@ -114,8 +120,7 @@ h3 {
 	padding: 0;
 	list-style-type:none;
 }
-.award li {
-}
+.award li {}
 
 
 /*****************************************************************************
@@ -134,7 +139,7 @@ h3 {
 .skills-block li {
 	display: inline-block;
 	width: 32%;
-	border: 1px solid #000000;
+	margin-bottom: 5px;
 }
 
 
@@ -144,12 +149,26 @@ h3 {
 .work-block {}
 .work-block h3 {}
 .position {}
-.position p {}
-.position-title {}
-.position-company {}
+.position p {
+	margin: 0;
+	padding: 0;
+}
+.position-title {
+	font-weight: bold;
+}
+.position-company {
+	font-weight: bold;
+}
 .position-location {}
-.position-dates {}
-.experience {}
-.experience ul {}
-.experience li {}
+.position-dates {
+	float: right;
+}
+.position-experience {}
+.position-experience ul {
+	margin-top: 0;
+	padding-top: 0;
+}
+.position-experience li {
+	margin-bottom: 5px;
+}
 

@@ -1,5 +1,7 @@
 $( document ).ready(function() {
-	$.getJSON("get_map_data.json", function(myObject){
+	var resume_data = "/resumes/" + resume_id + "/get_map_data.json";
+
+	$.getJSON(resume_data, function(myObject){
 
 		/************************************************************************************************
 		*	Adjustable Settings For The Resume

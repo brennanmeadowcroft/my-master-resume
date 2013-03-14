@@ -21,7 +21,8 @@
 			</script>
 		<% end %>
 		<script type="text/javascript">
-			$('.dropdown-toggle').dropdown()
+			$('.dropdown-toggle').dropdown();
+			var resume_id = <%= @resume.id %>;
 		</script>
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/analytics' %>
