@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.tokeninput
 //= require bootstrap
-//= require_tree .
 
 $(document).ready(function() {
 	$("#select_all_tags").click(function() {
