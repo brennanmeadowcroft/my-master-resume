@@ -27,6 +27,9 @@ class Resume < ActiveRecord::Base
   belongs_to :skill
   belongs_to :style
 
+  validates :tag_id, :presence => true
+
+
   def get_user_info
     info = Hash.new
     contact_class = " hidden"

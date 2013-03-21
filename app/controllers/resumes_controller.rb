@@ -31,6 +31,7 @@ class ResumesController < ApplicationController
     @resume = current_user.resumes.new
     @styles = Style.create_styles_array
     @tags = current_user.tags
+    @resume_tag = @tags.first.id
 
     respond_to do |format|
       format.html
@@ -42,6 +43,7 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @styles = Style.create_styles_array
     @tags = current_user.tags
+    @resume.tag_id == nil ? @resume_tag = @tags.first.id : @resume_tag = @resume.tag_id
   end
 
   def create

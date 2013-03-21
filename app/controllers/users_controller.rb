@@ -93,7 +93,12 @@ class UsersController < ApplicationController
       else 
         @user.beta_code_id = code.id
         if @user.save
+          # Sign in the user to the application
           sign_in @user
+
+          # Create a first tag to avoid broken, new resumes
+          @user.tags.create(description: "First_Tag")
+
           flash[:success] = "Welcome to My Master Resume!"
           format.html { redirect_to @user }
           format.json { render json: @user, status: :created, location: @user }

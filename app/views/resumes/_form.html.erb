@@ -59,7 +59,7 @@
     <h4>Pick a tag for your resume to be built from.</h4>
     <p>Any items on your master resume with this tag will appear on your resume.</p>
         <% @tags.each do |tag| %>
-            <%= radio_button_tag "resume[tag_id]", tag.id, @resume.tag_id == tag.id %>
+            <%= radio_button_tag "resume[tag_id]", tag.id, @resume_tag == tag.id %>
             <%= tag.description %>
         <% end %>    
     <br />
